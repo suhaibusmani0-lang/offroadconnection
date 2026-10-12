@@ -22,8 +22,8 @@ A production-ready, ultra-fast Next.js 15 e-commerce platform for genuine car sp
 2. Select your repository: `suhaibusmani0-lang/offroadconnection`.
 3. Configure Build Settings:
    - **Framework Preset**: `Next.js`
-   - **Build Command**: `npx @cloudflare/next-on-pages@1` (or `npm run build`)
-   - **Build output directory**: `.vercel/output/static` (or `.next`)
+   - **Build Command**: `npm run build`
+   - **Deploy Command**: `npx wrangler deploy`
 4. Add **Environment Variables** in Cloudflare Pages dashboard:
    - `MONGODB_URI`: Your MongoDB Atlas connection URI
    - `CLOUDINARY_CLOUD_NAME`: `coui9wpl`
