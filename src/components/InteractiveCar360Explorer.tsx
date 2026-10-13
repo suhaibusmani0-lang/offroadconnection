@@ -5,7 +5,6 @@ import Link from 'next/link';
 import {
   RotateCcw,
   RotateCw,
-  Sparkles,
   Layers,
   ChevronRight,
   ShoppingBag,
@@ -24,8 +23,8 @@ interface Hotspot {
   id: string;
   name: string;
   categoryQuery: string;
-  x: number; // percentage from left
-  y: number; // percentage from top
+  x: number;
+  y: number;
   badge: string;
   description: string;
   popularParts: string[];
@@ -138,117 +137,107 @@ const ANGLES: AngleView[] = [
         id: 'side-body-skirts',
         name: 'Underbody Aero Skirts & Shields',
         categoryQuery: 'Underbody',
-        x: 50,
-        y: 73,
-        badge: 'Protection & Aero',
-        description: 'Composite engine splash shields, aerodynamic side skirts, chassis braces, and acoustic underbody sound dampeners.',
-        popularParts: ['Engine Underbody Guard', 'Transmission Skid Plate', 'Fender Liner Set'],
+        x: 48,
+        y: 75,
+        badge: 'Aerodynamics',
+        description: 'Reinforced underbody splash guards, rocker panel side skirts, sound deadening plates, and engine skid pans.',
+        popularParts: ['Underbody Engine Shield', 'Side Skirt Moulding', 'Wheel Arch Liner'],
       },
     ],
   },
   {
     id: 'rear',
     label: 'Rear 3/4',
-    sublabel: 'Diffuser & Exhaust',
+    sublabel: 'Lightbars, Diffusers & Exhaust',
     image: '/assets/images/360/car-rear-34.jpg',
     hotspots: [
       {
         id: 'rear-taillights',
-        name: '3D OLED Lightbar & Tail Lamps',
-        categoryQuery: 'Tail Light',
-        x: 75,
-        y: 40,
-        badge: 'Rear Illumination',
-        description: 'Sequential dynamic LED lightbars, rear fog lenses, trunk brake lamps, and lighting control modules.',
-        popularParts: ['LED Tail Light Inner', 'Outer Lightbar Assembly', 'Reverse Camera Lens'],
+        name: 'Connected 3D OLED Tail Lightbars',
+        categoryQuery: 'Taillight',
+        x: 64,
+        y: 47,
+        badge: 'Rear Optics',
+        description: 'Full width continuous dynamic OLED lightbars, sequential LED turn indicators, reverse projector lamps, and wiring looms.',
+        popularParts: ['OLED Center Lightbar', 'Outer Taillight Cluster', 'Reverse Camera Bezel'],
       },
       {
         id: 'rear-exhaust',
-        name: 'Sport Exhaust & Valve Actuators',
-        categoryQuery: 'Emission',
-        x: 68,
-        y: 74,
-        badge: 'Acoustics & Power',
-        description: 'Dual/quad stainless steel exhaust tips, electronic sound flap actuators, catalytic converters, and DPF filters.',
-        popularParts: ['Exhaust Valve Actuator', 'Tailpipe Finisher Quad', 'DPF Pressure Sensor'],
+        name: 'Sport Quad Exhaust Tips & Valved Muffler',
+        categoryQuery: 'Exhaust',
+        x: 74,
+        y: 72,
+        badge: 'Powertrain Output',
+        description: 'Stainless steel quad exhaust tips, electronic flap actuators, catalytic converter downpipes, and heat shield insulation.',
+        popularParts: ['Quad Chrome Exhaust Tips', 'Exhaust Valve Actuator', 'Rear Silencer Muffler'],
       },
       {
-        id: 'rear-bumper-pdc',
-        name: 'Rear Bumper & Ultrasonic Sensors',
+        id: 'rear-diffuser',
+        name: 'Aero Diffuser & Bumper Assembly',
         categoryQuery: 'Bumper',
-        x: 82,
-        y: 65,
-        badge: 'Assistance Sensors',
-        description: 'PDC parking detection radar sensors, bumper brackets, rear diffuser aero fins, and towing eye covers.',
-        popularParts: ['PDC Radar Sensor', 'Rear Bumper Guide Bracket', 'Tow Hook Cap'],
+        x: 58,
+        y: 78,
+        badge: 'Rear Aerodynamics',
+        description: 'Rear bumper skin, diffuser fins, parking sensor ultrasonic brackets, tow hook eye covers, and red reflector prisms.',
+        popularParts: ['Rear Bumper Lower Lip', 'Parking Sensor PDC Unit', 'Tow Eye Cover Cap'],
       },
       {
-        id: 'rear-differential',
-        name: 'Rear Differential & Drive Shafts',
-        categoryQuery: 'Transmission',
-        x: 53,
-        y: 76,
-        badge: 'Drivetrain',
-        description: 'Limited-slip rear differential units, differential mountings, flex disc couplings, and axle prop shafts.',
-        popularParts: ['Drive Shaft Flex Joint', 'Differential Mount Bush', 'Axle Seal Kit'],
+        id: 'rear-tailgate',
+        name: 'Electric Power Tailgate Struts',
+        categoryQuery: 'Boot',
+        x: 46,
+        y: 35,
+        badge: 'Cargo Systems',
+        description: 'Spindle drive electric power tailgate lifting struts, lock latch actuators, trunk release switches, and seal gaskets.',
+        popularParts: ['Electric Tailgate Motor Strut', 'Boot Lock Latch Mechanism', 'Hands-Free Kick Sensor'],
       },
     ],
   },
   {
     id: 'xray',
     label: 'X-Ray Blueprint',
-    sublabel: 'Engine, Turbos & Drivetrain',
+    sublabel: 'Powertrain & Architecture',
     image: '/assets/images/360/car-xray.jpg',
     hotspots: [
       {
-        id: 'xray-engine-core',
-        name: 'Biturbo V8 Engine & Turbochargers',
-        categoryQuery: 'Turbo',
-        x: 27,
-        y: 43,
-        badge: 'Powertrain Core',
-        description: 'Twin-scroll turbochargers, intercooler piping, boost pressure sensors, forged pistons, timing chains, and high-pressure fuel pumps.',
-        popularParts: ['BorgWarner / Garrett Turbo', 'High Pressure Fuel Pump', 'Timing Chain Kit'],
+        id: 'xray-engine',
+        name: 'V6 / V8 Twin-Turbo Core Powertrain',
+        categoryQuery: 'Engine',
+        x: 32,
+        y: 52,
+        badge: 'Internal Combustion',
+        description: 'Direct injection high-pressure fuel pumps, turbochargers, timing chain kits, intake manifolds, and oil filter housings.',
+        popularParts: ['Twin Turbocharger Cartridge', 'High Pressure Fuel Pump', 'Timing Chain Tensioner Kit'],
       },
       {
-        id: 'xray-oil-cooling',
-        name: 'Engine Oil Cooler & Water Pump',
-        categoryQuery: 'Oil Cooler',
-        x: 20,
-        y: 55,
-        badge: 'Engine Cooling',
-        description: 'Auxiliary engine oil coolers, electric thermostat housings, water pumps, coolant expansion tanks, and silicone hoses.',
-        popularParts: ['Engine Oil Cooler Matrix', 'Electric Water Pump', 'Thermostat Assembly'],
+        id: 'xray-suspension',
+        name: 'Pneumatic Air Struts & Solenoid Block',
+        categoryQuery: 'Suspension',
+        x: 48,
+        y: 59,
+        badge: 'Chassis Hydraulics',
+        description: 'Heavy duty air compressor pumps, 5-valve solenoid manifold blocks, height level sensors, and pressure accumulators.',
+        popularParts: ['Air Suspension Compressor Pump', 'Valve Block Solenoid', 'Ride Height Level Sensor'],
       },
       {
-        id: 'xray-airmatic-4corner',
-        name: '4-Corner Active Air Suspension',
-        categoryQuery: 'Shock Absorber Airmatic',
-        x: 45,
-        y: 46,
-        badge: 'Airmatic Architecture',
-        description: 'Air suspension air compressor pumps, distribution valve blocks, height level sensors, and 4-corner adaptive air struts.',
-        popularParts: ['Airmatic Compressor Pump', 'Air Valve Block Unit', 'Ride Height Level Sensor'],
+        id: 'xray-brakes',
+        name: 'Cross-Drilled Rotors & ABS Control Unit',
+        categoryQuery: 'Brake',
+        x: 52,
+        y: 70,
+        badge: 'Active Braking',
+        description: 'Hydraulic ABS pump control modules, master brake boosters, brake fluid reservoirs, and carbon ceramic discs.',
+        popularParts: ['ABS Hydraulic Pump Module', 'Brake Master Cylinder', 'Ventilated Rotor Pair'],
       },
       {
-        id: 'xray-transmission-gearbox',
+        id: 'xray-transmission',
         name: '8-Speed Steptronic / PDK Gearbox',
         categoryQuery: 'Transmission',
-        x: 71,
-        y: 50,
-        badge: 'Torque Transmission',
-        description: 'Mechatronic valve bodies, dual-clutch packs, transmission fluid pans with integrated filters, and torque converter seals.',
-        popularParts: ['Transmission Oil Pan Filter', 'Mechatronic Unit Overhaul', 'Gearbox Mount'],
-      },
-      {
-        id: 'xray-carbon-brakes',
-        name: 'Full Carbon Ceramic Brake Suite',
-        categoryQuery: 'Brake pads',
-        x: 52,
-        y: 69,
-        badge: 'Motorsport Spec',
-        description: 'Complete cross-drilled carbon-ceramic disc rotor suite, braided stainless brake lines, and track-rated brake pads.',
-        popularParts: ['Front Ceramic Pads Set', 'Rear Ceramic Pads Set', 'Brake Wear Sensor Wire'],
+        x: 62,
+        y: 58,
+        badge: 'Drivetrain Dynamics',
+        description: 'Transmission mechatronic electro-hydraulic valve bodies, dual clutch packs, oil pans with integrated filters, and transfer boxes.',
+        popularParts: ['Transmission Valve Body', 'Dual Clutch Module', 'ATF Filter Oil Pan Gasket'],
       },
     ],
   },
@@ -260,33 +249,9 @@ export default function InteractiveCar360Explorer() {
   const [activeHotspot, setActiveHotspot] = useState<Hotspot | null>(null);
   const [matchingProducts, setMatchingProducts] = useState<any[]>([]);
   const [loadingProducts, setLoadingProducts] = useState(false);
-  const [addedToast, setAddedToast] = useState('');
+  const [addedToast, setAddedToast] = useState<string>('');
 
   const currentAngle = ANGLES[activeAngleIndex];
-
-  // When active hotspot changes, fetch real matching products from MongoDB
-  useEffect(() => {
-    if (!activeHotspot) {
-      setMatchingProducts([]);
-      return;
-    }
-
-    setLoadingProducts(true);
-    fetch(`/api/products?search=${encodeURIComponent(activeHotspot.categoryQuery)}&limit=6`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.products && data.products.length > 0) {
-          setMatchingProducts(data.products);
-        } else {
-          // Fallback to top catalog items
-          fetch('/api/products?limit=4')
-            .then((r) => r.json())
-            .then((d) => setMatchingProducts(d.products || []));
-        }
-      })
-      .catch((err) => console.error(err))
-      .finally(() => setLoadingProducts(false));
-  }, [activeHotspot]);
 
   const handleNextAngle = () => {
     setActiveHotspot(null);
@@ -298,6 +263,33 @@ export default function InteractiveCar360Explorer() {
     setActiveAngleIndex((prev) => (prev - 1 + ANGLES.length) % ANGLES.length);
   };
 
+  useEffect(() => {
+    if (!activeHotspot) {
+      setMatchingProducts([]);
+      return;
+    }
+
+    setLoadingProducts(true);
+    const query = activeHotspot.categoryQuery;
+    fetch(`/api/products?search=${encodeURIComponent(query)}&limit=6`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.products && data.products.length > 0) {
+          setMatchingProducts(data.products);
+        } else {
+          fetch('/api/products?limit=6')
+            .then((r) => r.json())
+            .then((d) => setMatchingProducts(d.products || []))
+            .catch(() => setMatchingProducts([]));
+        }
+      })
+      .catch((e) => {
+        console.error('Failed to fetch matching parts for zone', e);
+        setMatchingProducts([]);
+      })
+      .finally(() => setLoadingProducts(false));
+  }, [activeHotspot]);
+
   const handleQuickAdd = (product: any) => {
     addToCart(product, 1);
     setAddedToast(`Added "${product.name.slice(0, 32)}..." to your shopping bag!`);
@@ -305,13 +297,13 @@ export default function InteractiveCar360Explorer() {
   };
 
   return (
-    <section className="relative py-16 bg-[#FAFBFC] border-b border-slate-200 overflow-hidden font-sans">
+    <section className="relative py-16 bg-[#FAFAFA] border-b border-[#E4E4E7] overflow-hidden">
       {/* Background Decorative Grid */}
       <div
-        className="absolute inset-0 opacity-[0.35] pointer-events-none"
+        className="absolute inset-0 opacity-[0.25] pointer-events-none"
         style={{
           backgroundImage:
-            'radial-gradient(#C5A059 0.75px, transparent 0.75px), radial-gradient(#0F172A 0.75px, #FAFBFC 0.75px)',
+            'radial-gradient(#18181B 0.75px, transparent 0.75px), radial-gradient(#71717A 0.75px, #FAFAFA 0.75px)',
           backgroundSize: '30px 30px',
           backgroundPosition: '0 0, 15px 15px',
         }}
@@ -320,21 +312,18 @@ export default function InteractiveCar360Explorer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#C5A059]/15 to-[#DFBA73]/15 border border-[#C5A059]/30 mb-3.5">
-            <Sparkles className="w-4 h-4 text-[#C5A059]" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#9A7731]">
-              Industry First • 360° Visual Parts Explorer
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F4F4F5] border border-[#E4E4E7] mb-3.5">
+            <span className="w-2 h-2 rounded-full bg-[#000000]" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[#000000]" style={{ fontFamily: "'Raleway', sans-serif" }}>
+              360° Visual Component Inspector
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Interactive Vehicle{' '}
-            <span className="bg-gradient-to-r from-[#C5A059] via-[#DFBA73] to-[#9A7731] bg-clip-text text-transparent">
-              360° Component Inspector
-            </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#000000] tracking-tight" style={{ fontFamily: "'Raleway', sans-serif" }}>
+            Interactive Vehicle Parts Architecture
           </h2>
-          <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Click on any glowing component zone on the vehicle below to instantly reveal matching OEM & Performance
-            spare parts, verify exact chassis fitment, and explore technical specifications.
+          <p className="mt-3 text-[#52525B] text-sm sm:text-base leading-relaxed" style={{ fontFamily: "'Lato', sans-serif" }}>
+            Click on any highlighted component zone on the luxury vehicle below to reveal verified OEM & performance
+            replacement components, chassis numbers, and direct warehouse inventory.
           </p>
         </div>
 
@@ -349,19 +338,20 @@ export default function InteractiveCar360Explorer() {
                   setActiveHotspot(null);
                   setActiveAngleIndex(index);
                 }}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 ${
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 ${
                   isActive
-                    ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/20 ring-2 ring-[#C5A059]'
-                    : 'bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 shadow-sm'
+                    ? 'bg-[#000000] text-[#FFFFFF] shadow-lg border border-[#000000]'
+                    : 'bg-[#FFFFFF] text-[#27272A] hover:bg-[#F4F4F5] border border-[#E4E4E7]'
                 }`}
+                style={{ fontFamily: "'Raleway', sans-serif" }}
               >
                 <div
                   className={`w-2 h-2 rounded-full ${
-                    isActive ? 'bg-[#C5A059] animate-pulse' : 'bg-slate-300'
+                    isActive ? 'bg-[#FFFFFF]' : 'bg-[#D4D4D8]'
                   }`}
                 />
                 <span>{angle.label}</span>
-                <span className="hidden md:inline text-[11px] font-normal opacity-70">
+                <span className="hidden md:inline text-[11px] font-normal opacity-70" style={{ fontFamily: "'Lato', sans-serif" }}>
                   ({angle.sublabel})
                 </span>
               </button>
@@ -370,20 +360,20 @@ export default function InteractiveCar360Explorer() {
         </div>
 
         {/* 360 Stage Viewport */}
-        <div className="relative bg-white rounded-3xl border border-slate-200/80 shadow-2xl shadow-slate-900/5 overflow-hidden">
+        <div className="relative bg-[#FFFFFF] rounded-2xl border border-[#E4E4E7] shadow-xl overflow-hidden">
           {/* Top Bar Controls & Angle Status */}
-          <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between flex-wrap gap-4 bg-gradient-to-r from-slate-50 via-white to-slate-50">
+          <div className="px-6 py-4 border-b border-[#F4F4F5] flex items-center justify-between flex-wrap gap-4 bg-[#FFFFFF]">
             <div className="flex items-center gap-3">
               <span className="flex h-3 w-3 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C5A059] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C5A059]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#000000] opacity-30"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#000000]"></span>
               </span>
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                  {currentAngle.label} Camera View
+                <span className="text-xs font-bold uppercase tracking-wider text-[#000000]" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                  {currentAngle.label} Camera Angle
                 </span>
-                <span className="text-[11px] text-slate-500 block">
-                  {currentAngle.hotspots.length} Clickable Component Zones Active
+                <span className="text-[11px] text-[#71717A] block" style={{ fontFamily: "'Lato', sans-serif" }}>
+                  {currentAngle.hotspots.length} Component Zones Online
                 </span>
               </div>
             </div>
@@ -393,25 +383,27 @@ export default function InteractiveCar360Explorer() {
               <button
                 onClick={handlePrevAngle}
                 aria-label="Previous View Angle"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm transition-all active:scale-95"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#000000] bg-[#FFFFFF] hover:bg-[#F4F4F5] border border-[#E4E4E7] transition-all"
+                style={{ fontFamily: "'Raleway', sans-serif" }}
               >
-                <RotateCcw className="w-3.5 h-3.5 text-[#C5A059]" />
+                <RotateCcw className="w-3.5 h-3.5 text-[#000000]" />
                 <span className="hidden sm:inline">Rotate Left</span>
               </button>
               <button
                 onClick={handleNextAngle}
                 aria-label="Next View Angle"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm transition-all active:scale-95"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#000000] bg-[#FFFFFF] hover:bg-[#F4F4F5] border border-[#E4E4E7] transition-all"
+                style={{ fontFamily: "'Raleway', sans-serif" }}
               >
                 <span className="hidden sm:inline">Rotate Right</span>
-                <RotateCw className="w-3.5 h-3.5 text-[#C5A059]" />
+                <RotateCw className="w-3.5 h-3.5 text-[#000000]" />
               </button>
             </div>
           </div>
 
           {/* Interactive Car Canvas Container */}
-          <div className="relative w-full aspect-[16/9] min-h-[380px] sm:min-h-[480px] md:min-h-[560px] bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9] flex items-center justify-center p-4 select-none">
-            {/* Main Luxury Car Image with smooth crossfade */}
+          <div className="relative w-full aspect-[16/9] min-h-[380px] sm:min-h-[480px] md:min-h-[560px] bg-gradient-to-b from-white via-[#FAFAFA] to-[#F4F4F5] flex items-center justify-center p-4 select-none">
+            {/* Main Luxury Car Image */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               key={currentAngle.image}
@@ -420,7 +412,7 @@ export default function InteractiveCar360Explorer() {
               className="w-full h-full object-contain pointer-events-none transition-all duration-700 ease-out"
             />
 
-            {/* Pulsing Hotspot Markers */}
+            {/* Pulsing Hotspot Markers - Monochrome Black Beacons */}
             {currentAngle.hotspots.map((hotspot) => {
               const isSelected = activeHotspot?.id === hotspot.id;
               return (
@@ -431,42 +423,42 @@ export default function InteractiveCar360Explorer() {
                 >
                   <button
                     onClick={() => setActiveHotspot(hotspot)}
-                    className="relative flex items-center justify-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#C5A059]/40 rounded-full"
+                    className="relative flex items-center justify-center cursor-pointer focus:outline-none focus:ring-4 focus:ring-black/20 rounded-full"
                     aria-label={`Inspect ${hotspot.name}`}
                   >
                     {/* Animated Pulsing Rings */}
                     <span
                       className={`absolute w-10 h-10 rounded-full transition-all duration-300 ${
                         isSelected
-                          ? 'bg-[#C5A059] opacity-40 scale-125'
-                          : 'bg-[#C5A059] opacity-30 group-hover:opacity-60 animate-ping'
+                          ? 'bg-black opacity-30 scale-125'
+                          : 'bg-black opacity-20 group-hover:opacity-40 animate-ping'
                       }`}
                     />
-                    <span className="absolute w-8 h-8 rounded-full bg-[#C5A059]/25 backdrop-blur-sm" />
+                    <span className="absolute w-8 h-8 rounded-full bg-black/15 backdrop-blur-sm" />
 
-                    {/* Central Gold Beacon Button */}
+                    {/* Central Beacon Button */}
                     <span
-                      className={`relative w-6 h-6 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-115 ${
+                      className={`relative w-6 h-6 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 ${
                         isSelected
-                          ? 'bg-slate-900 border-2 border-[#C5A059] text-[#C5A059]'
-                          : 'bg-gradient-to-br from-[#C5A059] to-[#DFBA73] border-2 border-white text-slate-950'
+                          ? 'bg-black border-2 border-white text-white'
+                          : 'bg-black border-2 border-white text-white'
                       }`}
                     >
-                      <span className="w-2 h-2 rounded-full bg-current" />
+                      <span className="w-2 h-2 rounded-full bg-white" />
                     </span>
                   </button>
 
                   {/* Desktop Hover Tooltip */}
                   <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-full mb-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-1 group-hover:translate-y-0 z-30">
-                    <div className="bg-slate-950/95 backdrop-blur-md text-white text-xs py-2 px-3.5 rounded-xl shadow-2xl border border-slate-800 whitespace-nowrap min-w-[180px]">
-                      <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#C5A059]">
-                        <Zap className="w-3 h-3 text-[#C5A059]" />
+                    <div className="bg-[#000000] text-white text-xs py-2 px-3.5 rounded-lg shadow-xl border border-[#27272A] whitespace-nowrap min-w-[180px]">
+                      <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                        <Zap className="w-3 h-3 text-white" />
                         <span>{hotspot.badge}</span>
                       </div>
-                      <div className="font-bold text-white text-xs mt-0.5">{hotspot.name}</div>
-                      <div className="text-[10px] text-slate-400 mt-1 flex items-center gap-1">
-                        <span>Click to view spare parts</span>
-                        <ChevronRight className="w-3 h-3 text-[#C5A059]" />
+                      <div className="font-bold text-white text-xs mt-0.5" style={{ fontFamily: "'Raleway', sans-serif" }}>{hotspot.name}</div>
+                      <div className="text-[10px] text-[#A1A1AA] mt-1 flex items-center gap-1" style={{ fontFamily: "'Lato', sans-serif" }}>
+                        <span>Click to inspect matching parts</span>
+                        <ChevronRight className="w-3 h-3 text-white" />
                       </div>
                     </div>
                   </div>
@@ -476,9 +468,9 @@ export default function InteractiveCar360Explorer() {
 
             {/* Hint overlay at bottom */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-              <div className="px-4 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-medium border border-slate-700/50 shadow-lg flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse"></span>
-                <span>Click any pulsing gold point to inspect parts</span>
+              <div className="px-4 py-1.5 rounded-full bg-[#000000]/90 backdrop-blur-md text-white text-[11px] font-medium border border-[#27272A] shadow-lg flex items-center gap-2" style={{ fontFamily: "'Lato', sans-serif" }}>
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <span>Click any component zone to view matching OEM spare parts</span>
               </div>
             </div>
           </div>
@@ -486,18 +478,18 @@ export default function InteractiveCar360Explorer() {
 
         {/* Hotspot Parts Drawer / Inspection Slide-Over */}
         {activeHotspot && (
-          <div className="mt-8 bg-white rounded-3xl border border-slate-200 shadow-2xl p-6 sm:p-8 animate-fadeIn">
+          <div className="mt-8 bg-[#FFFFFF] rounded-2xl border border-[#E4E4E7] shadow-xl p-6 sm:p-8 animate-fadeIn">
             {/* Header of Active Inspection Zone */}
-            <div className="flex items-start justify-between flex-wrap gap-4 border-b border-slate-100 pb-6 mb-6">
+            <div className="flex items-start justify-between flex-wrap gap-4 border-b border-[#F4F4F5] pb-6 mb-6">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C5A059]/10 text-[#C5A059] text-xs font-bold uppercase tracking-wider mb-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F4F4F5] text-[#000000] text-xs font-bold uppercase tracking-wider mb-2 border border-[#E4E4E7]" style={{ fontFamily: "'Raleway', sans-serif" }}>
                   <ShieldCheck className="w-4 h-4" />
                   <span>Inspected Component Zone: {activeHotspot.badge}</span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+                <h3 className="text-2xl sm:text-3xl font-black text-[#000000]" style={{ fontFamily: "'Raleway', sans-serif" }}>
                   {activeHotspot.name}
                 </h3>
-                <p className="text-slate-600 text-sm mt-1 max-w-2xl">
+                <p className="text-[#52525B] text-sm mt-1 max-w-2xl" style={{ fontFamily: "'Lato', sans-serif" }}>
                   {activeHotspot.description}
                 </p>
               </div>
@@ -506,14 +498,15 @@ export default function InteractiveCar360Explorer() {
               <div className="flex items-center gap-3">
                 <Link
                   href={`/shop?search=${encodeURIComponent(activeHotspot.categoryQuery)}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-lg transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#000000] hover:bg-[#27272A] text-white font-bold text-xs sm:text-sm shadow-md transition-all"
+                  style={{ fontFamily: "'Raleway', sans-serif" }}
                 >
-                  <span>Browse All In Catalog</span>
-                  <ExternalLink className="w-4 h-4 text-[#C5A059]" />
+                  <span>BROWSE ALL IN CATALOG</span>
+                  <ExternalLink className="w-4 h-4 text-white" />
                 </Link>
                 <button
                   onClick={() => setActiveHotspot(null)}
-                  className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+                  className="p-2.5 rounded-lg bg-[#F4F4F5] hover:bg-[#E4E4E7] text-[#000000] transition-colors"
                   aria-label="Close Inspector"
                 >
                   <X className="w-5 h-5" />
@@ -521,16 +514,17 @@ export default function InteractiveCar360Explorer() {
               </div>
             </div>
 
-            {/* Popular Parts Tags */}
+            {/* Key System Components Tags */}
             <div className="flex flex-wrap items-center gap-2 mb-6 text-xs">
-              <span className="font-bold text-slate-500 uppercase tracking-wider text-[11px]">
+              <span className="font-bold text-[#71717A] uppercase tracking-wider text-[11px]" style={{ fontFamily: "'Raleway', sans-serif" }}>
                 Key System Components:
               </span>
               {activeHotspot.popularParts.map((part) => (
                 <Link
                   key={part}
                   href={`/shop?search=${encodeURIComponent(part)}`}
-                  className="px-3 py-1 rounded-lg bg-slate-50 hover:bg-[#C5A059]/10 hover:text-[#C5A059] text-slate-700 border border-slate-200 font-medium transition-colors"
+                  className="px-3 py-1 rounded-md bg-[#F4F4F5] hover:bg-[#000000] hover:text-[#FFFFFF] text-[#27272A] border border-[#E4E4E7] font-medium transition-colors"
+                  style={{ fontFamily: "'Lato', sans-serif" }}
                 >
                   {part}
                 </Link>
@@ -539,8 +533,8 @@ export default function InteractiveCar360Explorer() {
 
             {/* Real Products Grid from Catalog */}
             {loadingProducts ? (
-              <div className="py-12 text-center text-slate-400 text-sm flex items-center justify-center gap-3">
-                <div className="w-6 h-6 border-2 border-[#C5A059] border-t-transparent rounded-full animate-spin"></div>
+              <div className="py-12 text-center text-[#71717A] text-sm flex items-center justify-center gap-3">
+                <div className="w-6 h-6 border-2 border-[#000000] border-t-transparent rounded-full animate-spin"></div>
                 <span>Scanning 2,524 spare parts database for matching inventory...</span>
               </div>
             ) : matchingProducts.length > 0 ? (
@@ -554,42 +548,42 @@ export default function InteractiveCar360Explorer() {
                   return (
                     <div
                       key={product._id || product.slug}
-                      className="group bg-white rounded-2xl border border-slate-200/90 hover:border-[#C5A059]/60 hover:shadow-xl transition-all duration-300 p-4 flex flex-col justify-between"
+                      className="group bg-[#FFFFFF] rounded-xl border border-[#E4E4E7] hover:border-[#000000] hover:shadow-lg transition-all duration-200 p-4 flex flex-col justify-between"
                     >
                       <div>
                         {/* Image Thumbnail */}
-                        <div className="relative aspect-video rounded-xl bg-slate-50 overflow-hidden mb-3.5 border border-slate-100 flex items-center justify-center">
+                        <div className="relative aspect-video rounded-lg bg-[#FFFFFF] overflow-hidden mb-3.5 border border-[#F4F4F5] flex items-center justify-center">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={primaryImage}
                             alt={product.name}
-                            className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-full object-contain p-2 group-hover:scale-104 transition-transform duration-300"
                             loading="lazy"
                           />
-                          <span className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-wider shadow">
-                            OEM Guaranteed
+                          <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#000000] text-white text-[10px] font-bold uppercase tracking-wider" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                            OEM Genuine
                           </span>
                         </div>
 
                         {/* Part Details */}
-                        <div className="text-[11px] font-bold text-[#C5A059] uppercase tracking-wider">
+                        <div className="text-[11px] font-bold text-[#71717A] uppercase tracking-wider" style={{ fontFamily: "'Raleway', sans-serif" }}>
                           {product.category || 'Luxury Auto Spare'}
                         </div>
-                        <h4 className="font-bold text-slate-900 text-sm line-clamp-2 mt-1 group-hover:text-[#9A7731] transition-colors">
+                        <h4 className="font-bold text-[#000000] text-sm line-clamp-2 mt-1 group-hover:text-[#52525B] transition-colors" style={{ fontFamily: "'Raleway', sans-serif" }}>
                           <Link href={`/product/${product.slug}`}>{product.name}</Link>
                         </h4>
-                        <div className="text-xs text-slate-500 mt-1">
-                          SKU: {product.sku || 'OEM-' + String(product.id || 'N/A')}
+                        <div className="text-xs font-mono text-[#52525B] mt-1">
+                          SKU: {product.part_number || product.sku || 'OEM-' + String(product.id || 'N/A')}
                         </div>
                       </div>
 
                       {/* Pricing and Action */}
-                      <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                      <div className="mt-4 pt-3 border-t border-[#F4F4F5] flex items-center justify-between gap-2">
                         <div>
-                          <span className="text-[10px] text-slate-400 block uppercase font-semibold">
+                          <span className="text-[10px] text-[#71717A] block uppercase font-semibold" style={{ fontFamily: "'Lato', sans-serif" }}>
                             Inclusive of GST
                           </span>
-                          <span className="text-base sm:text-lg font-black text-slate-900">
+                          <span className="text-base sm:text-lg font-black text-[#000000]" style={{ fontFamily: "'Raleway', sans-serif" }}>
                             ₹{Number(product.price || 0).toLocaleString('en-IN')}
                           </span>
                         </div>
@@ -597,13 +591,15 @@ export default function InteractiveCar360Explorer() {
                         <div className="flex items-center gap-2">
                           <Link
                             href={`/product/${product.slug}`}
-                            className="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
+                            className="px-3 py-2 rounded-lg text-xs font-bold text-[#000000] bg-[#F4F4F5] hover:bg-[#E4E4E7] transition-colors"
+                            style={{ fontFamily: "'Raleway', sans-serif" }}
                           >
                             Details
                           </Link>
                           <button
                             onClick={() => handleQuickAdd(product)}
-                            className="px-3 py-2 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-[#C5A059] to-[#DFBA73] hover:brightness-105 shadow-md flex items-center gap-1.5 transition-transform active:scale-95"
+                            className="px-3 py-2 rounded-lg text-xs font-bold text-[#FFFFFF] bg-[#000000] hover:bg-[#27272A] shadow flex items-center gap-1.5 transition-all"
+                            style={{ fontFamily: "'Raleway', sans-serif" }}
                           >
                             <ShoppingBag className="w-3.5 h-3.5" />
                             <span>Add</span>
@@ -615,11 +611,12 @@ export default function InteractiveCar360Explorer() {
                 })}
               </div>
             ) : (
-              <div className="text-center py-10 text-slate-500">
+              <div className="text-center py-10 text-[#71717A]">
                 <p>No exact parts found for this category query, but our warehouse stocks custom solutions.</p>
                 <Link
                   href="/contact"
-                  className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-[#C5A059] hover:underline"
+                  className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-[#000000] hover:underline"
+                  style={{ fontFamily: "'Raleway', sans-serif" }}
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>Contact Our VIP Concierge Desk for Custom Procurement</span>
@@ -631,13 +628,12 @@ export default function InteractiveCar360Explorer() {
 
         {/* Success Toast */}
         {addedToast && (
-          <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-[#C5A059]/40 flex items-center gap-3 animate-slideUp">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-            <span className="text-sm font-semibold">{addedToast}</span>
+          <div className="fixed bottom-6 right-6 z-50 bg-[#000000] text-white px-5 py-3 rounded-xl shadow-2xl border border-[#27272A] flex items-center gap-3 animate-slideUp">
+            <CheckCircle2 className="w-5 h-5 text-white flex-shrink-0" />
+            <span className="text-sm font-semibold" style={{ fontFamily: "'Lato', sans-serif" }}>{addedToast}</span>
           </div>
         )}
       </div>
     </section>
   );
 }
-

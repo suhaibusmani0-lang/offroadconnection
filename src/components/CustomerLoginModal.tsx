@@ -114,22 +114,23 @@ export default function CustomerLoginModal() {
             style={{
               width: '56px',
               height: '56px',
-              background: '#FBF7EE',
+              background: '#F4F4F5',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 12px',
-              color: '#C5A059',
-              fontSize: '24px',
+              color: '#000000',
+              fontSize: '22px',
+              border: '1px solid #E4E4E7',
             }}
           >
             <i className="fas fa-mobile-alt"></i>
           </div>
-          <h3 style={{ margin: '0 0 6px', fontSize: '20px', fontWeight: 700, color: '#111827' }}>
+          <h3 style={{ margin: '0 0 6px', fontSize: '20px', fontWeight: 800, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>
             {step === 'phone' ? 'Customer Login / Sign Up' : 'Verify Mobile OTP'}
           </h3>
-          <p style={{ margin: 0, fontSize: '13px', color: '#6b7280' }}>
+          <p style={{ margin: 0, fontSize: '13px', color: '#71717A', fontFamily: "'Lato', sans-serif" }}>
             {step === 'phone'
               ? 'Enter your mobile number to view orders, saved addresses & faster checkout'
               : `Enter the 6-digit OTP sent to +91 ${phone}`}
@@ -156,17 +157,18 @@ export default function CustomerLoginModal() {
         {testOtpNotice && (
           <div
             style={{
-              background: '#ecfdf5',
-              border: '1px solid #a7f3d0',
-              color: '#047857',
+              background: '#F4F4F5',
+              border: '1px solid #D4D4D8',
+              color: '#000000',
               padding: '8px 12px',
               borderRadius: '6px',
               fontSize: '13px',
               marginBottom: '14px',
-              fontWeight: 600,
+              fontWeight: 700,
+              fontFamily: "'Lato', sans-serif",
             }}
           >
-            <i className="fas fa-key" style={{ marginRight: '6px' }}></i>
+            <i className="fas fa-key" style={{ marginRight: '6px', color: '#000000' }}></i>
             {testOtpNotice}
           </div>
         )}
@@ -237,7 +239,7 @@ export default function CustomerLoginModal() {
               disabled={loading || phone.length !== 10}
               style={{
                 width: '100%',
-                background: phone.length === 10 ? 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)' : '#9ca3af',
+                background: phone.length === 10 ? '#000000' : '#A1A1AA',
                 color: '#ffffff',
                 padding: '12px',
                 border: 'none',
@@ -246,6 +248,8 @@ export default function CustomerLoginModal() {
                 fontSize: '14px',
                 cursor: phone.length === 10 ? 'pointer' : 'not-allowed',
                 transition: 'all 0.2s',
+                fontFamily: "'Raleway', sans-serif",
+                letterSpacing: '0.5px',
               }}
             >
               {loading ? 'Sending OTP...' : 'SEND OTP'}
@@ -284,7 +288,7 @@ export default function CustomerLoginModal() {
               disabled={loading || otp.length !== 6}
               style={{
                 width: '100%',
-                background: otp.length === 6 ? 'linear-gradient(135deg, #C5A059 0%, #B38E46 100%)' : '#9ca3af',
+                background: otp.length === 6 ? '#000000' : '#A1A1AA',
                 color: '#ffffff',
                 padding: '12px',
                 border: 'none',
@@ -294,6 +298,8 @@ export default function CustomerLoginModal() {
                 cursor: otp.length === 6 ? 'pointer' : 'not-allowed',
                 transition: 'all 0.2s',
                 marginBottom: '12px',
+                fontFamily: "'Raleway', sans-serif",
+                letterSpacing: '0.5px',
               }}
             >
               {loading ? 'Verifying...' : 'VERIFY & CONTINUE'}
@@ -310,11 +316,12 @@ export default function CustomerLoginModal() {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#C5A059',
+                  color: '#71717A',
                   fontSize: '13px',
                   fontWeight: 600,
                   cursor: 'pointer',
                   textDecoration: 'underline',
+                  fontFamily: "'Lato', sans-serif",
                 }}
               >
                 Change Phone Number

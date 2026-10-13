@@ -76,20 +76,20 @@ export default function ProductDetailPage() {
     return (
       <>
         <OriginalHeader />
-        <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAFBFC' }}>
+        <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAFAFA' }}>
           <div style={{ textAlign: 'center' }}>
             <div
               style={{
-                width: '50px',
-                height: '50px',
-                border: '3px solid #E2E8F0',
-                borderTopColor: '#C5A059',
+                width: '45px',
+                height: '45px',
+                border: '3px solid #E4E4E7',
+                borderTopColor: '#000000',
                 borderRadius: '50%',
                 animation: 'spin 1s linear infinite',
                 margin: '0 auto 15px',
               }}
             ></div>
-            <p style={{ color: '#64748B', fontSize: '14px', fontWeight: 600 }}>Loading precision specifications...</p>
+            <p style={{ color: '#71717A', fontSize: '13px', fontWeight: 600, fontFamily: "'Lato', sans-serif" }}>Loading precision specifications...</p>
           </div>
         </div>
         <OriginalFooter />
@@ -101,14 +101,14 @@ export default function ProductDetailPage() {
     return (
       <>
         <OriginalHeader />
-        <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAFBFC', padding: '60px 20px' }}>
+        <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAFAFA', padding: '60px 20px' }}>
           <div className="luxury-card" style={{ padding: '40px', maxWidth: '450px', textAlign: 'center' }}>
-            <i className="fas fa-exclamation-circle" style={{ fontSize: '36px', color: '#C5A059', marginBottom: '16px' }}></i>
-            <h2 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A', marginBottom: '10px' }}>Part Not Found</h2>
-            <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '20px' }}>
+            <i className="fas fa-exclamation-circle" style={{ fontSize: '36px', color: '#000000', marginBottom: '16px' }}></i>
+            <h2 style={{ fontSize: '20px', fontWeight: 800, color: '#000000', marginBottom: '10px', fontFamily: "'Raleway', sans-serif" }}>Part Not Found</h2>
+            <p style={{ color: '#71717A', fontSize: '14px', marginBottom: '20px', fontFamily: "'Lato', sans-serif" }}>
               The requested auto spare part is currently unavailable or has been relocated.
             </p>
-            <Link href="/shop" className="btn-luxury-primary" style={{ textDecoration: 'none' }}>
+            <Link href="/shop" className="btn-luxury-primary" style={{ textDecoration: 'none', fontFamily: "'Raleway', sans-serif" }}>
               Browse Parts Catalog
             </Link>
           </div>
@@ -151,62 +151,59 @@ export default function ProductDetailPage() {
             position: 'fixed',
             bottom: '30px',
             right: '30px',
-            background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
-            border: '1.5px solid #C5A059',
+            background: '#000000',
+            border: '1px solid #27272A',
             color: '#FFFFFF',
             padding: '14px 24px',
-            borderRadius: '12px',
+            borderRadius: '8px',
             fontWeight: 700,
-            fontSize: '14px',
+            fontSize: '13px',
             zIndex: 99999,
-            boxShadow: '0 20px 40px rgba(15, 23, 42, 0.3)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+            fontFamily: "'Lato', sans-serif",
           }}
         >
-          <i className="fas fa-check-circle" style={{ color: '#C5A059', fontSize: '18px' }}></i>
-          <span>{toastMsg}</span>
+          {toastMsg}
         </div>
       )}
 
-      {/* Breadcrumb Strip */}
-      <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E2E8F0', padding: '16px 0' }}>
+      {/* Breadcrumb Navigation */}
+      <div style={{ background: '#FFFFFF', borderBottom: '1px solid #E4E4E7', padding: '14px 0' }}>
         <div className="auto-container">
           <div className="luxury-breadcrumb" style={{ padding: 0 }}>
             <Link href="/">Home</Link>
             <span className="separator">/</span>
             <Link href="/shop">Catalog</Link>
+            <span className="separator">/</span>
             {product.category_name && (
               <>
+                <Link href={`/shop?category=${product.category_slug || product.category_name}`}>{product.category_name}</Link>
                 <span className="separator">/</span>
-                <Link href={`/shop?category=${product.category_slug || product.category_id}`}>
-                  {product.category_name}
-                </Link>
               </>
             )}
-            <span className="separator">/</span>
-            <span className="current">{product.name.slice(0, 45)}...</span>
+            <span className="current" style={{ maxWidth: '300px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {product.name}
+            </span>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Main Product Showcase Section */}
-      <section style={{ padding: '50px 0 80px', background: '#FAFBFC' }}>
+      {/* Product Details Core Section */}
+      <section style={{ padding: '50px 0 80px', background: '#FAFAFA' }}>
         <div className="auto-container">
-          <div className="row clearfix" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px 0' }}>
-            {/* Left: Gallery Column */}
-            <div className="col-lg-6 col-md-12">
+          <div className="row clearfix">
+            {/* Left: Gallery & Images */}
+            <div className="col-lg-6 col-md-12" style={{ marginBottom: '40px' }}>
               <div
-                className="luxury-card"
                 style={{
-                  padding: '24px',
                   background: '#FFFFFF',
-                  position: 'sticky',
-                  top: '100px',
+                  borderRadius: '12px',
+                  border: '1px solid #E4E4E7',
+                  padding: '28px',
+                  boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04)',
                 }}
               >
-                {/* Main Large Image */}
+                {/* Main Active Image Display */}
                 <div
                   style={{
                     width: '100%',
@@ -214,41 +211,49 @@ export default function ProductDetailPage() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: '#FFFFFF',
-                    borderRadius: '10px',
+                    position: 'relative',
                     overflow: 'hidden',
-                    border: '1px solid #F1F5F9',
-                    marginBottom: '16px',
-                    padding: '20px',
                   }}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={primaryImg}
                     alt={product.name}
                     style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
+                      maxWidth: '92%',
+                      maxHeight: '92%',
                       objectFit: 'contain',
                       transition: 'transform 0.3s ease',
                     }}
                   />
+                  <div style={{ position: 'absolute', top: 0, left: 0 }}>
+                    <span className="badge-oem">✓ Genuine OEM</span>
+                  </div>
                 </div>
 
-                {/* Thumbnails */}
-                {images && images.length > 1 && (
-                  <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '6px' }}>
-                    {images.map((imgObj: any, index: number) => {
-                      const thumb = formatImageUrl(imgObj.image_path || imgObj);
-                      const isSelected = activeImage === (imgObj.image_path || imgObj);
+                {/* Thumbnails Row */}
+                {images.length > 1 && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      gap: '12px',
+                      marginTop: '20px',
+                      overflowX: 'auto',
+                      paddingBottom: '6px',
+                    }}
+                  >
+                    {images.map((imgItem: any, index: number) => {
+                      const thumb = formatImageUrl(imgItem.image_path || imgItem);
+                      const isSelected = thumb === primaryImg;
                       return (
                         <div
                           key={index}
-                          onClick={() => setActiveImage(imgObj.image_path || imgObj)}
+                          onClick={() => setActiveImage(thumb)}
                           style={{
                             width: '70px',
                             height: '70px',
-                            borderRadius: '8px',
-                            border: isSelected ? '2px solid #C5A059' : '1px solid #E2E8F0',
+                            borderRadius: '6px',
+                            border: isSelected ? '2px solid #000000' : '1px solid #E4E4E7',
                             padding: '4px',
                             cursor: 'pointer',
                             display: 'flex',
@@ -258,6 +263,7 @@ export default function ProductDetailPage() {
                             flexShrink: 0,
                           }}
                         >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={thumb} alt={`Thumbnail ${index + 1}`} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                         </div>
                       );
@@ -273,22 +279,22 @@ export default function ProductDetailPage() {
                     justifyContent: 'space-around',
                     marginTop: '20px',
                     paddingTop: '16px',
-                    borderTop: '1px solid #F1F5F9',
+                    borderTop: '1px solid #F4F4F5',
                     fontSize: '12px',
-                    color: '#64748B',
+                    color: '#71717A',
                     textAlign: 'center',
                   }}
                 >
                   <div>
-                    <i className="fas fa-certificate" style={{ color: '#C5A059', display: 'block', fontSize: '16px', marginBottom: '4px' }}></i>
+                    <i className="fas fa-certificate" style={{ color: '#000000', display: 'block', fontSize: '15px', marginBottom: '4px' }}></i>
                     <span>100% Genuine OEM</span>
                   </div>
                   <div>
-                    <i className="fas fa-shield-alt" style={{ color: '#C5A059', display: 'block', fontSize: '16px', marginBottom: '4px' }}></i>
+                    <i className="fas fa-shield-alt" style={{ color: '#000000', display: 'block', fontSize: '15px', marginBottom: '4px' }}></i>
                     <span>Warranty Backed</span>
                   </div>
                   <div>
-                    <i className="fas fa-plane-departure" style={{ color: '#C5A059', display: 'block', fontSize: '16px', marginBottom: '4px' }}></i>
+                    <i className="fas fa-plane-departure" style={{ color: '#000000', display: 'block', fontSize: '15px', marginBottom: '4px' }}></i>
                     <span>Express Air Dispatch</span>
                   </div>
                 </div>
@@ -299,7 +305,7 @@ export default function ProductDetailPage() {
             <div className="col-lg-6 col-md-12">
               <div style={{ paddingLeft: '10px' }}>
                 {/* Brand & Category Header */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                   <span className="badge-luxury">
                     <i className="fas fa-car-side"></i>
                     <span>{product.brand || 'Luxury Auto Parts'}</span>
@@ -312,10 +318,11 @@ export default function ProductDetailPage() {
                   style={{
                     fontSize: '28px',
                     fontWeight: 900,
-                    color: '#0F172A',
+                    color: '#000000',
                     lineHeight: '1.3',
                     marginBottom: '14px',
-                    fontFamily: "'Outfit', sans-serif",
+                    fontFamily: "'Raleway', sans-serif",
+                    letterSpacing: '-0.8px',
                   }}
                 >
                   {product.name}
@@ -327,42 +334,42 @@ export default function ProductDetailPage() {
                     display: 'flex',
                     alignItems: 'center',
                     flexWrap: 'wrap',
-                    gap: '10px',
-                    fontSize: '13px',
-                    color: '#64748B',
+                    gap: '8px',
+                    fontSize: '12px',
+                    color: '#52525B',
                     marginBottom: '20px',
                     paddingBottom: '16px',
-                    borderBottom: '1px solid #E2E8F0',
+                    borderBottom: '1px solid #E4E4E7',
                   }}
                 >
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                    <strong style={{ color: '#0F172A' }}>Part Number:</strong>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 800, color: '#C5A059', letterSpacing: '0.5px' }}>{product.part_number || product.sku || 'N/A'}</span>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F4F4F5', padding: '6px 12px', borderRadius: '6px', border: '1px solid #E4E4E7' }}>
+                    <strong style={{ color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Part Number:</strong>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 800, color: '#000000', letterSpacing: '0.5px' }}>{product.part_number || product.sku || 'N/A'}</span>
                   </div>
                   {(product.oem_numbers && product.oem_numbers.length > 0) ? (
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                      <strong style={{ color: '#0F172A' }}>Interchange / OEM:</strong>
-                      <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0F172A' }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F4F4F5', padding: '6px 12px', borderRadius: '6px', border: '1px solid #E4E4E7' }}>
+                      <strong style={{ color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Interchange / OEM:</strong>
+                      <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#000000' }}>
                         {Array.isArray(product.oem_numbers) ? product.oem_numbers.join(', ') : product.oem_numbers}
                       </span>
                     </div>
                   ) : product.oem_number ? (
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                      <strong style={{ color: '#0F172A' }}>OEM Ref:</strong>
-                      <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0F172A' }}>{product.oem_number}</span>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F4F4F5', padding: '6px 12px', borderRadius: '6px', border: '1px solid #E4E4E7' }}>
+                      <strong style={{ color: '#000000', fontFamily: "'Raleway', sans-serif" }}>OEM Ref:</strong>
+                      <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#000000' }}>{product.oem_number}</span>
                     </div>
                   ) : null}
                   {product.placement && (
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                      <strong style={{ color: '#0F172A' }}>Placement:</strong>
-                      <span style={{ fontWeight: 600, color: '#0F172A' }}>{product.placement}</span>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F4F4F5', padding: '6px 12px', borderRadius: '6px', border: '1px solid #E4E4E7' }}>
+                      <strong style={{ color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Placement:</strong>
+                      <span style={{ fontWeight: 600, color: '#000000' }}>{product.placement}</span>
                     </div>
                   )}
                 </div>
 
                 {/* Price Display */}
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '24px' }}>
-                  <span style={{ fontSize: '32px', fontWeight: 900, color: '#0F172A' }}>
+                  <span style={{ fontSize: '32px', fontWeight: 900, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>
                     ₹{Number(product.price).toLocaleString('en-IN')}
                   </span>
                   {product.old_price && product.old_price > product.price && (
@@ -372,13 +379,14 @@ export default function ProductDetailPage() {
                       </span>
                       <span
                         style={{
-                          fontSize: '12px',
+                          fontSize: '11px',
                           fontWeight: 700,
-                          color: '#15803D',
-                          background: '#F0FDF4',
+                          color: '#000000',
+                          background: '#F4F4F5',
                           padding: '3px 8px',
                           borderRadius: '6px',
-                          border: '1px solid #86EFAC',
+                          border: '1px solid #E4E4E7',
+                          fontFamily: "'Raleway', sans-serif",
                         }}
                       >
                         SAVE ₹{(product.old_price - product.price).toLocaleString('en-IN')}
@@ -389,7 +397,7 @@ export default function ProductDetailPage() {
 
                 {/* Short Description */}
                 {product.short_description && (
-                  <p style={{ fontSize: '14px', lineHeight: '1.7', color: '#475569', marginBottom: '24px' }}>
+                  <p style={{ fontSize: '14px', lineHeight: '1.7', color: '#52525B', marginBottom: '24px', fontFamily: "'Lato', sans-serif" }}>
                     {product.short_description}
                   </p>
                 )}
@@ -397,20 +405,20 @@ export default function ProductDetailPage() {
                 {/* Vehicle Fitment Quick Checker */}
                 <div
                   style={{
-                    background: '#FBF7EE',
-                    border: '1px solid rgba(197, 160, 89, 0.4)',
-                    borderRadius: '12px',
+                    background: '#FFFFFF',
+                    border: '1px solid #E4E4E7',
+                    borderRadius: '10px',
                     padding: '16px 20px',
                     marginBottom: '26px',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-                    <i className="fas fa-check-double" style={{ color: '#C5A059' }}></i>
-                    <strong style={{ fontSize: '13px', color: '#854D0E', textTransform: 'uppercase' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <i className="fas fa-check-double" style={{ color: '#000000' }}></i>
+                    <strong style={{ fontSize: '12px', color: '#000000', textTransform: 'uppercase', letterSpacing: '0.5px', fontFamily: "'Raleway', sans-serif" }}>
                       Vehicle Fitment & VIN Verification
                     </strong>
                   </div>
-                  <p style={{ fontSize: '12px', color: '#64748B', margin: '0 0 10px' }}>
+                  <p style={{ fontSize: '12px', color: '#71717A', margin: '0 0 10px', fontFamily: "'Lato', sans-serif" }}>
                     Enter your vehicle model or chassis number to verify match with our technical database:
                   </p>
                   <div style={{ display: 'flex', gap: '8px' }}>
@@ -425,31 +433,33 @@ export default function ProductDetailPage() {
                       style={{
                         flex: 1,
                         padding: '9px 14px',
-                        borderRadius: '8px',
-                        border: '1px solid #CBD5E1',
+                        borderRadius: '6px',
+                        border: '1.5px solid #E4E4E7',
                         fontSize: '13px',
                         outline: 'none',
+                        fontFamily: "'Lato', sans-serif",
                       }}
                     />
                     <button
                       type="button"
                       onClick={() => setFitmentChecked(true)}
                       style={{
-                        padding: '9px 16px',
-                        background: '#0F172A',
+                        padding: '9px 18px',
+                        background: '#000000',
                         color: '#FFFFFF',
                         border: 'none',
-                        borderRadius: '8px',
+                        borderRadius: '6px',
                         fontSize: '12px',
                         fontWeight: 700,
                         cursor: 'pointer',
+                        fontFamily: "'Raleway', sans-serif",
                       }}
                     >
                       Verify Fit
                     </button>
                   </div>
                   {fitmentChecked && (
-                    <div style={{ marginTop: '10px', fontSize: '12px', color: '#15803D', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ marginTop: '10px', fontSize: '12px', color: '#000000', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px', fontFamily: "'Lato', sans-serif" }}>
                       <i className="fas fa-check-circle"></i>
                       <span>Compatible! Our team will double-check your chassis code before dispatch.</span>
                     </div>
@@ -457,14 +467,14 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Purchase Actions (Quantity + Buttons) */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '24px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
                   {/* Quantity selector */}
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      border: '1.5px solid #E2E8F0',
-                      borderRadius: '10px',
+                      border: '1.5px solid #E4E4E7',
+                      borderRadius: '6px',
                       background: '#FFFFFF',
                       overflow: 'hidden',
                     }}
@@ -472,39 +482,53 @@ export default function ProductDetailPage() {
                     <button
                       type="button"
                       onClick={() => setQty(Math.max(1, qty - 1))}
-                      style={{ width: '40px', height: '48px', border: 'none', background: 'transparent', cursor: 'pointer', fontSize: '16px', color: '#64748B' }}
+                      style={{
+                        padding: '10px 14px',
+                        background: 'transparent',
+                        border: 'none',
+                        fontSize: '14px',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        color: '#000000',
+                      }}
                     >
                       -
                     </button>
-                    <span style={{ width: '45px', textAlign: 'center', fontWeight: 700, fontSize: '15px', color: '#0F172A' }}>
+                    <span style={{ padding: '0 12px', fontWeight: 800, fontSize: '14px', color: '#000000', minWidth: '32px', textAlign: 'center' }}>
                       {qty}
                     </span>
                     <button
                       type="button"
                       onClick={() => setQty(qty + 1)}
-                      style={{ width: '40px', height: '48px', border: 'none', background: 'transparent', cursor: 'pointer', fontSize: '16px', color: '#64748B' }}
+                      style={{
+                        padding: '10px 14px',
+                        background: 'transparent',
+                        border: 'none',
+                        fontSize: '14px',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        color: '#000000',
+                      }}
                     >
                       +
                     </button>
                   </div>
 
-                  {/* Add to Bag */}
                   <button
                     type="button"
                     onClick={handleAdd}
                     className="btn-luxury-primary"
-                    style={{ flex: 1, minWidth: '160px', padding: '14px 20px', fontSize: '14px' }}
+                    style={{ flex: 1, minWidth: '160px', padding: '14px 20px', fontSize: '13px', fontFamily: "'Raleway', sans-serif", letterSpacing: '0.8px' }}
                   >
                     <i className="fas fa-shopping-bag"></i>
                     <span>ADD TO BAG</span>
                   </button>
 
-                  {/* Buy Now */}
                   <button
                     type="button"
                     onClick={handleBuyNow}
                     className="btn-luxury-gold"
-                    style={{ flex: 1, minWidth: '160px', padding: '14px 20px', fontSize: '14px' }}
+                    style={{ flex: 1, minWidth: '160px', padding: '14px 20px', fontSize: '13px', fontFamily: "'Raleway', sans-serif", letterSpacing: '0.8px' }}
                   >
                     <i className="fas fa-bolt"></i>
                     <span>BUY NOW</span>
@@ -512,7 +536,7 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* WhatsApp Quick Order */}
-                <div style={{ marginBottom: '30px' }}>
+                <div style={{ marginBottom: '24px' }}>
                   <a
                     href={`https://wa.me/918860718878?text=Hello,%20I%20am%20interested%20in%20purchasing:%20${encodeURIComponent(product.name)}%20(Price:%20₹${product.price})`}
                     target="_blank"
@@ -520,27 +544,29 @@ export default function ProductDetailPage() {
                     style={{
                       width: '100%',
                       padding: '12px 18px',
-                      borderRadius: '10px',
-                      border: '1.5px solid #86EFAC',
-                      background: '#F0FDF4',
-                      color: '#15803D',
+                      borderRadius: '8px',
+                      border: '1.5px solid #E4E4E7',
+                      background: '#FFFFFF',
+                      color: '#000000',
                       fontWeight: 700,
-                      fontSize: '13px',
+                      fontSize: '12px',
                       textDecoration: 'none',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '8px',
-                      transition: 'all 0.2s',
+                      fontFamily: "'Raleway', sans-serif",
+                      letterSpacing: '0.5px',
+                      transition: 'all 0.15s',
                     }}
                   >
-                    <i className="fab fa-whatsapp" style={{ fontSize: '18px' }}></i>
-                    <span>Order / Inquire via WhatsApp (+91 88607 18878)</span>
+                    <i className="fab fa-whatsapp" style={{ fontSize: '16px' }}></i>
+                    <span>ORDER / INQUIRE VIA WHATSAPP (+91 88607 18878)</span>
                   </a>
                 </div>
 
                 {/* Pincode Estimator Component */}
-                <div style={{ marginBottom: '30px' }}>
+                <div style={{ marginBottom: '24px' }}>
                   <PincodeEstimator />
                 </div>
               </div>
@@ -548,22 +574,24 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Technical Specifications & Description Tabs */}
-          <div style={{ marginTop: '60px' }}>
-            <div className="luxury-card" style={{ padding: '36px', background: '#FFFFFF' }}>
-              <div style={{ display: 'flex', gap: '24px', borderBottom: '1.5px solid #F1F5F9', marginBottom: '28px' }}>
+          <div style={{ marginTop: '50px' }}>
+            <div className="luxury-card" style={{ padding: '32px', background: '#FFFFFF', borderRadius: '10px', border: '1px solid #E4E4E7' }}>
+              <div style={{ display: 'flex', gap: '24px', borderBottom: '1.5px solid #F4F4F5', marginBottom: '24px' }}>
                 <button
                   type="button"
                   onClick={() => setActiveTab('desc')}
                   style={{
                     background: 'transparent',
                     border: 'none',
-                    borderBottom: activeTab === 'desc' ? '2.5px solid #C5A059' : '2.5px solid transparent',
-                    padding: '12px 10px',
-                    fontSize: '15px',
+                    borderBottom: activeTab === 'desc' ? '2.5px solid #000000' : '2.5px solid transparent',
+                    padding: '12px 6px',
+                    fontSize: '14px',
                     fontWeight: 800,
-                    color: activeTab === 'desc' ? '#0F172A' : '#94A3B8',
+                    color: activeTab === 'desc' ? '#000000' : '#71717A',
                     cursor: 'pointer',
-                    transition: 'all 0.2s',
+                    fontFamily: "'Raleway', sans-serif",
+                    letterSpacing: '0.5px',
+                    transition: 'all 0.15s',
                   }}
                 >
                   Detailed Description
@@ -574,13 +602,15 @@ export default function ProductDetailPage() {
                   style={{
                     background: 'transparent',
                     border: 'none',
-                    borderBottom: activeTab === 'spec' ? '2.5px solid #C5A059' : '2.5px solid transparent',
-                    padding: '12px 10px',
-                    fontSize: '15px',
+                    borderBottom: activeTab === 'spec' ? '2.5px solid #000000' : '2.5px solid transparent',
+                    padding: '12px 6px',
+                    fontSize: '14px',
                     fontWeight: 800,
-                    color: activeTab === 'spec' ? '#0F172A' : '#94A3B8',
+                    color: activeTab === 'spec' ? '#000000' : '#71717A',
                     cursor: 'pointer',
-                    transition: 'all 0.2s',
+                    fontFamily: "'Raleway', sans-serif",
+                    letterSpacing: '0.5px',
+                    transition: 'all 0.15s',
                   }}
                 >
                   Technical Specifications
@@ -588,69 +618,69 @@ export default function ProductDetailPage() {
               </div>
 
               {activeTab === 'desc' ? (
-                <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#475569', whiteSpace: 'pre-line' }}>
+                <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#52525B', whiteSpace: 'pre-line', fontFamily: "'Lato', sans-serif" }}>
                   <div dangerouslySetInnerHTML={{ __html: product.description || product.short_description || product.name }} />
                 </div>
               ) : (
                 <div>
-                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', fontFamily: "'Lato', sans-serif" }}>
                     <tbody>
-                      <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A', width: '35%' }}>Part / SKU Number</td>
-                        <td style={{ padding: '12px 0', color: '#0F172A', fontFamily: 'monospace', fontWeight: 800 }}>{product.part_number || product.sku || 'N/A'}</td>
+                      <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', width: '35%', fontFamily: "'Raleway', sans-serif" }}>Part / SKU Number</td>
+                        <td style={{ padding: '12px 0', color: '#000000', fontFamily: 'monospace', fontWeight: 800 }}>{product.part_number || product.sku || 'N/A'}</td>
                       </tr>
                       {product.oem_numbers && product.oem_numbers.length > 0 ? (
-                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>OEM Cross Reference / Interchange</td>
-                          <td style={{ padding: '12px 0', color: '#0F172A', fontFamily: 'monospace', fontWeight: 700 }}>
+                        <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>OEM Cross Reference / Interchange</td>
+                          <td style={{ padding: '12px 0', color: '#000000', fontFamily: 'monospace', fontWeight: 700 }}>
                             {Array.isArray(product.oem_numbers) ? product.oem_numbers.join(', ') : product.oem_numbers}
                           </td>
                         </tr>
                       ) : product.oem_number ? (
-                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>OEM Cross Reference</td>
-                          <td style={{ padding: '12px 0', color: '#0F172A', fontFamily: 'monospace', fontWeight: 700 }}>{product.oem_number}</td>
+                        <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>OEM Cross Reference</td>
+                          <td style={{ padding: '12px 0', color: '#000000', fontFamily: 'monospace', fontWeight: 700 }}>{product.oem_number}</td>
                         </tr>
                       ) : null}
                       {product.make && (
-                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Vehicle Make Compatibility</td>
-                          <td style={{ padding: '12px 0', color: '#334155' }}>{product.make}</td>
+                        <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Vehicle Make Compatibility</td>
+                          <td style={{ padding: '12px 0', color: '#27272A' }}>{product.make}</td>
                         </tr>
                       )}
                       {product.year_compatibility && (
-                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Compatible Model Years</td>
-                          <td style={{ padding: '12px 0', color: '#334155' }}>{product.year_compatibility}</td>
+                        <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Compatible Model Years</td>
+                          <td style={{ padding: '12px 0', color: '#27272A' }}>{product.year_compatibility}</td>
                         </tr>
                       )}
                       {product.placement && (
-                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Vehicle Placement / Position</td>
-                          <td style={{ padding: '12px 0', color: '#334155' }}>{product.placement}</td>
+                        <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Vehicle Placement / Position</td>
+                          <td style={{ padding: '12px 0', color: '#27272A' }}>{product.placement}</td>
                         </tr>
                       )}
                       {product.specifications && typeof product.specifications === 'object' && Object.entries(product.specifications).map(([key, val]) => (
-                        <tr key={key} style={{ borderBottom: '1px solid #F1F5F9' }}>
-                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A', textTransform: 'capitalize' }}>{key.replace(/_/g, ' ')}</td>
-                          <td style={{ padding: '12px 0', color: '#64748B' }}>{String(val)}</td>
+                        <tr key={key} style={{ borderBottom: '1px solid #F4F4F5' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', textTransform: 'capitalize', fontFamily: "'Raleway', sans-serif" }}>{key.replace(/_/g, ' ')}</td>
+                          <td style={{ padding: '12px 0', color: '#52525B' }}>{String(val)}</td>
                         </tr>
                       ))}
-                      <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Manufacturer / Brand</td>
-                        <td style={{ padding: '12px 0', color: '#334155' }}>{product.brand || 'Off Road Connection Parts'}</td>
+                      <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Manufacturer / Brand</td>
+                        <td style={{ padding: '12px 0', color: '#27272A' }}>{product.brand || 'Off Road Connection Parts'}</td>
                       </tr>
-                      <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Condition & Testing</td>
-                        <td style={{ padding: '12px 0', color: '#15803D', fontWeight: 700 }}>100% Bench & Dynamometer Tested Genuine OEM</td>
+                      <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Condition & Testing</td>
+                        <td style={{ padding: '12px 0', color: '#000000', fontWeight: 700 }}>100% Bench & Dynamometer Tested Genuine OEM</td>
                       </tr>
-                      <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Country of Origin / Dispatch</td>
-                        <td style={{ padding: '12px 0', color: '#334155' }}>Direct Air Express from Central Logistics Facility (Noida)</td>
+                      <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
+                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Country of Origin / Dispatch</td>
+                        <td style={{ padding: '12px 0', color: '#27272A' }}>Direct Air Express from Central Logistics Facility (Noida)</td>
                       </tr>
                       <tr>
-                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Warranty Protection</td>
-                        <td style={{ padding: '12px 0', color: '#334155' }}>6-Month Comprehensive Replacement Guarantee</td>
+                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Warranty Protection</td>
+                        <td style={{ padding: '12px 0', color: '#27272A' }}>6-Month Comprehensive Replacement Guarantee</td>
                       </tr>
                     </tbody>
                   </table>

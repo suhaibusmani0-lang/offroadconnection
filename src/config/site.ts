@@ -44,16 +44,16 @@ export const siteConfig = {
     youtube: 'https://youtube.com',
   },
 
-  // Luxury Branding Theme
+  // Luxury Branding Theme (Strict Monochrome: Black, Grey, White)
   theme: {
-    accentGold: '#C5A059',
-    accentGoldHover: '#B38E46',
-    accentGoldLight: '#FBF7EE',
-    obsidian: '#0F172A',
-    surfaceBg: '#FAFBFC',
+    black: '#000000',
+    greyDark: '#27272A',
+    greyMuted: '#71717A',
+    greyBorder: '#E4E4E7',
+    greyLight: '#F4F4F5',
+    white: '#FFFFFF',
+    surfaceBg: '#FAFAFA',
     cardBg: '#FFFFFF',
-    borderLight: '#E2E8F0',
-    borderGold: 'rgba(197, 160, 89, 0.35)',
   },
 
   // Supported Luxury Makes

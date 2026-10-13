@@ -141,34 +141,34 @@ export default function AdminCRMPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'NEW':
-        return 'text-sky-400 border-sky-400/40 bg-sky-400/10';
+        return 'text-white border-[#71717A] bg-[#27272A]';
       case 'CONTACTED':
-        return 'text-amber-400 border-amber-400/40 bg-amber-400/10';
+        return 'text-[#D4D4D8] border-[#52525B] bg-[#18181B]';
       case 'QUOTED':
-        return 'text-indigo-400 border-indigo-400/40 bg-indigo-400/10';
+        return 'text-white border-[#D4D4D8] bg-[#27272A]';
       case 'WON':
-        return 'text-emerald-400 border-emerald-400/40 bg-emerald-400/10';
+        return 'text-black border-white bg-white font-black';
       case 'LOST':
-        return 'text-rose-400 border-rose-400/40 bg-rose-400/10';
+        return 'text-[#71717A] border-[#3F3F46] bg-[#121212]';
       default:
-        return 'text-slate-400 border-slate-400/40 bg-slate-400/10';
+        return 'text-[#A1A1AA] border-[#3F3F46] bg-[#1C1C1E]';
     }
   };
 
   return (
-    <div className="p-6 md:p-10 font-sans max-w-7xl mx-auto">
+    <div className="p-6 md:p-10 font-body max-w-7xl mx-auto" style={{ fontFamily: "'Lato', sans-serif" }}>
       {/* Page Title & Add Button */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight" style={{ fontFamily: "'Raleway', sans-serif" }}>
               CRM Leads Pipeline
             </h1>
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#C5A059]/20 text-[#C5A059] border border-[#C5A059]/30">
+            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#27272A] text-white border border-[#3F3F46]" style={{ fontFamily: "'Raleway', sans-serif" }}>
               Live Cloud Database
             </span>
           </div>
-          <p className="text-slate-400 text-sm mt-1">
+          <p className="text-[#A1A1AA] text-sm mt-1" style={{ fontFamily: "'Lato', sans-serif" }}>
             Manage inquiries, quotation pipelines, customer WhatsApp engagements, and sales conversion rates.
           </p>
         </div>
@@ -176,16 +176,17 @@ export default function AdminCRMPage() {
         <div className="flex items-center gap-3">
           <button
             onClick={fetchLeads}
-            className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+            className="p-2.5 rounded-xl bg-[#1C1C1E] text-[#D4D4D8] hover:text-white hover:bg-[#27272A] transition-colors border border-[#27272A]"
             title="Refresh Leads"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           </button>
           <button
             onClick={() => setShowAddModal(true)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#C5A059] to-[#DFBA73] text-slate-950 font-bold text-sm shadow-lg shadow-[#C5A059]/20 hover:brightness-105 active:scale-95 transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black font-bold text-sm shadow-lg hover:bg-[#E4E4E7] active:scale-95 transition-all"
+            style={{ fontFamily: "'Raleway', sans-serif" }}
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-4 h-4 text-black" />
             <span>Create New Lead</span>
           </button>
         </div>
@@ -193,37 +194,37 @@ export default function AdminCRMPage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div className="bg-[#0F172A] border border-slate-800 rounded-2xl p-5 border-l-4 border-l-[#C5A059]">
-          <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Active Pipeline Value</div>
-          <div className="text-2xl font-black text-[#C5A059] mt-1.5">
+        <div className="bg-[#121212] border border-[#27272A] rounded-2xl p-5 border-l-4 border-l-white">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#A1A1AA]" style={{ fontFamily: "'Raleway', sans-serif" }}>Active Pipeline Value</div>
+          <div className="text-2xl font-black text-white mt-1.5" style={{ fontFamily: "'Raleway', sans-serif" }}>
             ₹{Number(stats.pipelineVal || 0).toLocaleString('en-IN')}
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">Open quotations & ongoing deals</div>
+          <div className="text-[11px] text-[#71717A] mt-1" style={{ fontFamily: "'Lato', sans-serif" }}>Open quotations & ongoing deals</div>
         </div>
 
-        <div className="bg-[#0F172A] border border-slate-800 rounded-2xl p-5 border-l-4 border-l-emerald-500">
-          <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Closed / Won Revenue</div>
-          <div className="text-2xl font-black text-emerald-400 mt-1.5">
+        <div className="bg-[#121212] border border-[#27272A] rounded-2xl p-5 border-l-4 border-l-[#71717A]">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#A1A1AA]" style={{ fontFamily: "'Raleway', sans-serif" }}>Closed / Won Revenue</div>
+          <div className="text-2xl font-black text-white mt-1.5" style={{ fontFamily: "'Raleway', sans-serif" }}>
             ₹{Number(stats.wonVal || 0).toLocaleString('en-IN')}
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">{stats.wonLeads || 0} converted customer orders</div>
+          <div className="text-[11px] text-[#71717A] mt-1" style={{ fontFamily: "'Lato', sans-serif" }}>{stats.wonLeads || 0} converted customer orders</div>
         </div>
 
-        <div className="bg-[#0F172A] border border-slate-800 rounded-2xl p-5 border-l-4 border-l-sky-500">
-          <div className="text-xs font-bold uppercase tracking-wider text-slate-400">New Inquiries</div>
-          <div className="text-2xl font-black text-sky-400 mt-1.5">{stats.newLeads || 0}</div>
-          <div className="text-[11px] text-slate-500 mt-1">Pending response / quotation</div>
+        <div className="bg-[#121212] border border-[#27272A] rounded-2xl p-5 border-l-4 border-l-[#52525B]">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#A1A1AA]" style={{ fontFamily: "'Raleway', sans-serif" }}>New Inquiries</div>
+          <div className="text-2xl font-black text-white mt-1.5" style={{ fontFamily: "'Raleway', sans-serif" }}>{stats.newLeads || 0}</div>
+          <div className="text-[11px] text-[#71717A] mt-1" style={{ fontFamily: "'Lato', sans-serif" }}>Pending response / quotation</div>
         </div>
 
-        <div className="bg-[#0F172A] border border-slate-800 rounded-2xl p-5 border-l-4 border-l-indigo-500">
-          <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Total Leads In CRM</div>
-          <div className="text-2xl font-black text-indigo-400 mt-1.5">{stats.totalLeads || 0}</div>
-          <div className="text-[11px] text-slate-500 mt-1">{stats.quotedLeads || 0} under active quotation</div>
+        <div className="bg-[#121212] border border-[#27272A] rounded-2xl p-5 border-l-4 border-l-[#3F3F46]">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#A1A1AA]" style={{ fontFamily: "'Raleway', sans-serif" }}>Total Leads In CRM</div>
+          <div className="text-2xl font-black text-white mt-1.5" style={{ fontFamily: "'Raleway', sans-serif" }}>{stats.totalLeads || 0}</div>
+          <div className="text-[11px] text-[#71717A] mt-1" style={{ fontFamily: "'Lato', sans-serif" }}>{stats.quotedLeads || 0} under active quotation</div>
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-2xl p-4 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#121212] border border-[#27272A] rounded-2xl p-4 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
         {/* Status Filter Pills */}
         <div className="flex flex-wrap gap-2">
           {['', 'NEW', 'CONTACTED', 'QUOTED', 'WON', 'LOST'].map((status) => {
@@ -234,9 +235,10 @@ export default function AdminCRMPage() {
                 onClick={() => setStatusFilter(status)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                   isActive
-                    ? 'bg-[#C5A059] text-slate-950 shadow-md'
-                    : 'bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-800'
+                    ? 'bg-white text-black shadow-md'
+                    : 'bg-[#1C1C1E] text-[#D4D4D8] hover:text-white hover:bg-[#27272A] border border-[#27272A]'
                 }`}
+                style={{ fontFamily: "'Raleway', sans-serif" }}
               >
                 {status === '' ? `All (${stats.totalLeads || 0})` : status}
               </button>
@@ -253,12 +255,14 @@ export default function AdminCRMPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search customer, vehicle, part..."
-              className="bg-slate-800/80 border border-slate-700/80 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#C5A059] w-64"
+              className="bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white w-64"
+              style={{ fontFamily: "'Lato', sans-serif" }}
             />
           </div>
           <button
             type="submit"
-            className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition-colors border border-slate-700"
+            className="px-3.5 py-2 bg-[#27272A] hover:bg-[#3F3F46] text-white rounded-xl text-xs font-bold transition-colors border border-[#3F3F46]"
+            style={{ fontFamily: "'Raleway', sans-serif" }}
           >
             Search
           </button>
@@ -269,7 +273,7 @@ export default function AdminCRMPage() {
                 setSearchQuery('');
                 setTimeout(fetchLeads, 50);
               }}
-              className="px-2.5 py-2 bg-rose-500/20 text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-500/30"
+              className="px-2.5 py-2 bg-[#27272A] text-white rounded-xl text-xs font-bold hover:bg-[#3F3F46]"
               title="Clear Search"
             >
               <X className="w-4 h-4" />
@@ -279,11 +283,11 @@ export default function AdminCRMPage() {
       </div>
 
       {/* Leads Table */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+      <div className="bg-[#121212] border border-[#27272A] rounded-2xl overflow-hidden shadow-xl">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm border-collapse">
+          <table className="w-full text-left text-sm border-collapse" style={{ fontFamily: "'Lato', sans-serif" }}>
             <thead>
-              <tr className="bg-slate-950/60 border-b border-slate-800 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+              <tr className="bg-[#0A0A0A] border-b border-[#27272A] text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]" style={{ fontFamily: "'Raleway', sans-serif" }}>
                 <th className="p-4">Customer Details</th>
                 <th className="p-4">Vehicle & Requested Component</th>
                 <th className="p-4">Est. Value</th>
@@ -292,17 +296,17 @@ export default function AdminCRMPage() {
                 <th className="p-4 text-right">Quick Engagement</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-[#27272A]">
               {loading ? (
                 <tr>
-                  <td colSpan={6} className="text-center py-12 text-slate-400">
-                    <RefreshCw className="w-6 h-6 animate-spin mx-auto mb-2 text-[#C5A059]" />
+                  <td colSpan={6} className="text-center py-12 text-[#A1A1AA]">
+                    <RefreshCw className="w-6 h-6 animate-spin mx-auto mb-2 text-white" />
                     <span>Loading CRM leads from MongoDB Atlas...</span>
                   </td>
                 </tr>
               ) : leads.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="text-center py-12 text-slate-500">
+                  <td colSpan={6} className="text-center py-12 text-[#71717A]">
                     <Inbox className="w-8 h-8 mx-auto mb-2 opacity-50" />
                     <span>No leads found matching the filter criteria.</span>
                   </td>
@@ -315,13 +319,13 @@ export default function AdminCRMPage() {
                   )}`;
 
                   return (
-                    <tr key={lead._id} className="hover:bg-slate-800/30 transition-colors">
+                    <tr key={lead._id} className="hover:bg-[#1C1C1E] transition-colors">
                       {/* Customer */}
                       <td className="p-4 align-top">
-                        <div className="font-bold text-white text-sm">{lead.name}</div>
-                        <div className="text-xs text-sky-400 mt-1 font-mono">{lead.phone}</div>
-                        {lead.email && <div className="text-xs text-slate-400">{lead.email}</div>}
-                        <div className="text-[10px] text-slate-500 mt-1">
+                        <div className="font-bold text-white text-sm" style={{ fontFamily: "'Raleway', sans-serif" }}>{lead.name}</div>
+                        <div className="text-xs text-[#D4D4D8] mt-1 font-mono">{lead.phone}</div>
+                        {lead.email && <div className="text-xs text-[#A1A1AA]">{lead.email}</div>}
+                        <div className="text-[10px] text-[#71717A] mt-1">
                           {new Date(lead.created_at).toLocaleDateString('en-IN', {
                             day: 'numeric',
                             month: 'short',
@@ -334,17 +338,17 @@ export default function AdminCRMPage() {
 
                       {/* Vehicle & Part */}
                       <td className="p-4 align-top">
-                        <div className="flex items-center gap-1.5 text-xs font-bold text-[#C5A059]">
-                          <Car className="w-3.5 h-3.5" />
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-white" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                          <Car className="w-3.5 h-3.5 text-white" />
                           <span>{lead.vehicle_info || 'Luxury Vehicle'}</span>
                         </div>
-                        <div className="font-semibold text-slate-200 text-sm mt-1">{lead.requested_part}</div>
-                        <div className="text-[10px] text-slate-400 mt-0.5">Source: {lead.source || 'Website Form'}</div>
+                        <div className="font-semibold text-[#D4D4D8] text-sm mt-1">{lead.requested_part}</div>
+                        <div className="text-[10px] text-[#71717A] mt-0.5">Source: {lead.source || 'Website Form'}</div>
                       </td>
 
                       {/* Estimated Value */}
                       <td className="p-4 align-top whitespace-nowrap">
-                        <div className="text-base font-black text-emerald-400">
+                        <div className="text-base font-black text-white" style={{ fontFamily: "'Raleway', sans-serif" }}>
                           ₹{Number(lead.estimated_value || 0).toLocaleString('en-IN')}
                         </div>
                       </td>
@@ -358,19 +362,19 @@ export default function AdminCRMPage() {
                             lead.status
                           )}`}
                         >
-                          <option value="NEW" className="bg-slate-900 text-sky-400">
+                          <option value="NEW" className="bg-[#121212] text-white">
                             NEW
                           </option>
-                          <option value="CONTACTED" className="bg-slate-900 text-amber-400">
+                          <option value="CONTACTED" className="bg-[#121212] text-[#D4D4D8]">
                             CONTACTED
                           </option>
-                          <option value="QUOTED" className="bg-slate-900 text-indigo-400">
+                          <option value="QUOTED" className="bg-[#121212] text-white">
                             QUOTED
                           </option>
-                          <option value="WON" className="bg-slate-900 text-emerald-400">
+                          <option value="WON" className="bg-[#121212] text-white">
                             WON
                           </option>
-                          <option value="LOST" className="bg-slate-900 text-rose-400">
+                          <option value="LOST" className="bg-[#121212] text-[#71717A]">
                             LOST
                           </option>
                         </select>
@@ -378,8 +382,8 @@ export default function AdminCRMPage() {
 
                       {/* Notes */}
                       <td className="p-4 align-top max-w-xs">
-                        <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed">
-                          {lead.notes || <span className="text-slate-500 italic">No notes added.</span>}
+                        <p className="text-xs text-[#D4D4D8] line-clamp-3 leading-relaxed">
+                          {lead.notes || <span className="text-[#71717A] italic">No notes added.</span>}
                         </p>
                       </td>
 
@@ -391,7 +395,7 @@ export default function AdminCRMPage() {
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm transition-all"
+                            className="p-2 rounded-xl bg-[#27272A] hover:bg-white hover:text-black text-white shadow-sm transition-all border border-[#3F3F46]"
                             title="Chat on WhatsApp"
                           >
                             <MessageSquare className="w-4 h-4" />
@@ -400,7 +404,7 @@ export default function AdminCRMPage() {
                           {/* Call */}
                           <a
                             href={`tel:${lead.phone}`}
-                            className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 transition-all"
+                            className="p-2 rounded-xl bg-[#1C1C1E] hover:bg-[#27272A] text-white transition-all border border-[#27272A]"
                             title="Call Customer"
                           >
                             <Phone className="w-4 h-4" />
@@ -409,7 +413,7 @@ export default function AdminCRMPage() {
                           {/* Delete */}
                           <button
                             onClick={() => handleDeleteLead(lead._id)}
-                            className="p-2 rounded-xl bg-slate-800 hover:bg-rose-500/20 text-rose-400 transition-all"
+                            className="p-2 rounded-xl bg-[#1C1C1E] hover:bg-[#27272A] text-[#A1A1AA] hover:text-white transition-all border border-[#27272A]"
                             title="Delete Lead"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -427,16 +431,16 @@ export default function AdminCRMPage() {
 
       {/* Add Lead Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-[#0F172A] border border-slate-800 rounded-3xl p-6 md:p-8 w-full max-w-lg shadow-2xl">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn" style={{ fontFamily: "'Lato', sans-serif" }}>
+          <div className="bg-[#121212] border border-[#27272A] rounded-3xl p-6 md:p-8 w-full max-w-lg shadow-2xl">
+            <div className="flex items-center justify-between border-b border-[#27272A] pb-4 mb-6">
               <div className="flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#C5A059]" />
-                <h3 className="text-lg font-bold text-white">Create New CRM Lead</h3>
+                <Plus className="w-5 h-5 text-white" />
+                <h3 className="text-lg font-bold text-white" style={{ fontFamily: "'Raleway', sans-serif" }}>Create New CRM Lead</h3>
               </div>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-white"
+                className="p-1 rounded-lg text-[#71717A] hover:text-white"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -444,81 +448,81 @@ export default function AdminCRMPage() {
 
             <form onSubmit={handleCreateLead} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Customer Full Name *</label>
+                <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Customer Full Name *</label>
                 <input
                   type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Vikram Malhotra"
-                  className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A059]"
+                  className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Phone Number *</label>
                   <input
                     type="tel"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A059]"
+                    className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+                  <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Email Address</label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="customer@domain.com"
-                    className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A059]"
+                    className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Vehicle Make, Model & Year</label>
+                <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Vehicle Make, Model & Year</label>
                 <input
                   type="text"
                   value={formData.vehicle_info}
                   onChange={(e) => setFormData({ ...formData, vehicle_info: e.target.value })}
                   placeholder="e.g. 2021 BMW 530d M Sport / 2022 Porsche Cayenne"
-                  className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A059]"
+                  className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Requested Component / Part *</label>
+                <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Requested Component / Part *</label>
                 <input
                   type="text"
                   required
                   value={formData.requested_part}
                   onChange={(e) => setFormData({ ...formData, requested_part: e.target.value })}
                   placeholder="e.g. Front Air Suspension Strut (Left) with EDC"
-                  className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A059]"
+                  className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">Estimated Value (₹)</label>
+                  <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Estimated Value (₹)</label>
                   <input
                     type="number"
                     value={formData.estimated_value}
                     onChange={(e) => setFormData({ ...formData, estimated_value: e.target.value })}
                     placeholder="e.g. 65000"
-                    className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A059]"
+                    className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">Status</label>
+                  <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Status</label>
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#C5A059]"
+                    className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-white"
                   >
                     <option value="NEW">NEW</option>
                     <option value="CONTACTED">CONTACTED</option>
@@ -530,27 +534,29 @@ export default function AdminCRMPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Conversation Notes / VIN</label>
+                <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>Conversation Notes / VIN</label>
                 <textarea
                   rows={3}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Enter chassis number, customer requirements, or quotation details..."
-                  className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A059] resize-none"
+                  className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white resize-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-800">
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#27272A]">
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white bg-slate-800/60"
+                  className="px-4 py-2.5 rounded-xl text-xs font-bold text-[#A1A1AA] hover:text-white bg-[#1C1C1E] border border-[#27272A]"
+                  style={{ fontFamily: "'Raleway', sans-serif" }}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-[#C5A059] to-[#DFBA73] hover:brightness-105 shadow-lg"
+                  className="px-6 py-2.5 rounded-xl text-xs font-bold text-black bg-white hover:bg-[#E4E4E7] shadow-lg"
+                  style={{ fontFamily: "'Raleway', sans-serif" }}
                 >
                   Save Lead
                 </button>
@@ -562,8 +568,8 @@ export default function AdminCRMPage() {
 
       {/* Toast Notification */}
       {toastMsg && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#C5A059] text-slate-950 font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 animate-slideUp">
-          <CheckCircle2 className="w-5 h-5" />
+        <div className="fixed bottom-6 right-6 z-50 bg-white text-black font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 animate-slideUp" style={{ fontFamily: "'Raleway', sans-serif" }}>
+          <CheckCircle2 className="w-5 h-5 text-black" />
           <span>{toastMsg}</span>
         </div>
       )}

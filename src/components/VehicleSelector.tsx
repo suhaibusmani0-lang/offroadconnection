@@ -69,7 +69,6 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
 
     if (foundMake) {
       setAvailableModels(foundMake.models);
-      // Reset model if not in the new list
       if (selectedModel && !foundMake.models.includes(selectedModel)) {
         setSelectedModel('');
       }
@@ -141,9 +140,9 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
       className={`vehicle-selector-wrapper ${className}`}
       style={{
         background: '#FFFFFF',
-        borderRadius: '16px',
-        border: '1px solid #E2E8F0',
-        boxShadow: '0 20px 45px -12px rgba(15, 23, 42, 0.08)',
+        borderRadius: '12px',
+        border: '1px solid #E4E4E7',
+        boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
         padding: variant === 'hero' ? '28px 32px' : '20px',
         position: 'relative',
         zIndex: 10,
@@ -159,7 +158,7 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
           gap: '12px',
           marginBottom: '20px',
           paddingBottom: '16px',
-          borderBottom: '1px solid #F1F5F9',
+          borderBottom: '1px solid #F4F4F5',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -167,14 +166,13 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
             style={{
               width: '36px',
               height: '36px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #FBF7EE 0%, #F5E8CC 100%)',
-              border: '1px solid #C5A059',
+              borderRadius: '8px',
+              background: '#000000',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#C5A059',
-              fontSize: '16px',
+              color: '#FFFFFF',
+              fontSize: '15px',
             }}
           >
             <i className="fas fa-car-alt"></i>
@@ -184,16 +182,16 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
               style={{
                 fontSize: variant === 'hero' ? '18px' : '16px',
                 fontWeight: 800,
-                color: '#0F172A',
+                color: '#000000',
                 margin: 0,
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Raleway', sans-serif",
                 letterSpacing: '-0.3px',
               }}
             >
               Select Your Vehicle
             </h3>
-            <span style={{ fontSize: '12px', color: '#64748B', display: 'block' }}>
-              Find exact-fit parts for luxury & 4x4 models
+            <span style={{ fontSize: '12px', color: '#71717A', display: 'block', fontFamily: "'Lato', sans-serif" }}>
+              Find exact-fit parts for luxury European & 4x4 models
             </span>
           </div>
         </div>
@@ -204,14 +202,15 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: '#F0FDF4',
-            border: '1px solid #86EFAC',
-            color: '#15803D',
+            background: '#F4F4F5',
+            border: '1px solid #E4E4E7',
+            color: '#000000',
             padding: '4px 12px',
-            borderRadius: '9999px',
+            borderRadius: '6px',
             fontSize: '11px',
             fontWeight: 700,
             letterSpacing: '0.3px',
+            fontFamily: "'Raleway', sans-serif",
           }}
         >
           <i className="fas fa-shield-alt"></i>
@@ -225,19 +224,19 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
           style={{
             marginBottom: '16px',
             padding: '10px 16px',
-            background: '#FBF7EE',
-            border: '1px solid rgba(197, 160, 89, 0.4)',
-            borderRadius: '10px',
+            background: '#F4F4F5',
+            border: '1px solid #E4E4E7',
+            borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             fontSize: '12px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#854D0E' }}>
-            <i className="fas fa-check-circle" style={{ color: '#C5A059' }}></i>
-            <span>
-              <strong>My Garage:</strong> {savedVehicle}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#000000' }}>
+            <i className="fas fa-check-circle" style={{ color: '#000000' }}></i>
+            <span style={{ fontFamily: "'Lato', sans-serif" }}>
+              <strong style={{ fontFamily: "'Raleway', sans-serif" }}>Active Garage:</strong> {savedVehicle}
             </span>
           </div>
           <button
@@ -246,11 +245,12 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#94A3B8',
+              color: '#71717A',
               fontSize: '11px',
               cursor: 'pointer',
               textDecoration: 'underline',
               padding: 0,
+              fontFamily: "'Lato', sans-serif",
             }}
           >
             Clear / Change
@@ -277,9 +277,10 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 fontSize: '11px',
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                color: '#64748B',
+                color: '#52525B',
                 marginBottom: '6px',
                 letterSpacing: '0.5px',
+                fontFamily: "'Raleway', sans-serif",
               }}
             >
               1. Vehicle Make
@@ -291,16 +292,17 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 style={{
                   width: '100%',
                   padding: '12px 14px',
-                  borderRadius: '10px',
-                  border: selectedMake ? '1.5px solid #C5A059' : '1.5px solid #E2E8F0',
+                  borderRadius: '8px',
+                  border: selectedMake ? '1.5px solid #000000' : '1.5px solid #E4E4E7',
                   background: '#FFFFFF',
-                  color: '#0F172A',
+                  color: '#000000',
                   fontSize: '13px',
                   fontWeight: 600,
                   outline: 'none',
                   appearance: 'none',
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.15s ease',
+                  fontFamily: "'Lato', sans-serif",
                 }}
               >
                 <option value="">Select Make (Audi, BMW, Benz...)</option>
@@ -318,8 +320,8 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                   top: '50%',
                   transform: 'translateY(-50%)',
                   pointerEvents: 'none',
+                  color: '#71717A',
                   fontSize: '11px',
-                  color: '#94A3B8',
                 }}
               ></i>
             </div>
@@ -333,9 +335,10 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 fontSize: '11px',
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                color: '#64748B',
+                color: '#52525B',
                 marginBottom: '6px',
                 letterSpacing: '0.5px',
+                fontFamily: "'Raleway', sans-serif",
               }}
             >
               2. Vehicle Model
@@ -348,20 +351,21 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 style={{
                   width: '100%',
                   padding: '12px 14px',
-                  borderRadius: '10px',
-                  border: selectedModel ? '1.5px solid #C5A059' : '1.5px solid #E2E8F0',
-                  background: !selectedMake ? '#F8FAFC' : '#FFFFFF',
-                  color: '#0F172A',
+                  borderRadius: '8px',
+                  border: selectedModel ? '1.5px solid #000000' : '1.5px solid #E4E4E7',
+                  background: !selectedMake ? '#F4F4F5' : '#FFFFFF',
+                  color: '#000000',
                   fontSize: '13px',
                   fontWeight: 600,
                   outline: 'none',
                   appearance: 'none',
                   cursor: !selectedMake ? 'not-allowed' : 'pointer',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.15s ease',
+                  fontFamily: "'Lato', sans-serif",
                 }}
               >
                 <option value="">
-                  {!selectedMake ? 'Select Make First' : 'Select Model'}
+                  {selectedMake ? 'All Models or Select Model' : 'Select Make First'}
                 </option>
                 {availableModels.map((mod) => (
                   <option key={mod} value={mod}>
@@ -377,8 +381,8 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                   top: '50%',
                   transform: 'translateY(-50%)',
                   pointerEvents: 'none',
+                  color: '#71717A',
                   fontSize: '11px',
-                  color: '#94A3B8',
                 }}
               ></i>
             </div>
@@ -392,9 +396,10 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 fontSize: '11px',
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                color: '#64748B',
+                color: '#52525B',
                 marginBottom: '6px',
                 letterSpacing: '0.5px',
+                fontFamily: "'Raleway', sans-serif",
               }}
             >
               3. Year
@@ -406,16 +411,17 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 style={{
                   width: '100%',
                   padding: '12px 14px',
-                  borderRadius: '10px',
-                  border: selectedYear ? '1.5px solid #C5A059' : '1.5px solid #E2E8F0',
+                  borderRadius: '8px',
+                  border: selectedYear ? '1.5px solid #000000' : '1.5px solid #E4E4E7',
                   background: '#FFFFFF',
-                  color: '#0F172A',
+                  color: '#000000',
                   fontSize: '13px',
                   fontWeight: 600,
                   outline: 'none',
                   appearance: 'none',
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.15s ease',
+                  fontFamily: "'Lato', sans-serif",
                 }}
               >
                 <option value="">All Model Years</option>
@@ -433,14 +439,14 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                   top: '50%',
                   transform: 'translateY(-50%)',
                   pointerEvents: 'none',
+                  color: '#71717A',
                   fontSize: '11px',
-                  color: '#94A3B8',
                 }}
               ></i>
             </div>
           </div>
 
-          {/* STEP 4: PART CATEGORY */}
+          {/* STEP 4: CATEGORY (Optional in hero) */}
           <div>
             <label
               style={{
@@ -448,9 +454,10 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 fontSize: '11px',
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                color: '#64748B',
+                color: '#52525B',
                 marginBottom: '6px',
                 letterSpacing: '0.5px',
+                fontFamily: "'Raleway', sans-serif",
               }}
             >
               4. Part Category
@@ -462,22 +469,23 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                 style={{
                   width: '100%',
                   padding: '12px 14px',
-                  borderRadius: '10px',
-                  border: selectedCategory ? '1.5px solid #C5A059' : '1.5px solid #E2E8F0',
+                  borderRadius: '8px',
+                  border: selectedCategory ? '1.5px solid #000000' : '1.5px solid #E4E4E7',
                   background: '#FFFFFF',
-                  color: '#0F172A',
+                  color: '#000000',
                   fontSize: '13px',
                   fontWeight: 600,
                   outline: 'none',
                   appearance: 'none',
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.15s ease',
+                  fontFamily: "'Lato', sans-serif",
                 }}
               >
-                <option value="">All Part Categories</option>
-                {LUXURY_PART_CATEGORIES.map((cat) => (
-                  <option key={cat.id} value={cat.slug}>
-                    {cat.name}
+                <option value="">All Component Categories</option>
+                {LUXURY_PART_CATEGORIES.map((c) => (
+                  <option key={c.slug} value={c.slug}>
+                    {c.name}
                   </option>
                 ))}
               </select>
@@ -489,46 +497,34 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
                   top: '50%',
                   transform: 'translateY(-50%)',
                   pointerEvents: 'none',
+                  color: '#71717A',
                   fontSize: '11px',
-                  color: '#94A3B8',
                 }}
               ></i>
             </div>
           </div>
 
-          {/* CTA BUTTON */}
+          {/* SUBMIT BUTTON */}
           <div>
             <button
               type="submit"
+              className="btn-luxury-primary"
               style={{
                 width: '100%',
                 padding: '13px 20px',
-                borderRadius: '10px',
-                border: 'none',
-                background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+                fontSize: '13px',
+                fontWeight: 800,
+                letterSpacing: '1px',
+                fontFamily: "'Raleway', sans-serif",
+                borderRadius: '8px',
+                background: '#000000',
                 color: '#FFFFFF',
-                fontSize: '14px',
-                fontWeight: 700,
-                letterSpacing: '0.5px',
+                border: 'none',
                 cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 4px 15px rgba(15, 23, 42, 0.25)',
-                transition: 'all 0.2s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #C5A059 0%, #B38E46 100%)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(197, 160, 89, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(15, 23, 42, 0.25)';
               }}
             >
-              <i className="fas fa-search" style={{ fontSize: '13px' }}></i>
-              <span>FIND PARTS</span>
+              <i className="fas fa-search"></i>
+              <span>FIND MATCHING PARTS</span>
             </button>
           </div>
         </div>
@@ -536,4 +532,3 @@ export default function VehicleSelector({ variant = 'hero', onSearch, className 
     </div>
   );
 }
-

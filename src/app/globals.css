@@ -3,39 +3,101 @@
 @tailwind utilities;
 
 /* ==========================================================================
-   OFF ROAD CONNECTION PARTS - ULTRA LUXURY LIGHT THEME SYSTEM
-   Precision Automotive Aesthetics, Clean Modern Surfaces, Champagne Accents
+   OFF ROAD CONNECTION PARTS - MONOCHROME LUXURY SYSTEM
+   Strict Palette: Black, Grey, White
+   Typography: Headings -> Raleway | Body Text -> Lato
    ========================================================================== */
 
 :root {
-  --theme-color: #C5A059;
-  --theme-color-hover: #B38E46;
-  --theme-color-light: #FBF7EE;
-  --luxury-obsidian: #0F172A;
-  --luxury-slate: #334155;
-  --luxury-muted: #64748B;
-  --luxury-bg: #FAFBFC;
+  --color-black: #000000;
+  --color-charcoal: #111111;
+  --color-dark: #18181B;
+  --color-grey-dark: #27272A;
+  --color-grey-muted: #52525B;
+  --color-grey-subtle: #71717A;
+  --color-grey-border: #E4E4E7;
+  --color-grey-light: #F4F4F5;
+  --color-grey-canvas: #FAFAFA;
+  --color-white: #FFFFFF;
+
+  --theme-color: #000000;
+  --theme-color-hover: #27272A;
+  --theme-color-light: #F4F4F5;
+
+  --luxury-obsidian: #000000;
+  --luxury-slate: #18181B;
+  --luxury-muted: #71717A;
+  --luxury-bg: #FAFAFA;
   --luxury-surface: #FFFFFF;
-  --luxury-border: #E2E8F0;
-  --luxury-border-gold: rgba(197, 160, 89, 0.4);
-  --luxury-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
-  --luxury-shadow-hover: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+  --luxury-border: #E4E4E7;
+  --luxury-border-strong: #27272A;
+  --luxury-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  --luxury-shadow-hover: 0 16px 36px -6px rgba(0, 0, 0, 0.08);
 }
 
-/* Base resets & typography */
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY RULES
+   Strict: Only Raleway for Headings and Lato for Body
+   ========================================================================== */
+
+*,
+html,
+body,
+p,
+span,
+a,
+div,
+input,
+select,
+textarea,
+button,
+label,
+li,
+td,
+th,
+strong,
+b,
+em,
+small {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading,
+.heading-font,
+.site-title,
+.widget-title,
+.widget-title h4,
+.product-title,
+.price,
+.product-price,
+.banner-title,
+.hero-title,
+.category-title {
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
 body {
   background-color: var(--luxury-bg) !important;
-  color: var(--luxury-obsidian) !important;
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--color-black) !important;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Global Container Polish */
 .boxed_wrapper {
   background: var(--luxury-bg) !important;
 }
 
-/* Ultra Luxury Card System */
+/* ==========================================================================
+   CARDS & SURFACES - MONOCHROMATIC ENTERPRISE AESTHETICS
+   ========================================================================== */
+
 .shop-block-one .inner-box,
 .sales-block-one .inner-box,
 .deals-block-one .inner-box,
@@ -45,11 +107,11 @@ body {
 .category-block-three .inner-box,
 .feature-block-one .inner-box,
 .luxury-card {
-  background: #ffffff !important;
+  background: #FFFFFF !important;
   border: 1px solid var(--luxury-border) !important;
-  border-radius: 14px !important;
+  border-radius: 12px !important;
   box-shadow: var(--luxury-shadow) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   overflow: hidden;
 }
 
@@ -58,23 +120,23 @@ body {
 .deals-block-one .inner-box:hover,
 .category-block-one .inner-box:hover,
 .luxury-card:hover {
-  border-color: var(--theme-color) !important;
+  border-color: #000000 !important;
   box-shadow: var(--luxury-shadow-hover) !important;
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
-/* Product Image Box - Ultra Clean White Display */
+/* Product Image Box - Pure White High Contrast */
 .shop-block-one .image-box,
 .sales-block-one .image-box,
 .shop-details .image-box,
 .product-card-img-box {
   width: 100%;
-  height: 270px !important;
+  height: 260px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: #ffffff !important;
-  border-bottom: 1px solid #f1f5f9 !important;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #F4F4F5 !important;
   overflow: hidden !important;
   padding: 16px !important;
   position: relative;
@@ -84,50 +146,44 @@ body {
 .sales-block-one .image-box img,
 .shop-details .image-box img,
 .product-card-img-box img {
-  max-width: 90% !important;
-  max-height: 90% !important;
+  max-width: 88% !important;
+  max-height: 88% !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
-  transition: transform 0.4s ease !important;
+  transition: transform 0.35s ease !important;
 }
 
 .shop-block-one:hover .image-box img,
-.sales-block-one:hover .image-box img {
-  transform: scale(1.05) !important;
+.sales-block-one:hover .image-box img,
+.luxury-card:hover .product-card-img-box img {
+  transform: scale(1.04) !important;
 }
 
-/* Product Lower Content */
-.shop-block-one .lower-content {
-  padding: 18px 20px 22px !important;
-  background: #ffffff !important;
-}
-
+/* Product Titles */
 .shop-block-one .lower-content h4,
-.sales-block-one .content-box h6 {
+.sales-block-one .content-box h6,
+.product-card-title {
+  font-family: 'Raleway', sans-serif !important;
   font-size: 15px !important;
   font-weight: 700 !important;
   line-height: 1.4 !important;
-  height: 44px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  color: var(--luxury-obsidian) !important;
-  margin-bottom: 10px !important;
+  color: #000000 !important;
+  margin-bottom: 8px !important;
 }
 
-.shop-block-one .lower-content h4 a:hover {
-  color: var(--theme-color) !important;
+.shop-block-one .lower-content h4 a:hover,
+.product-card-title a:hover {
+  color: #52525B !important;
 }
 
-/* Luxury Price Typography */
+/* Price Typography */
 .shop-block-one .price,
 .product-price {
+  font-family: 'Raleway', sans-serif !important;
   font-size: 18px !important;
   font-weight: 800 !important;
-  color: var(--luxury-obsidian) !important;
+  color: #000000 !important;
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -135,17 +191,21 @@ body {
 
 .old-price,
 del {
+  font-family: 'Lato', sans-serif !important;
   font-size: 13px !important;
   font-weight: 500 !important;
-  color: #94a3b8 !important;
+  color: #71717A !important;
   text-decoration: line-through;
 }
 
-/* Ultra Luxury Badges */
+/* ==========================================================================
+   BADGES - STRICT MONOCHROME PILLS
+   ========================================================================== */
+
 .badge-oem {
-  background: #F0FDF4;
-  border: 1px solid #86EFAC;
-  color: #15803D;
+  background: #F4F4F5 !important;
+  border: 1px solid #E4E4E7 !important;
+  color: #000000 !important;
   font-size: 11px;
   font-weight: 700;
   padding: 3px 8px;
@@ -157,9 +217,9 @@ del {
 }
 
 .badge-luxury {
-  background: var(--theme-color-light);
-  border: 1px solid var(--luxury-border-gold);
-  color: #854D0E;
+  background: #000000 !important;
+  border: 1px solid #000000 !important;
+  color: #FFFFFF !important;
   font-size: 11px;
   font-weight: 700;
   padding: 3px 8px;
@@ -171,22 +231,22 @@ del {
 }
 
 .badge-instock {
-  background: #EFF6FF;
-  border: 1px solid #BFDBFE;
-  color: #1D4ED8;
+  background: #FAFAFA !important;
+  border: 1px solid #D4D4D8 !important;
+  color: #27272A !important;
   font-size: 11px;
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 6px;
 }
 
-/* Cart Badge in Navigation */
+/* Navigation Cart Badge */
 .cart-badge {
   position: absolute;
   top: -8px;
   right: -8px;
-  background: var(--theme-color);
-  color: #fff;
+  background: #000000 !important;
+  color: #FFFFFF !important;
   font-size: 11px;
   font-weight: 800;
   width: 20px;
@@ -195,67 +255,72 @@ del {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.4);
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .cart-icon-wrapper {
   position: relative;
 }
 
-/* Luxury Buttons */
+/* ==========================================================================
+   BUTTONS - BLACK, GREY & WHITE
+   ========================================================================== */
+
 .btn-luxury-primary {
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  background: #000000 !important;
   color: #FFFFFF !important;
   font-weight: 700;
-  border-radius: 10px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid #000000;
   padding: 12px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .btn-luxury-primary:hover {
-  background: linear-gradient(135deg, #C5A059 0%, #B38E46 100%) !important;
+  background: #27272A !important;
+  border-color: #27272A !important;
   color: #FFFFFF !important;
-  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   transform: translateY(-1px);
 }
 
 .btn-luxury-gold {
-  background: linear-gradient(135deg, #C5A059 0%, #B38E46 100%);
+  background: #18181B !important;
   color: #FFFFFF !important;
   font-weight: 700;
-  border-radius: 10px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid #27272A;
   padding: 12px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .btn-luxury-gold:hover {
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+  background: #000000 !important;
+  border-color: #000000 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   transform: translateY(-1px);
 }
 
 .btn-luxury-outline {
-  background: #FFFFFF;
-  color: var(--luxury-obsidian) !important;
+  background: #FFFFFF !important;
+  color: #000000 !important;
   font-weight: 700;
-  border-radius: 10px;
-  border: 1.5px solid var(--luxury-border);
+  border-radius: 8px;
+  border: 1.5px solid #E4E4E7;
   padding: 11px 22px;
   display: inline-flex;
   align-items: center;
@@ -266,38 +331,44 @@ del {
 }
 
 .btn-luxury-outline:hover {
-  border-color: var(--theme-color);
-  color: var(--theme-color) !important;
-  background: var(--theme-color-light);
+  border-color: #000000 !important;
+  color: #000000 !important;
+  background: #F4F4F5 !important;
 }
 
-/* Light Theme Navigation & Header Bar */
+/* ==========================================================================
+   NAVIGATION & HEADER
+   ========================================================================== */
+
 .main-header.header-custom {
-  background: #ffffff !important;
-  border-bottom: 1px solid var(--luxury-border) !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02) !important;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #E4E4E7 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02) !important;
 }
 
 .header-top-new {
-  background: #ffffff !important;
-  border-bottom: 1px solid #f1f5f9 !important;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #F4F4F5 !important;
 }
 
 .header-lower-new {
-  background: #ffffff !important;
+  background: #FFFFFF !important;
 }
 
 .nav-links li a {
-  color: var(--luxury-obsidian) !important;
+  color: #18181B !important;
   font-weight: 600 !important;
   transition: color 0.2s ease;
 }
 
 .nav-links li a:hover {
-  color: var(--theme-color) !important;
+  color: #000000 !important;
 }
 
-/* Light Theme Form Controls */
+/* ==========================================================================
+   FORM CONTROLS & INPUTS
+   ========================================================================== */
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -305,74 +376,78 @@ input[type="number"],
 input[type="search"],
 textarea,
 select {
-  background: #ffffff !important;
-  border: 1.5px solid var(--luxury-border) !important;
-  border-radius: 10px !important;
-  color: var(--luxury-obsidian) !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid #E4E4E7 !important;
+  border-radius: 8px !important;
+  color: #000000 !important;
   transition: all 0.2s ease !important;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: var(--theme-color) !important;
-  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15) !important;
+  border-color: #000000 !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08) !important;
   outline: none !important;
 }
 
-/* Luxury Breadcrumb */
+/* Breadcrumbs */
 .luxury-breadcrumb {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: var(--luxury-muted);
+  color: #71717A;
   padding: 16px 0;
 }
 
 .luxury-breadcrumb a {
-  color: var(--luxury-muted);
+  color: #71717A;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .luxury-breadcrumb a:hover {
-  color: var(--theme-color);
+  color: #000000;
 }
 
 .luxury-breadcrumb .separator {
-  color: #cbd5e1;
+  color: #D4D4D8;
 }
 
 .luxury-breadcrumb .current {
-  color: var(--luxury-obsidian);
-  font-weight: 600;
+  color: #000000;
+  font-weight: 700;
 }
 
-/* Ultra Luxury Footer Styling */
+/* ==========================================================================
+   FOOTER - SLEEK DEEP OBSIDIAN & MONOCHROME
+   ========================================================================== */
+
 .main-footer {
-  background: #f8fafc !important;
-  border-top: 1px solid var(--luxury-border) !important;
-  color: var(--luxury-slate) !important;
+  background: #0A0A0A !important;
+  border-top: 1px solid #27272A !important;
+  color: #A1A1AA !important;
 }
 
 .main-footer .widget-title h4 {
-  color: var(--luxury-obsidian) !important;
+  font-family: 'Raleway', sans-serif !important;
+  color: #FFFFFF !important;
   font-weight: 800 !important;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.02em;
 }
 
 .main-footer .links-list li a {
-  color: var(--luxury-muted) !important;
+  color: #A1A1AA !important;
   transition: color 0.2s ease;
 }
 
 .main-footer .links-list li a:hover {
-  color: var(--theme-color) !important;
+  color: #FFFFFF !important;
 }
 
 .footer-bottom {
-  background: #ffffff !important;
-  border-top: 1px solid #e2e8f0 !important;
-  color: var(--luxury-muted) !important;
+  background: #050505 !important;
+  border-top: 1px solid #1F2937 !important;
+  color: #71717A !important;
 }

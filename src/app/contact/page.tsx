@@ -76,21 +76,21 @@ export default function ContactPage() {
       <section style={{ padding: '60px 0 40px', background: '#FAFBFC' }}>
         <div className="auto-container">
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
-            <span style={{ color: '#C5A059', fontWeight: 800, fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+            <span style={{ color: '#000000', fontWeight: 800, fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', fontFamily: "'Raleway', sans-serif" }}>
               REACH OUR SPECIALISTS
             </span>
             <h1
               style={{
                 fontSize: '32px',
                 fontWeight: 900,
-                color: '#0F172A',
-                fontFamily: "'Outfit', sans-serif",
+                color: '#000000',
+                fontFamily: "'Raleway', sans-serif",
                 marginTop: '8px',
               }}
             >
               Get In Touch With Our Technical Parts Desk
             </h1>
-            <div style={{ width: '60px', height: '3px', background: '#C5A059', margin: '14px auto 0', borderRadius: '2px' }}></div>
+            <div style={{ width: '60px', height: '3px', background: '#000000', margin: '14px auto 0', borderRadius: '2px' }}></div>
           </div>
 
           <div
@@ -101,56 +101,56 @@ export default function ContactPage() {
             }}
           >
             {/* Card 1: Facility Location */}
-            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF' }}>
+            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF', border: '1px solid #E4E4E7' }}>
               <div
                 style={{
                   width: '56px',
                   height: '56px',
                   borderRadius: '50%',
-                  background: '#FBF7EE',
-                  border: '1.5px solid #C5A059',
+                  background: '#F4F4F5',
+                  border: '1.5px solid #E4E4E7',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: '0 auto 18px',
-                  color: '#C5A059',
+                  color: '#000000',
                   fontSize: '20px',
                 }}
               >
                 <i className="fas fa-map-marker-alt"></i>
               </div>
-              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#000000', marginBottom: '8px', fontFamily: "'Raleway', sans-serif" }}>
                 Central Facility & Warehouse
               </h4>
-              <p style={{ color: '#64748B', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+              <p style={{ color: '#71717A', fontSize: '13px', lineHeight: '1.6', margin: 0, fontFamily: "'Lato', sans-serif" }}>
                 {siteConfig.geo.address.streetAddress}, {siteConfig.geo.address.addressLocality} {siteConfig.geo.address.postalCode}
               </p>
             </div>
 
             {/* Card 2: Phone & WhatsApp */}
-            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF' }}>
+            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF', border: '1px solid #E4E4E7' }}>
               <div
                 style={{
                   width: '56px',
                   height: '56px',
                   borderRadius: '50%',
-                  background: '#F0FDF4',
-                  border: '1.5px solid #86EFAC',
+                  background: '#F4F4F5',
+                  border: '1.5px solid #E4E4E7',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: '0 auto 18px',
-                  color: '#15803D',
+                  color: '#000000',
                   fontSize: '20px',
                 }}
               >
                 <i className="fab fa-whatsapp"></i>
               </div>
-              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#000000', marginBottom: '8px', fontFamily: "'Raleway', sans-serif" }}>
                 Direct Hotline & WhatsApp
               </h4>
-              <p style={{ margin: '0 0 6px', fontSize: '14px', fontWeight: 700, color: '#0F172A' }}>
-                <a href={`tel:${siteConfig.contact.phone}`} style={{ color: '#0F172A', textDecoration: 'none' }}>
+              <p style={{ margin: '0 0 6px', fontSize: '14px', fontWeight: 800, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>
+                <a href={`tel:${siteConfig.contact.phone}`} style={{ color: '#000000', textDecoration: 'none' }}>
                   {siteConfig.contact.phoneFormatted}
                 </a>
               </p>
@@ -158,38 +158,38 @@ export default function ContactPage() {
                 href={`https://wa.me/${siteConfig.contact.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: '#15803D', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}
+                style={{ color: '#52525B', fontSize: '13px', fontWeight: 700, textDecoration: 'underline', fontFamily: "'Lato', sans-serif" }}
               >
                 Chat on WhatsApp Now →
               </a>
             </div>
 
             {/* Card 3: Support Hours */}
-            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF' }}>
+            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF', border: '1px solid #E4E4E7' }}>
               <div
                 style={{
                   width: '56px',
                   height: '56px',
                   borderRadius: '50%',
-                  background: '#EFF6FF',
-                  border: '1.5px solid #BFDBFE',
+                  background: '#F4F4F5',
+                  border: '1.5px solid #E4E4E7',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: '0 auto 18px',
-                  color: '#1D4ED8',
+                  color: '#000000',
                   fontSize: '20px',
                 }}
               >
                 <i className="fas fa-clock"></i>
               </div>
-              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#000000', marginBottom: '8px', fontFamily: "'Raleway', sans-serif" }}>
                 Operating Hours
               </h4>
-              <p style={{ color: '#64748B', fontSize: '13px', lineHeight: '1.6', margin: '0 0 4px' }}>
+              <p style={{ color: '#71717A', fontSize: '13px', lineHeight: '1.6', margin: '0 0 4px', fontFamily: "'Lato', sans-serif" }}>
                 Monday to Saturday: 9:30 AM – 7:30 PM IST
               </p>
-              <span style={{ fontSize: '12px', color: '#94A3B8' }}>Sunday: Urgent Dispatch on Request</span>
+              <span style={{ fontSize: '12px', color: '#A1A1AA', fontFamily: "'Lato', sans-serif" }}>Sunday: Urgent Dispatch on Request</span>
             </div>
           </div>
         </div>
@@ -198,11 +198,11 @@ export default function ContactPage() {
       {/* Contact Form Section */}
       <section style={{ padding: '40px 0 80px', background: '#FAFBFC' }}>
         <div className="auto-container" style={{ maxWidth: '750px' }}>
-          <div className="luxury-card" style={{ padding: '36px', background: '#FFFFFF' }}>
-            <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
+          <div className="luxury-card" style={{ padding: '36px', background: '#FFFFFF', border: '1px solid #E4E4E7' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#000000', marginBottom: '6px', fontFamily: "'Raleway', sans-serif" }}>
               Send an Enquiry or Fitment Request
             </h3>
-            <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>
+            <p style={{ color: '#71717A', fontSize: '14px', marginBottom: '24px', fontFamily: "'Lato', sans-serif" }}>
               Provide your vehicle details (Make, Model, Year, VIN) and the exact part you are looking for.
             </p>
 
@@ -212,11 +212,12 @@ export default function ContactPage() {
                   padding: '14px 18px',
                   borderRadius: '10px',
                   marginBottom: '20px',
-                  background: status.type === 'success' ? '#F0FDF4' : '#FEF2F2',
-                  border: status.type === 'success' ? '1px solid #86EFAC' : '1px solid #FCA5A5',
-                  color: status.type === 'success' ? '#15803D' : '#991B1B',
+                  background: '#F4F4F5',
+                  border: '1px solid #D4D4D8',
+                  color: '#000000',
                   fontSize: '14px',
                   fontWeight: 600,
+                  fontFamily: "'Lato', sans-serif",
                 }}
               >
                 {status.message}
@@ -226,7 +227,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#000000', marginBottom: '6px', textTransform: 'uppercase', fontFamily: "'Raleway', sans-serif" }}>
                     Full Name *
                   </label>
                   <input
@@ -235,11 +236,11 @@ export default function ContactPage() {
                     placeholder="e.g. Vikram Singhania"
                     value={formData.username}
                     onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                    style={{ width: '100%', padding: '12px 14px', fontSize: '13px' }}
+                    style={{ width: '100%', padding: '12px 14px', fontSize: '13px', border: '1px solid #E4E4E7', borderRadius: '8px', fontFamily: "'Lato', sans-serif" }}
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#000000', marginBottom: '6px', textTransform: 'uppercase', fontFamily: "'Raleway', sans-serif" }}>
                     10-Digit Mobile / WhatsApp *
                   </label>
                   <input
@@ -249,13 +250,13 @@ export default function ContactPage() {
                     placeholder="9876543210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    style={{ width: '100%', padding: '12px 14px', fontSize: '13px' }}
+                    style={{ width: '100%', padding: '12px 14px', fontSize: '13px', border: '1px solid #E4E4E7', borderRadius: '8px', fontFamily: "'Lato', sans-serif" }}
                   />
                 </div>
               </div>
 
               <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#000000', marginBottom: '6px', textTransform: 'uppercase', fontFamily: "'Raleway', sans-serif" }}>
                   Email Address
                 </label>
                 <input
@@ -263,12 +264,12 @@ export default function ContactPage() {
                   placeholder="name@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  style={{ width: '100%', padding: '12px 14px', fontSize: '13px' }}
+                  style={{ width: '100%', padding: '12px 14px', fontSize: '13px', border: '1px solid #E4E4E7', borderRadius: '8px', fontFamily: "'Lato', sans-serif" }}
                 />
               </div>
 
               <div style={{ marginBottom: '24px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#000000', marginBottom: '6px', textTransform: 'uppercase', fontFamily: "'Raleway', sans-serif" }}>
                   Vehicle Model, Year & Required Part *
                 </label>
                 <textarea
@@ -277,7 +278,7 @@ export default function ContactPage() {
                   placeholder="e.g. BMW 520d (F10, 2015) - Need front right LED headlight module and brake pads. Chassis number: WBA..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  style={{ width: '100%', padding: '12px 14px', fontSize: '13px', resize: 'vertical' }}
+                  style={{ width: '100%', padding: '12px 14px', fontSize: '13px', resize: 'vertical', border: '1px solid #E4E4E7', borderRadius: '8px', fontFamily: "'Lato', sans-serif" }}
                 ></textarea>
               </div>
 
@@ -285,7 +286,7 @@ export default function ContactPage() {
                 type="submit"
                 disabled={loading}
                 className="btn-luxury-primary"
-                style={{ width: '100%', padding: '14px', fontSize: '14px' }}
+                style={{ width: '100%', padding: '14px', fontSize: '14px', fontFamily: "'Raleway', sans-serif", letterSpacing: '1px' }}
               >
                 {loading ? 'Submitting Enquiry...' : 'SUBMIT ENQUIRY'}
               </button>

@@ -25,24 +25,24 @@ function ThankYouContent() {
   return (
     <>
       <OriginalHeader />
-      <section className="thank-you-section p_relative pt_80 pb_100">
+      <section className="thank-you-section p_relative pt_80 pb_100" style={{ background: '#FAFBFC' }}>
         <div className="auto-container">
           <div
             className="card p-5 text-center shadow-sm"
-            style={{ borderRadius: '20px', border: 'none', maxWidth: '850px', margin: '0 auto', background: '#fff' }}
+            style={{ borderRadius: '16px', border: '1px solid #E4E4E7', maxWidth: '850px', margin: '0 auto', background: '#fff' }}
           >
             <div className="icon-box mb_20">
-              <i className="fas fa-check-circle" style={{ fontSize: '75px', color: '#10b981' }}></i>
+              <i className="fas fa-check-circle" style={{ fontSize: '75px', color: '#000000' }}></i>
             </div>
-            <h2 style={{ fontWeight: 800, color: '#111', marginBottom: '8px' }}>Order Placed Successfully!</h2>
-            <p style={{ fontSize: '16px', color: '#666', maxWidth: '600px', margin: '0 auto 20px' }}>
+            <h2 style={{ fontWeight: 900, color: '#000000', marginBottom: '8px', fontFamily: "'Raleway', sans-serif" }}>Order Placed Successfully!</h2>
+            <p style={{ fontSize: '15px', color: '#71717A', maxWidth: '600px', margin: '0 auto 20px', fontFamily: "'Lato', sans-serif" }}>
               Thank you for shopping with Off Road Connection Parts. Your order is confirmed and our warehouse is preparing dispatch.
             </p>
 
             <div
               style={{
-                background: '#FBF7EE',
-                border: '1.5px dashed #C5A059',
+                background: '#F4F4F5',
+                border: '1.5px solid #D4D4D8',
                 padding: '16px 30px',
                 borderRadius: '12px',
                 display: 'inline-flex',
@@ -52,19 +52,21 @@ function ThankYouContent() {
               }}
             >
               <div>
-                <span style={{ fontSize: '13px', color: '#64748B', display: 'block', textTransform: 'uppercase' }}>
+                <span style={{ fontSize: '12px', color: '#71717A', display: 'block', textTransform: 'uppercase', fontFamily: "'Raleway', sans-serif", fontWeight: 700, letterSpacing: '0.5px' }}>
                   Your Tracking Order ID
                 </span>
-                <strong style={{ fontSize: '22px', color: '#C5A059', letterSpacing: '1px' }}>{orderNumber}</strong>
+                <strong style={{ fontSize: '22px', color: '#000000', letterSpacing: '1px', fontFamily: "'Raleway', sans-serif" }}>{orderNumber}</strong>
               </div>
               <span
                 style={{
-                  background: '#10b981',
+                  background: '#000000',
                   color: '#fff',
-                  padding: '4px 12px',
+                  padding: '6px 14px',
                   borderRadius: '20px',
-                  fontSize: '12px',
-                  fontWeight: 700,
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  fontFamily: "'Raleway', sans-serif",
+                  letterSpacing: '0.5px',
                 }}
               >
                 {orderDetails?.payment_status === 'paid' ? 'PAID ONLINE (RAZORPAY)' : 'COD CONFIRMED'}
@@ -74,8 +76,8 @@ function ThankYouContent() {
             {/* Estimated Delivery & Tracking card */}
             <div
               style={{
-                background: '#f8fafc',
-                border: '1px solid #e2e8f0',
+                background: '#FAFBFC',
+                border: '1px solid #E4E4E7',
                 borderRadius: '12px',
                 padding: '24px',
                 textAlign: 'left',
@@ -83,26 +85,26 @@ function ThankYouContent() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '15px' }}>
-                <h5 style={{ fontWeight: 800, margin: 0, color: '#1e293b' }}>
-                  <i className="fas fa-shipping-fast text-success me-2"></i> Pan-India Express Logistics
+                <h5 style={{ fontWeight: 800, margin: 0, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>
+                  <i className="fas fa-shipping-fast text-dark me-2"></i> Pan-India Express Logistics
                 </h5>
-                <span style={{ fontSize: '13px', color: '#047857', fontWeight: 700 }}>
+                <span style={{ fontSize: '13px', color: '#52525B', fontWeight: 700, fontFamily: "'Lato', sans-serif" }}>
                   Estimated Delivery: {orderDetails?.estimated_delivery_date || 'Within 2-4 Business Days'}
                 </span>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', fontSize: '14px', color: '#475569' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', fontSize: '14px', color: '#52525B', fontFamily: "'Lato', sans-serif" }}>
                 <div>
-                  <span style={{ display: 'block', fontSize: '12px', color: '#94a3b8' }}>Courier Partner</span>
-                  <strong>{orderDetails?.courier_name || 'BlueDart / Delhivery Express'}</strong>
+                  <span style={{ display: 'block', fontSize: '12px', color: '#A1A1AA', fontFamily: "'Raleway', sans-serif", fontWeight: 700, textTransform: 'uppercase' }}>Courier Partner</span>
+                  <strong style={{ color: '#000000' }}>{orderDetails?.courier_name || 'BlueDart / Delhivery Express'}</strong>
                 </div>
                 <div>
-                  <span style={{ display: 'block', fontSize: '12px', color: '#94a3b8' }}>Delivery Pincode</span>
-                  <strong>{orderDetails?.shipping_address?.pincode || 'Verified Serviceable'}</strong>
+                  <span style={{ display: 'block', fontSize: '12px', color: '#A1A1AA', fontFamily: "'Raleway', sans-serif", fontWeight: 700, textTransform: 'uppercase' }}>Delivery Pincode</span>
+                  <strong style={{ color: '#000000' }}>{orderDetails?.shipping_address?.pincode || 'Verified Serviceable'}</strong>
                 </div>
                 <div>
-                  <span style={{ display: 'block', fontSize: '12px', color: '#94a3b8' }}>Customer Contact</span>
-                  <strong>+91 {orderDetails?.customer_phone || 'Registered Phone'}</strong>
+                  <span style={{ display: 'block', fontSize: '12px', color: '#A1A1AA', fontFamily: "'Raleway', sans-serif", fontWeight: 700, textTransform: 'uppercase' }}>Customer Contact</span>
+                  <strong style={{ color: '#000000' }}>+91 {orderDetails?.customer_phone || 'Registered Phone'}</strong>
                 </div>
               </div>
             </div>
@@ -111,14 +113,12 @@ function ThankYouContent() {
             <div className="actions d-flex justify-content-center gap-3 flex-wrap">
               <Link
                 href="/shop"
-                className="theme-btn"
+                className="btn-luxury-primary"
                 style={{
-                  background: '#FF6B00',
-                  color: '#fff',
                   padding: '14px 32px',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   display: 'inline-block',
                 }}
               >
@@ -128,18 +128,18 @@ function ThankYouContent() {
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="theme-btn"
                 style={{
-                  background: '#1e293b',
-                  color: '#fff',
+                  background: '#F4F4F5',
+                  color: '#000000',
                   padding: '14px 28px',
                   borderRadius: '8px',
-                  border: 'none',
-                  fontWeight: 700,
+                  border: '1px solid #D4D4D8',
+                  fontWeight: 800,
                   cursor: 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
+                  fontFamily: "'Raleway', sans-serif",
                 }}
               >
                 <i className="fas fa-print"></i> Print Invoice
@@ -151,17 +151,17 @@ function ThankYouContent() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="theme-btn"
                 style={{
-                  background: '#25D366',
+                  background: '#27272A',
                   color: '#fff',
                   padding: '14px 28px',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
+                  fontFamily: "'Raleway', sans-serif",
                 }}
               >
                 <i className="fab fa-whatsapp" style={{ fontSize: '1.2rem' }}></i> WhatsApp Updates
@@ -180,7 +180,7 @@ export default function ThankYouPage() {
     <Suspense
       fallback={
         <div className="py-5 text-center" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <i className="fas fa-spinner fa-spin" style={{ fontSize: '36px', color: '#C5A059' }}></i>
+          <i className="fas fa-spinner fa-spin" style={{ fontSize: '36px', color: '#000000' }}></i>
         </div>
       }
     >

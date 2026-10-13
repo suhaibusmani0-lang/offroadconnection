@@ -71,8 +71,8 @@ export default function PincodeEstimator({ onPincodeSelect }: { onPincodeSelect?
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-        <i className="fas fa-map-marker-alt" style={{ color: '#C5A059', fontSize: '18px' }}></i>
-        <span style={{ fontWeight: 700, fontSize: '14px', color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.3px' }}>
+        <i className="fas fa-map-marker-alt" style={{ color: '#000000', fontSize: '18px' }}></i>
+        <span style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 800, fontSize: '14px', color: '#000000', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
           Pan-India Pincode Delivery Check
         </span>
       </div>
@@ -93,11 +93,12 @@ export default function PincodeEstimator({ onPincodeSelect }: { onPincodeSelect?
           style={{
             flex: 1,
             padding: '10px 14px',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid #E4E4E7',
             borderRadius: '8px',
             fontSize: '13px',
             outline: 'none',
             background: '#ffffff',
+            fontFamily: "'Lato', sans-serif",
           }}
         />
         <button
@@ -105,21 +106,23 @@ export default function PincodeEstimator({ onPincodeSelect }: { onPincodeSelect?
           onClick={() => checkPincode()}
           disabled={loading || pincode.length !== 6}
           style={{
-            background: pincode.length === 6 ? '#0F172A' : '#d1d5db',
+            background: pincode.length === 6 ? '#000000' : '#A1A1AA',
             color: '#ffffff',
             padding: '10px 20px',
             border: 'none',
             borderRadius: '8px',
-            fontWeight: 700,
+            fontWeight: 800,
             fontSize: '13px',
             cursor: pincode.length === 6 ? 'pointer' : 'not-allowed',
             transition: 'all 0.2s',
+            fontFamily: "'Raleway', sans-serif",
+            letterSpacing: '0.5px',
           }}
           onMouseEnter={(e) => {
-            if (pincode.length === 6) e.currentTarget.style.background = '#C5A059';
+            if (pincode.length === 6) e.currentTarget.style.background = '#27272A';
           }}
           onMouseLeave={(e) => {
-            if (pincode.length === 6) e.currentTarget.style.background = '#0F172A';
+            if (pincode.length === 6) e.currentTarget.style.background = '#000000';
           }}
         >
           {loading ? 'Checking...' : 'Check'}
@@ -127,45 +130,45 @@ export default function PincodeEstimator({ onPincodeSelect }: { onPincodeSelect?
       </div>
 
       {error && (
-        <div style={{ color: '#dc2626', fontSize: '13px', marginTop: '8px' }}>
+        <div style={{ color: '#000000', background: '#F4F4F5', border: '1px solid #D4D4D8', padding: '8px 12px', borderRadius: '6px', fontSize: '13px', marginTop: '10px', fontFamily: "'Lato', sans-serif" }}>
           <i className="fas fa-exclamation-circle" style={{ marginRight: '6px' }}></i>
           {error}
         </div>
       )}
 
       {deliveryInfo && (
-        <div style={{ marginTop: '14px', fontSize: '14px', color: '#374151' }}>
+        <div style={{ marginTop: '14px', fontSize: '14px', color: '#18181B', fontFamily: "'Lato', sans-serif" }}>
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              fontWeight: 600,
-              color: '#047857',
+              fontWeight: 700,
+              color: '#000000',
               marginBottom: '6px',
             }}
           >
-            <i className="fas fa-shipping-fast" style={{ fontSize: '16px' }}></i>
+            <i className="fas fa-shipping-fast" style={{ fontSize: '16px', color: '#000000' }}></i>
             <span>
               Estimated Delivery by <strong>{deliveryInfo.estimatedDate}</strong>
             </span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginTop: '8px', fontSize: '13px', color: '#4b5563' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginTop: '8px', fontSize: '13px', color: '#52525B' }}>
             <div>
-              <i className="fas fa-check-circle" style={{ color: '#10b981', marginRight: '6px' }}></i>
+              <i className="fas fa-check-circle" style={{ color: '#000000', marginRight: '6px' }}></i>
               {deliveryInfo.city && deliveryInfo.state ? `${deliveryInfo.city}, ${deliveryInfo.state}` : 'Serviceable Location'}
             </div>
             <div>
-              <i className="fas fa-check-circle" style={{ color: '#10b981', marginRight: '6px' }}></i>
+              <i className="fas fa-check-circle" style={{ color: '#000000', marginRight: '6px' }}></i>
               Free Delivery on All Orders
             </div>
             <div>
-              <i className="fas fa-money-bill-wave" style={{ color: '#10b981', marginRight: '6px' }}></i>
+              <i className="fas fa-check-circle" style={{ color: '#000000', marginRight: '6px' }}></i>
               {deliveryInfo.codAvailable ? 'Cash on Delivery Available' : 'Prepaid Only'}
             </div>
             <div>
-              <i className="fas fa-undo-alt" style={{ color: '#10b981', marginRight: '6px' }}></i>
+              <i className="fas fa-shield-alt" style={{ color: '#000000', marginRight: '6px' }}></i>
               7 Days Genuine Parts Guarantee
             </div>
           </div>

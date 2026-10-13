@@ -43,21 +43,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-white flex flex-col md:flex-row font-sans">
+    <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col md:flex-row font-body" style={{ fontFamily: "'Lato', sans-serif" }}>
       {/* Sidebar */}
-      <aside className="w-full md:w-72 bg-[#0F172A] border-r border-slate-800 flex flex-col justify-between flex-shrink-0">
+      <aside className="w-full md:w-72 bg-[#121212] border-r border-[#27272A] flex flex-col justify-between flex-shrink-0">
         <div>
           {/* Brand Header */}
-          <div className="p-6 border-b border-slate-800">
+          <div className="p-6 border-b border-[#27272A]">
             <Link href="/admin/crm" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#C5A059] to-[#DFBA73] flex items-center justify-center text-slate-950 font-black shadow-lg shadow-[#C5A059]/20">
+              <div className="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center font-black shadow-lg" style={{ fontFamily: "'Raleway', sans-serif" }}>
                 OR
               </div>
               <div>
-                <div className="font-extrabold text-base tracking-wider text-white">
+                <div className="font-extrabold text-base tracking-wider text-white" style={{ fontFamily: "'Raleway', sans-serif" }}>
                   OFF ROAD CRM
                 </div>
-                <div className="text-[11px] font-semibold text-[#C5A059] tracking-widest uppercase">
+                <div className="text-[11px] font-semibold text-[#A1A1AA] tracking-widest uppercase" style={{ fontFamily: "'Raleway', sans-serif" }}>
                   Enterprise Suite
                 </div>
               </div>
@@ -66,7 +66,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
           {/* Navigation Links */}
           <nav className="p-4 space-y-1.5">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-2">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-[#71717A] px-3 py-2" style={{ fontFamily: "'Raleway', sans-serif" }}>
               Management Portal
             </div>
             {navItems.map((item) => {
@@ -78,16 +78,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   href={item.href}
                   className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#C5A059]/20 to-transparent text-[#C5A059] border-l-4 border-[#C5A059]'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                      ? 'bg-[#27272A] text-white border-l-4 border-white'
+                      : 'text-[#A1A1AA] hover:text-white hover:bg-[#1C1C1E]'
                   }`}
+                  style={{ fontFamily: "'Lato', sans-serif" }}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-5 h-5 ${isActive ? 'text-[#C5A059]' : 'text-slate-400'}`} />
+                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-[#71717A]'}`} />
                     <span>{item.label}</span>
                   </div>
                   {item.badge && (
-                    <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-[#C5A059]/20 text-[#C5A059]">
+                    <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-white text-black" style={{ fontFamily: "'Raleway', sans-serif" }}>
                       {item.badge}
                     </span>
                   )}
@@ -98,18 +99,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
 
         {/* Footer Quick Links */}
-        <div className="p-4 border-t border-slate-800 space-y-2">
+        <div className="p-4 border-t border-[#27272A] space-y-2">
           <Link
             href="/"
             target="_blank"
-            className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-slate-300 bg-slate-800/80 hover:bg-slate-800 hover:text-[#C5A059] transition-all border border-slate-700/50"
+            className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-[#D4D4D8] bg-[#1C1C1E] hover:bg-[#27272A] hover:text-white transition-all border border-[#27272A]"
+            style={{ fontFamily: "'Raleway', sans-serif" }}
           >
             <ExternalLink className="w-4 h-4" />
             <span>View Public Store</span>
           </Link>
           <Link
             href="/admin/login"
-            className="flex items-center justify-center gap-2 w-full py-2 text-xs font-semibold text-rose-400 hover:text-rose-300 transition-colors"
+            className="flex items-center justify-center gap-2 w-full py-2 text-xs font-semibold text-[#A1A1AA] hover:text-white transition-colors"
+            style={{ fontFamily: "'Lato', sans-serif" }}
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Sign Out</span>
@@ -118,7 +121,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 overflow-y-auto bg-[#0B0F19] min-h-screen">
+      <main className="flex-1 overflow-y-auto bg-[#0A0A0A] min-h-screen">
         {children}
       </main>
     </div>
