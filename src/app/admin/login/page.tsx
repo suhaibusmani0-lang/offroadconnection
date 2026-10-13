@@ -6,8 +6,8 @@ import { ShieldCheck, Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('admin123');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -17,14 +17,14 @@ export default function AdminLoginPage() {
     setError('');
 
     // Credentials check
-    if (username === 'admin' && (password === 'admin123' || password === 'admin')) {
+    if (username.trim() === 'admin' && (password === 'admin123' || password === 'admin')) {
       try {
         localStorage.setItem('offroad_admin_logged_in', 'true');
         document.cookie = 'offroad_admin_session=authenticated; path=/; max-age=86400';
       } catch (err) {}
       router.push('/admin/crm');
     } else {
-      setError('Invalid admin credentials. Please use admin / admin123.');
+      setError('Invalid administrator credentials. Access restricted.');
       setLoading(false);
     }
   };
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="admin"
+                placeholder="Enter administrator ID"
                 className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 style={{ fontFamily: "'Lato', sans-serif" }}
               />
@@ -83,7 +83,7 @@ export default function AdminLoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
+                placeholder="Enter password"
                 className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 style={{ fontFamily: "'Lato', sans-serif" }}
               />
@@ -94,7 +94,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 px-6 rounded-xl bg-white text-black font-black text-sm tracking-wider shadow-lg hover:bg-[#E4E4E7] active:scale-95 transition-all flex items-center justify-center gap-2"
+              className="w-full py-3.5 px-6 rounded-xl bg-white text-black font-black text-sm tracking-wider shadow-lg hover:bg-[#E4E4E7] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               style={{ fontFamily: "'Raleway', sans-serif" }}
             >
               <span>{loading ? 'Authenticating...' : 'Access Enterprise Portal'}</span>
@@ -104,8 +104,7 @@ export default function AdminLoginPage() {
         </form>
 
         <div className="mt-8 pt-6 border-t border-[#27272A] text-center text-xs text-[#71717A]" style={{ fontFamily: "'Lato', sans-serif" }}>
-          <div>Protected with 256-bit TLS encryption</div>
-          <div className="mt-1">Default credentials: <span className="text-white font-mono font-bold">admin / admin123</span></div>
+          <div>Protected with 256-bit TLS encryption • Authorized Personnel Only</div>
         </div>
       </div>
     </div>
