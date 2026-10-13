@@ -40,12 +40,11 @@
    Strict: Only Raleway for Headings and Lato for Body
    ========================================================================== */
 
-*,
 html,
 body,
 p,
-span,
-a,
+span:not([class*="fa"]):not([class*="icon"]):not([class*="flaticon"]),
+a:not([class*="fa"]):not([class*="icon"]):not([class*="flaticon"]),
 div,
 input,
 select,
@@ -59,7 +58,25 @@ strong,
 b,
 em,
 small {
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Explicit protection for icon fonts so they NEVER render as square tofu boxes */
+i,
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab,
+[class^="fa-"],
+[class*=" fa-"],
+[class^="flaticon-"],
+[class*=" flaticon-"],
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'Font Awesome 5 Pro', 'Font Awesome 6 Free', 'Font Awesome 5 Free', 'FontAwesome', 'flaticon' !important;
+  font-style: normal !important;
 }
 
 h1,

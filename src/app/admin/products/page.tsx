@@ -25,6 +25,7 @@ import {
   DollarSign,
   Boxes,
   ArrowUpDown,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { formatImageUrl } from '@/lib/image';
 import { LUXURY_MAKES } from '@/constants/vehicles';
@@ -103,6 +104,65 @@ export default function AdminProductsPage() {
   };
   const [formData, setFormData] = useState(initialForm);
   const [formSubmitting, setFormSubmitting] = useState(false);
+
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const imageFileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+
+    setIsUploadingImage(true);
+    try {
+      const uploadData = new FormData();
+      Array.from(files).forEach((f) => uploadData.append('files', f));
+
+      const res = await fetch('/api/admin/upload', {
+        method: 'POST',
+        body: uploadData,
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to upload image');
+      }
+
+      const currentImages = formData.images
+        ? formData.images
+            .split(/[\n,]/)
+            .map((s) => s.trim())
+            .filter(Boolean)
+        : [];
+
+      const newImages = [...currentImages, ...(data.urls || [data.url])];
+      setFormData((prev) => ({
+        ...prev,
+        images: newImages.join('\n'),
+      }));
+
+      showToast(`Successfully uploaded ${data.count || 1} image(s)!`, 'success');
+    } catch (err: any) {
+      showToast(err.message || 'Image upload failed', 'error');
+    } finally {
+      setIsUploadingImage(false);
+      if (imageFileInputRef.current) imageFileInputRef.current.value = '';
+    }
+  };
+
+  const handleRemoveImage = (indexToRemove: number) => {
+    const currentImages = formData.images
+      ? formData.images
+          .split(/[\n,]/)
+          .map((s) => s.trim())
+          .filter(Boolean)
+      : [];
+
+    const updated = currentImages.filter((_, i) => i !== indexToRemove);
+    setFormData((prev) => ({
+      ...prev,
+      images: updated.join('\n'),
+    }));
+  };
 
   const showToast = (text: string, type: 'success' | 'error' = 'success') => {
     setToastMsg({ text, type });
@@ -1007,18 +1067,114 @@ export default function AdminProductsPage() {
                 </div>
               </div>
 
-              {/* Images */}
-              <div>
-                <label className="block text-xs font-semibold text-[#A1A1AA] mb-1" style={{ fontFamily: "'Raleway', sans-serif" }}>
-                  Image URLs (one per line or comma-separated)
-                </label>
-                <textarea
-                  rows={2}
-                  value={formData.images}
-                  onChange={(e) => setFormData({ ...formData, images: e.target.value })}
-                  placeholder="https://res.cloudinary.com/.../part.jpg"
-                  className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white font-mono"
-                />
+              {/* Product Photos: Upload from Device + Link Input + Live Visual Gallery */}
+              <div className="space-y-3 bg-[#141416] p-4 rounded-xl border border-[#27272A]">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-[#A1A1AA] flex items-center gap-1.5" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                    <ImageIcon className="w-3.5 h-3.5 text-white" />
+                    <span>Product Photographs (Upload or Link)</span>
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => imageFileInputRef.current?.click()}
+                    disabled={isUploadingImage}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-black hover:bg-[#E4E4E7] text-xs font-bold transition-all disabled:opacity-50 cursor-pointer"
+                    style={{ fontFamily: "'Raleway', sans-serif" }}
+                  >
+                    {isUploadingImage ? (
+                      <>
+                        <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                        <span>Uploading...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>Upload Photos</span>
+                      </>
+                    )}
+                  </button>
+                  <input
+                    ref={imageFileInputRef}
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+                </div>
+
+                {/* Clickable Drag & Drop Zone */}
+                <div
+                  onClick={() => imageFileInputRef.current?.click()}
+                  className="border-2 border-dashed border-[#27272A] hover:border-white/40 rounded-xl p-3 text-center cursor-pointer transition-colors bg-[#1C1C1E]/60 hover:bg-[#1C1C1E]"
+                >
+                  <Upload className="w-5 h-5 mx-auto text-[#71717A] mb-1" />
+                  <p className="text-xs text-[#E4E4E7] font-medium">
+                    Click to browse files or drop photos here
+                  </p>
+                  <p className="text-[11px] text-[#71717A] mt-0.5">
+                    Supports JPG, PNG, WEBP, AVIF (Multiple images can be selected at once)
+                  </p>
+                </div>
+
+                {/* Image URLs text input */}
+                <div>
+                  <label className="block text-[11px] text-[#71717A] mb-1">
+                    Or paste Photo Links (one URL per line or comma-separated):
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={formData.images}
+                    onChange={(e) => setFormData({ ...formData, images: e.target.value })}
+                    placeholder="https://res.cloudinary.com/.../part.jpg or /uploads/products/..."
+                    className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl px-3.5 py-2 text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white font-mono"
+                  />
+                </div>
+
+                {/* Live Thumbnail Preview Gallery with 1-Click Delete */}
+                {formData.images && formData.images.trim().length > 0 && (
+                  <div className="pt-2 border-t border-[#27272A]/70">
+                    <div className="text-[11px] text-[#A1A1AA] font-semibold mb-2 flex items-center justify-between">
+                      <span>Attached Photos ({formData.images.split(/[\n,]/).map((s) => s.trim()).filter(Boolean).length}):</span>
+                      <span className="text-[10px] text-[#71717A]">Click &times; to remove photo</span>
+                    </div>
+                    <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-1.5 bg-[#0D0D0E] rounded-xl border border-[#27272A]">
+                      {formData.images
+                        .split(/[\n,]/)
+                        .map((s) => s.trim())
+                        .filter(Boolean)
+                        .map((imgUrl, idx) => (
+                          <div
+                            key={idx}
+                            className="group relative aspect-square rounded-lg overflow-hidden border border-[#27272A] bg-black/60"
+                          >
+                            <img
+                              src={formatImageUrl(imgUrl)}
+                              alt={`Product preview ${idx + 1}`}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                (e.currentTarget as HTMLImageElement).src = '/assets/images/banner/banner-1.jpg';
+                              }}
+                            />
+                            <span className="absolute bottom-1 left-1 bg-black/80 text-[9px] font-bold px-1.5 py-0.5 rounded text-white font-mono">
+                              {idx === 0 ? 'Cover' : `#${idx + 1}`}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleRemoveImage(idx);
+                              }}
+                              className="absolute top-1 right-1 w-5 h-5 rounded-full bg-red-600/90 hover:bg-red-600 text-white flex items-center justify-center text-xs opacity-90 group-hover:opacity-100 transition-opacity cursor-pointer shadow-md"
+                              title="Delete photo"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Description */}

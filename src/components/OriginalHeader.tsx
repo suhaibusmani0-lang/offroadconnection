@@ -7,6 +7,27 @@ import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import { LUXURY_MAKES } from '@/constants/vehicles';
 import siteConfig from '@/config/site';
+import {
+  Search,
+  ShoppingBag,
+  User,
+  UserCheck,
+  Menu,
+  X,
+  SlidersHorizontal,
+  Car,
+  ChevronDown,
+  Lock,
+  Box,
+  Truck,
+  Layers,
+} from 'lucide-react';
+
+const WhatsAppIcon = ({ size = 16, className = '' }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} style={{ display: 'inline-block' }}>
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.004.577 1.764.846 2.806.847h.005c3.182 0 5.768-2.587 5.768-5.766.001-3.18-2.584-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.824 0-3.535-.49-5.012-1.344l-5.988 1.569 1.6-5.836c-.958-1.536-1.5-3.351-1.5-5.275 0-5.514 4.486-10 10-10 5.514 0 10 4.486 10 10z" />
+  </svg>
+);
 
 export default function OriginalHeader() {
   const router = useRouter();
@@ -119,7 +140,7 @@ export default function OriginalHeader() {
                     border: '1px solid #27272A',
                   }}
                 >
-                  <i className="fas fa-car" style={{ color: '#A1A1AA', fontSize: '10px' }}></i>
+                  <Car size={13} style={{ color: '#A1A1AA' }} />
                   <span>Fitment: {garageVehicle.slice(0, 22)}</span>
                 </Link>
               ) : (
@@ -133,7 +154,7 @@ export default function OriginalHeader() {
                     gap: '6px',
                   }}
                 >
-                  <i className="fas fa-sliders-h" style={{ color: '#FFFFFF', fontSize: '10px' }}></i>
+                  <SlidersHorizontal size={13} style={{ color: '#FFFFFF' }} />
                   <span>Vehicle Fitment Finder</span>
                 </Link>
               )}
@@ -153,7 +174,7 @@ export default function OriginalHeader() {
                   gap: '6px',
                 }}
               >
-                <i className="fab fa-whatsapp" style={{ color: '#FFFFFF' }}></i>
+                <WhatsAppIcon size={14} />
                 <span>VIP Desk: +91 88607 18878</span>
               </a>
             </div>
@@ -177,16 +198,16 @@ export default function OriginalHeader() {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(true)}
-                style={{ background: 'none', border: 'none', fontSize: '20px', color: '#000000', cursor: 'pointer', padding: 0 }}
+                style={{ background: 'none', border: 'none', color: '#000000', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}
               >
-                <i className="fas fa-bars"></i>
+                <Menu size={20} />
               </button>
               <button
                 type="button"
                 onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
-                style={{ background: 'none', border: 'none', fontSize: '18px', color: '#000000', cursor: 'pointer', padding: 0 }}
+                style={{ background: 'none', border: 'none', color: '#000000', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}
               >
-                <i className="fas fa-search"></i>
+                <Search size={18} />
               </button>
             </div>
 
@@ -200,13 +221,13 @@ export default function OriginalHeader() {
               <button
                 type="button"
                 onClick={customer ? () => logout() : openLoginModal}
-                style={{ background: 'none', border: 'none', fontSize: '18px', color: '#000000', cursor: 'pointer', padding: 0 }}
+                style={{ background: 'none', border: 'none', color: '#000000', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}
                 title={customer ? `Signed in: ${customer.phone}` : 'Sign In'}
               >
-                <i className={customer ? 'fas fa-user-check' : 'far fa-user'}></i>
+                {customer ? <UserCheck size={18} /> : <User size={18} />}
               </button>
-              <Link href="/cart" style={{ position: 'relative', color: '#000000', fontSize: '18px', textDecoration: 'none' }}>
-                <i className="fas fa-shopping-bag"></i>
+              <Link href="/cart" style={{ position: 'relative', color: '#000000', textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+                <ShoppingBag size={18} />
                 <span
                   style={{
                     position: 'absolute',
@@ -250,8 +271,8 @@ export default function OriginalHeader() {
                   onChange={(e) => setSearch(e.target.value)}
                   style={{ flex: 1, padding: '10px 14px', border: 'none', outline: 'none', fontSize: '13px' }}
                 />
-                <button type="submit" style={{ background: '#000000', color: '#FFFFFF', border: 'none', padding: '0 16px' }}>
-                  <i className="fas fa-search"></i>
+                <button type="submit" style={{ background: '#000000', color: '#FFFFFF', border: 'none', padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Search size={16} />
                 </button>
               </form>
             </div>
@@ -336,7 +357,7 @@ export default function OriginalHeader() {
                     onMouseEnter={(e) => (e.currentTarget.style.background = '#27272A')}
                     onMouseLeave={(e) => (e.currentTarget.style.background = '#000000')}
                   >
-                    <i className="fas fa-search" style={{ fontSize: '11px' }}></i>
+                    <Search size={13} />
                     <span>SEARCH</span>
                   </button>
                 </form>
@@ -403,7 +424,7 @@ export default function OriginalHeader() {
                   }}
                   title="Admin CRM & Inventory Manager"
                 >
-                  <i className="fas fa-lock" style={{ fontSize: '12px' }}></i>
+                  <Lock size={13} />
                   <span style={{ fontSize: '12px', fontWeight: 800, fontFamily: "'Raleway', sans-serif" }}>
                     Admin CRM
                   </span>
@@ -426,7 +447,7 @@ export default function OriginalHeader() {
                   }}
                   title={customer ? `Logged in: +91 ${customer.phone}. Click to sign out.` : 'Sign In with Mobile OTP'}
                 >
-                  <i className={customer ? 'fas fa-user-check' : 'far fa-user'} style={{ fontSize: '13px' }}></i>
+                  {customer ? <UserCheck size={14} /> : <User size={14} />}
                   <span style={{ fontSize: '12px', fontWeight: 700, fontFamily: "'Raleway', sans-serif" }}>
                     {customer ? (customer.name ? customer.name.split(' ')[0] : `+91 ${customer.phone.slice(-4)}`) : 'Sign In'}
                   </span>
@@ -449,7 +470,7 @@ export default function OriginalHeader() {
                   onMouseEnter={(e) => (e.currentTarget.style.background = '#27272A')}
                   onMouseLeave={(e) => (e.currentTarget.style.background = '#000000')}
                 >
-                  <i className="fas fa-shopping-bag" style={{ fontSize: '14px' }}></i>
+                  <ShoppingBag size={15} />
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span style={{ fontSize: '12px', fontWeight: 800, fontFamily: "'Raleway', sans-serif", letterSpacing: '0.5px' }}>
                       BAG
@@ -509,9 +530,9 @@ export default function OriginalHeader() {
                     transition: 'all 0.2s',
                   }}
                 >
-                  <i className="fas fa-th-large" style={{ fontSize: '11px' }}></i>
+                  <Layers size={13} />
                   <span>BROWSE CATEGORIES</span>
-                  <i className="fas fa-chevron-down" style={{ fontSize: '9px', marginLeft: '4px' }}></i>
+                  <ChevronDown size={11} style={{ marginLeft: '4px' }} />
                 </div>
 
                 {isCatMenuOpen && (
@@ -614,7 +635,7 @@ export default function OriginalHeader() {
                     }}
                   >
                     <span>Luxury Makes</span>
-                    <i className="fas fa-chevron-down" style={{ fontSize: '9px' }}></i>
+                    <ChevronDown size={11} />
                   </span>
 
                   {isMakeMenuOpen && (
@@ -678,7 +699,7 @@ export default function OriginalHeader() {
                     gap: '6px',
                   }}
                 >
-                  <i className="fas fa-cube" style={{ color: '#000000' }}></i>
+                  <Box size={14} style={{ color: '#000000' }} />
                   <span>360° Car Explorer</span>
                 </Link>
 
@@ -726,7 +747,7 @@ export default function OriginalHeader() {
                     gap: '6px',
                   }}
                 >
-                  <i className="fas fa-truck-moving" style={{ color: '#000000' }}></i>
+                  <Truck size={14} style={{ color: '#000000' }} />
                   <span>Pan-India 2-4 Days Air Delivery</span>
                 </span>
               </div>
@@ -769,9 +790,9 @@ export default function OriginalHeader() {
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  style={{ background: 'none', border: 'none', fontSize: '22px', color: '#000000', cursor: 'pointer' }}
+                  style={{ background: 'none', border: 'none', color: '#000000', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}
                 >
-                  <i className="fas fa-times"></i>
+                  <X size={20} />
                 </button>
               </div>
 
@@ -843,7 +864,7 @@ export default function OriginalHeader() {
                   textDecoration: 'none',
                 }}
               >
-                <i className="fab fa-whatsapp"></i>
+                <WhatsAppIcon size={16} />
                 <span>WhatsApp Fitment Desk</span>
               </a>
             </div>

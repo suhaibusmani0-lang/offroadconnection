@@ -3,6 +3,21 @@
 import React from 'react';
 import Link from 'next/link';
 import siteConfig from '@/config/site';
+import { ShieldCheck, Phone, Lock, MapPin, Clock, Plane, ExternalLink } from 'lucide-react';
+
+const WhatsAppIcon = ({ size = 16, className = '' }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} style={{ display: 'inline-block' }}>
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.004.577 1.764.846 2.806.847h.005c3.182 0 5.768-2.587 5.768-5.766.001-3.18-2.584-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.824 0-3.535-.49-5.012-1.344l-5.988 1.569 1.6-5.836c-.958-1.536-1.5-3.351-1.5-5.275 0-5.514 4.486-10 10-10 5.514 0 10 4.486 10 10z" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block' }}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
 
 export default function OriginalFooter() {
   const currentYear = new Date().getFullYear();
@@ -50,7 +65,7 @@ export default function OriginalFooter() {
                   fontSize: '18px',
                 }}
               >
-                <i className="fas fa-shield-alt"></i>
+                <ShieldCheck size={20} className="text-white" />
               </div>
               <div>
                 <h4
@@ -100,7 +115,7 @@ export default function OriginalFooter() {
                   e.currentTarget.style.background = '#FFFFFF';
                 }}
               >
-                <i className="fab fa-whatsapp" style={{ fontSize: '15px' }}></i>
+                <WhatsAppIcon size={16} />
                 <span>Direct WhatsApp Fitment Desk</span>
               </a>
 
@@ -128,7 +143,7 @@ export default function OriginalFooter() {
                   e.currentTarget.style.borderColor = '#27272A';
                 }}
               >
-                <i className="fas fa-phone-alt" style={{ fontSize: '12px' }}></i>
+                <Phone size={13} className="text-white" />
                 <span>{siteConfig.contact.phoneFormatted}</span>
               </a>
             </div>
@@ -195,7 +210,7 @@ export default function OriginalFooter() {
                     e.currentTarget.style.color = '#FFFFFF';
                   }}
                 >
-                  <i className="fab fa-instagram"></i>
+                  <InstagramIcon size={16} />
                 </a>
                 <a
                   href={`https://wa.me/${siteConfig.contact.whatsapp}`}
@@ -223,7 +238,7 @@ export default function OriginalFooter() {
                     e.currentTarget.style.color = '#FFFFFF';
                   }}
                 >
-                  <i className="fab fa-whatsapp"></i>
+                  <WhatsAppIcon size={16} />
                 </a>
               </div>
             </div>
@@ -340,7 +355,7 @@ export default function OriginalFooter() {
                         textDecoration: 'none',
                       }}
                     >
-                      <i className="fas fa-lock"></i>
+                      <Lock size={12} style={{ marginRight: '6px' }} />
                       <span>Enterprise CRM &amp; Inventory Suite</span>
                     </Link>
                   </li>
@@ -367,19 +382,19 @@ export default function OriginalFooter() {
                 </h4>
               </div>
               <div className="widget-content">
-                <p style={{ fontSize: '13px', lineHeight: '1.6', color: '#71717A', marginBottom: '12px' }}>
-                  <i className="fas fa-map-marker-alt" style={{ color: '#FFFFFF', marginRight: '8px' }}></i>
-                  {siteConfig.geo.address.streetAddress}, {siteConfig.geo.address.addressLocality} {siteConfig.geo.address.postalCode}
+                <p style={{ fontSize: '13px', lineHeight: '1.6', color: '#71717A', marginBottom: '12px', display: 'flex', alignItems: 'flex-start' }}>
+                  <MapPin size={15} style={{ color: '#FFFFFF', marginRight: '8px', flexShrink: 0, marginTop: '2px' }} />
+                  <span>{siteConfig.geo.address.streetAddress}, {siteConfig.geo.address.addressLocality} {siteConfig.geo.address.postalCode}</span>
                 </p>
-                <p style={{ fontSize: '13px', color: '#71717A', marginBottom: '8px' }}>
-                  <i className="fas fa-phone-alt" style={{ color: '#FFFFFF', marginRight: '8px' }}></i>
+                <p style={{ fontSize: '13px', color: '#71717A', marginBottom: '8px', display: 'flex', alignItems: 'center' }}>
+                  <Phone size={14} style={{ color: '#FFFFFF', marginRight: '8px', flexShrink: 0 }} />
                   <a href={`tel:${siteConfig.contact.phone}`} style={{ color: '#FFFFFF', fontWeight: 700, textDecoration: 'none' }}>
                     {siteConfig.contact.phoneFormatted}
                   </a>
                 </p>
-                <p style={{ fontSize: '13px', color: '#71717A', marginBottom: '14px' }}>
-                  <i className="fas fa-clock" style={{ color: '#FFFFFF', marginRight: '8px' }}></i>
-                  Mon – Sat: 9:30 AM – 7:30 PM IST
+                <p style={{ fontSize: '13px', color: '#71717A', marginBottom: '14px', display: 'flex', alignItems: 'center' }}>
+                  <Clock size={14} style={{ color: '#FFFFFF', marginRight: '8px', flexShrink: 0 }} />
+                  <span>Mon – Sat: 9:30 AM – 7:30 PM IST</span>
                 </p>
 
                 <div
@@ -396,7 +411,7 @@ export default function OriginalFooter() {
                     gap: '10px',
                   }}
                 >
-                  <i className="fas fa-plane-departure" style={{ color: '#FFFFFF', fontSize: '14px' }}></i>
+                  <Plane size={14} style={{ color: '#FFFFFF', flexShrink: 0 }} />
                   <span>Pan-India Air Logistics • 19,000+ PIN Codes Serviceable</span>
                 </div>
               </div>
@@ -475,7 +490,7 @@ export default function OriginalFooter() {
               }}
             >
               <span>ZARNETIC</span>
-              <i className="fas fa-external-link-alt" style={{ fontSize: '10px' }}></i>
+              <ExternalLink size={11} />
             </a>
           </div>
 
