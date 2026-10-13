@@ -1,12 +1,16 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
-export interface IProduct extends Document {
+export interface IProduct extends Omit<Document, 'model'> {
   id?: number;
   title: string;
   slug: string;
   part_number: string;
   oem_number?: string;
+  oem_numbers?: string[];
   brand?: string;
+  make?: string;
+  model?: string;
+  year_compatibility?: string;
   category_id?: number;
   category_slug?: string;
   category_name?: string;
@@ -15,6 +19,7 @@ export interface IProduct extends Document {
   cost_price?: number;
   short_description?: string;
   description?: string;
+  specifications?: any;
   images: string[];
   video_url?: string;
   cloudinary_public_ids?: string[];
@@ -36,7 +41,11 @@ const ProductSchema = new Schema<IProduct>(
     slug: { type: String, required: true, unique: true, index: true },
     part_number: { type: String, required: true, trim: true, index: true },
     oem_number: { type: String, default: '', trim: true },
+    oem_numbers: { type: [String], default: [] },
     brand: { type: String, default: 'Off Road Connection Parts', trim: true },
+    make: { type: String, default: '', index: true },
+    model: { type: String, default: '' },
+    year_compatibility: { type: String, default: '' },
     category_id: { type: Number, index: true },
     category_slug: { type: String, index: true },
     category_name: { type: String, default: '' },
@@ -45,6 +54,7 @@ const ProductSchema = new Schema<IProduct>(
     cost_price: { type: Number, default: 0 },
     short_description: { type: String, default: '' },
     description: { type: String, default: '' },
+    specifications: { type: Schema.Types.Mixed, default: null },
     images: { type: [String], default: [] },
     video_url: { type: String, default: '' },
     cloudinary_public_ids: { type: [String], default: [] },
@@ -58,6 +68,7 @@ const ProductSchema = new Schema<IProduct>(
   },
   {
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    strict: false,
   }
 );
 
