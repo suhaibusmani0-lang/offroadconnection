@@ -6,6 +6,7 @@ import OriginalHeader from '@/components/OriginalHeader';
 import OriginalFooter from '@/components/OriginalFooter';
 import VehicleSelector from '@/components/VehicleSelector';
 import InteractiveCar360Explorer from '@/components/InteractiveCar360Explorer';
+import BrandMarquee from '@/components/BrandMarquee';
 import { LUXURY_MAKES, LUXURY_PART_CATEGORIES } from '@/constants/vehicles';
 import { formatImageUrl } from '@/lib/image';
 import { useCart } from '@/context/CartContext';
@@ -188,60 +189,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LUXURY BRANDS SHOWCASE */}
-      <section style={{ padding: '36px 0', background: '#FFFFFF', borderBottom: '1px solid #E4E4E7' }}>
-        <div className="auto-container">
-          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-            <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', color: '#71717A', fontFamily: "'Raleway', sans-serif" }}>
-              DIRECT COMPATIBILITY FOR ALL PREMIUM MAKES
-            </span>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: '10px',
-            }}
-          >
-            {LUXURY_MAKES.slice(0, 11).map((m) => (
-              <Link
-                key={m.id}
-                href={`/shop?make=${encodeURIComponent(m.name)}`}
-                style={{
-                  padding: '9px 18px',
-                  background: '#F4F4F5',
-                  border: '1px solid #E4E4E7',
-                  borderRadius: '6px',
-                  textDecoration: 'none',
-                  color: '#18181B',
-                  fontSize: '12px',
-                  fontWeight: 700,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontFamily: "'Raleway', sans-serif",
-                  transition: 'all 0.15s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = '#000000';
-                  e.currentTarget.style.borderColor = '#000000';
-                  e.currentTarget.style.color = '#FFFFFF';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = '#F4F4F5';
-                  e.currentTarget.style.borderColor = '#E4E4E7';
-                  e.currentTarget.style.color = '#18181B';
-                }}
-              >
-                <i className="fas fa-car" style={{ fontSize: '11px', opacity: 0.6 }}></i>
-                <span>{m.name}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* DYNAMIC INFINITE BRAND MARQUEE TICKER WITH REAL AUTOMOTIVE SVG LOGOS */}
+      <BrandMarquee />
 
       {/* 360 DEGREE INTERACTIVE LUXURY CAR COMPONENT INSPECTOR */}
       <InteractiveCar360Explorer />
