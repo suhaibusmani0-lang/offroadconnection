@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { formatImageUrl } from '@/lib/image';
+import AutoProductImage from '@/components/AutoProductImage';
 
 interface Hotspot {
   id: string;
@@ -661,17 +662,18 @@ export default function InteractiveCar360Explorer() {
               <button
                 key={angle.id}
                 onClick={() => selectAngle(index)}
-                className={`relative group px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2.5 cursor-pointer border ${
+                className={`relative group px-4 py-2.5 rounded-none text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2.5 cursor-pointer border ${
                   isActive
                     ? 'bg-[#FFFFFF] text-[#000000] border-[#FFFFFF] shadow-[0_0_20px_rgba(255,255,255,0.3)]'
                     : 'bg-[#121212] text-[#A1A1AA] hover:text-[#FFFFFF] border-[#27272A] hover:border-[#52525B]'
                 }`}
-                style={{ fontFamily: "'Raleway', sans-serif" }}
+                style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
               >
                 <div
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`w-2 h-2 transition-all duration-300 ${
                     isActive ? 'bg-[#000000] scale-125' : 'bg-[#52525B] group-hover:bg-[#A1A1AA]'
                   }`}
+                  style={{ borderRadius: '0px' }}
                 />
                 <span>{angle.label}</span>
                 <span
@@ -686,15 +688,15 @@ export default function InteractiveCar360Explorer() {
         </div>
 
         {/* Master Interactive 360 HUD Viewport */}
-        <div className="relative bg-[#09090B] rounded-3xl border border-[#27272A] shadow-2xl overflow-hidden backdrop-blur-md">
+        <div className="relative bg-[#09090B] rounded-none border border-[#27272A] shadow-2xl overflow-hidden backdrop-blur-md" style={{ borderRadius: '0px' }}>
           {/* Top Aerospace Telemetry Status Bar */}
           <div className="px-5 py-3.5 border-b border-[#27272A] bg-[#0A0A0C] flex items-center justify-between flex-wrap gap-4 text-xs font-mono">
             {/* Left Status Indicators */}
             <div className="flex items-center gap-4 text-[#A1A1AA]">
               <div className="flex items-center gap-2">
                 <span className="flex h-2.5 w-2.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFFFFF] opacity-50" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFFFFF]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full bg-[#FFFFFF] opacity-50" style={{ borderRadius: '0px' }} />
+                  <span className="relative inline-flex h-2.5 w-2.5 bg-[#FFFFFF]" style={{ borderRadius: '0px' }} />
                 </span>
                 <span className="text-[#FFFFFF] font-bold text-[11px] tracking-wider uppercase" style={{ fontFamily: "'Raleway', sans-serif" }}>
                   {currentAngle.label} VIEW
@@ -715,13 +717,13 @@ export default function InteractiveCar360Explorer() {
               {/* Sound Synthesizer Toggle */}
               <button
                 onClick={() => setSoundEnabled(!soundEnabled)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-[11px] font-bold tracking-wider uppercase transition-colors cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-none border text-[11px] font-bold tracking-wider uppercase transition-colors cursor-pointer ${
                   soundEnabled
                     ? 'bg-[#18181B] text-[#FFFFFF] border-[#3F3F46]'
                     : 'bg-[#121212] text-[#71717A] border-[#27272A]'
                 }`}
                 title={soundEnabled ? 'HUD Audio On' : 'HUD Audio Muted'}
-                style={{ fontFamily: "'Raleway', sans-serif" }}
+                style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
               >
                 {soundEnabled ? <Volume2 className="w-3.5 h-3.5 text-white" /> : <VolumeX className="w-3.5 h-3.5" />}
                 <span className="hidden sm:inline">{soundEnabled ? 'AUDIO ON' : 'MUTED'}</span>
@@ -731,8 +733,8 @@ export default function InteractiveCar360Explorer() {
               <button
                 onClick={handlePrevAngle}
                 aria-label="Rotate View Left"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-white border border-[#3F3F46] text-[11px] font-bold uppercase transition-all cursor-pointer"
-                style={{ fontFamily: "'Raleway', sans-serif" }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#18181B] hover:bg-[#27272A] text-white border border-[#3F3F46] text-[11px] font-bold uppercase transition-all cursor-pointer"
+                style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Rotate Left</span>
@@ -740,8 +742,8 @@ export default function InteractiveCar360Explorer() {
               <button
                 onClick={handleNextAngle}
                 aria-label="Rotate View Right"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-white border border-[#3F3F46] text-[11px] font-bold uppercase transition-all cursor-pointer"
-                style={{ fontFamily: "'Raleway', sans-serif" }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#18181B] hover:bg-[#27272A] text-white border border-[#3F3F46] text-[11px] font-bold uppercase transition-all cursor-pointer"
+                style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
               >
                 <span className="hidden sm:inline">Rotate Right</span>
                 <RotateCw className="w-3.5 h-3.5" />
@@ -976,15 +978,16 @@ export default function InteractiveCar360Explorer() {
               <div className="flex items-center gap-3">
                 <Link
                   href={`/shop?search=${encodeURIComponent(activeHotspot.categoryQuery)}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-[#E4E4E7] text-black font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg cursor-pointer"
-                  style={{ fontFamily: "'Raleway', sans-serif" }}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none bg-white hover:bg-[#E4E4E7] text-black font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg cursor-pointer"
+                  style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
                 >
                   <span>ALL {activeHotspot.categoryQuery.toUpperCase()} PARTS</span>
                   <ExternalLink className="w-4 h-4 text-black" />
                 </Link>
                 <button
                   onClick={() => setActiveHotspot(null)}
-                  className="p-2.5 rounded-xl bg-[#1C1C1E] hover:bg-[#27272A] text-white transition-colors cursor-pointer border border-[#3F3F46]"
+                  className="p-2.5 rounded-none bg-[#1C1C1E] hover:bg-[#27272A] text-white transition-colors cursor-pointer border border-[#3F3F46]"
+                  style={{ borderRadius: '0px' }}
                   aria-label="Close Inspector"
                 >
                   <X className="w-5 h-5" />
@@ -994,7 +997,7 @@ export default function InteractiveCar360Explorer() {
 
             {/* Technical Specifications Bar */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-[#141416] p-4 rounded-2xl border border-[#27272A]">
+              <div className="bg-[#141416] p-4 rounded-none border border-[#27272A]" style={{ borderRadius: '0px' }}>
                 <div className="text-[10px] font-mono uppercase text-[#71717A] tracking-wider">
                   Engineered Metallurgy & Material
                 </div>
@@ -1002,7 +1005,7 @@ export default function InteractiveCar360Explorer() {
                   {activeHotspot.specs.material}
                 </div>
               </div>
-              <div className="bg-[#141416] p-4 rounded-2xl border border-[#27272A]">
+              <div className="bg-[#141416] p-4 rounded-none border border-[#27272A]" style={{ borderRadius: '0px' }}>
                 <div className="text-[10px] font-mono uppercase text-[#71717A] tracking-wider">
                   Factory Warranty & Testing
                 </div>
@@ -1010,7 +1013,7 @@ export default function InteractiveCar360Explorer() {
                   {activeHotspot.specs.warranty}
                 </div>
               </div>
-              <div className="bg-[#141416] p-4 rounded-2xl border border-[#27272A]">
+              <div className="bg-[#141416] p-4 rounded-none border border-[#27272A]" style={{ borderRadius: '0px' }}>
                 <div className="text-[10px] font-mono uppercase text-[#71717A] tracking-wider">
                   Chassis & Electrical Fitment
                 </div>
@@ -1032,8 +1035,8 @@ export default function InteractiveCar360Explorer() {
                 <Link
                   key={part}
                   href={`/shop?search=${encodeURIComponent(part)}`}
-                  className="px-3 py-1 rounded-lg bg-[#18181B] hover:bg-white hover:text-black text-[#E4E4E7] border border-[#27272A] text-xs font-medium transition-all"
-                  style={{ fontFamily: "'Lato', sans-serif" }}
+                  className="px-3 py-1 rounded-none bg-[#18181B] hover:bg-white hover:text-black text-[#E4E4E7] border border-[#27272A] text-xs font-medium transition-all"
+                  style={{ fontFamily: "'Lato', sans-serif", borderRadius: '0px' }}
                 >
                   {part}
                 </Link>
@@ -1043,35 +1046,31 @@ export default function InteractiveCar360Explorer() {
             {/* Real Products Grid from Inventory */}
             {loadingProducts ? (
               <div className="py-16 text-center text-[#A1A1AA] text-sm flex flex-col items-center justify-center gap-3">
-                <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-none animate-spin" style={{ borderRadius: '0px' }} />
                 <span className="font-mono text-xs">Querying warehouse catalog for {activeHotspot.name}...</span>
               </div>
             ) : matchingProducts.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {matchingProducts.map((product) => {
-                  const primaryImage =
-                    product.images && product.images.length > 0
-                      ? formatImageUrl(product.images[0])
-                      : '/assets/images/banner/banner-1.jpg';
-
                   return (
                     <div
                       key={product._id || product.slug}
-                      className="group bg-[#141416] rounded-2xl border border-[#27272A] hover:border-white transition-all duration-300 p-5 flex flex-col justify-between hover:shadow-[0_0_25px_rgba(255,255,255,0.08)]"
+                      className="group bg-[#141416] rounded-none border border-[#27272A] hover:border-white transition-all duration-300 p-5 flex flex-col justify-between hover:shadow-[0_0_25px_rgba(255,255,255,0.08)]"
+                      style={{ borderRadius: '0px' }}
                     >
                       <div>
-                        {/* Image Thumbnail */}
-                        <div className="relative aspect-video rounded-xl bg-[#09090B] overflow-hidden mb-4 border border-[#27272A] flex items-center justify-center p-3">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={primaryImage}
-                            alt={product.name}
-                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
+                        {/* Auto Rotating Image Box */}
+                        <div className="relative aspect-video rounded-none bg-[#09090B] overflow-hidden mb-4 border border-[#27272A] flex items-center justify-center p-3" style={{ borderRadius: '0px' }}>
+                          <Link href={`/product/${product.slug}`} style={{ width: '100%', height: '100%', display: 'block' }}>
+                            <AutoProductImage
+                              images={product.images}
+                              image={product.image}
+                              alt={product.name}
+                            />
+                          </Link>
                           <span
-                            className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-white text-black text-[10px] font-black uppercase tracking-wider"
-                            style={{ fontFamily: "'Raleway', sans-serif" }}
+                            className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-none bg-white text-black text-[10px] font-black uppercase tracking-wider z-20"
+                            style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
                           >
                             OEM Certified
                           </span>
@@ -1115,15 +1114,15 @@ export default function InteractiveCar360Explorer() {
                         <div className="flex items-center gap-2">
                           <Link
                             href={`/product/${product.slug}`}
-                            className="px-3 py-2 rounded-xl text-xs font-bold text-white bg-[#1C1C1E] hover:bg-[#27272A] border border-[#3F3F46] transition-colors"
-                            style={{ fontFamily: "'Raleway', sans-serif" }}
+                            className="px-3 py-2 rounded-none text-xs font-bold text-white bg-[#1C1C1E] hover:bg-[#27272A] border border-[#3F3F46] transition-colors"
+                            style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
                           >
                             Specs
                           </Link>
                           <button
                             onClick={() => handleQuickAdd(product)}
-                            className="px-3.5 py-2 rounded-xl text-xs font-black text-black bg-white hover:bg-[#E4E4E7] shadow flex items-center gap-1.5 transition-all cursor-pointer"
-                            style={{ fontFamily: "'Raleway', sans-serif" }}
+                            className="px-3.5 py-2 rounded-none text-xs font-black text-black bg-white hover:bg-[#E4E4E7] shadow flex items-center gap-1.5 transition-all cursor-pointer"
+                            style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
                           >
                             <ShoppingBag className="w-3.5 h-3.5" />
                             <span>Add</span>
@@ -1135,7 +1134,7 @@ export default function InteractiveCar360Explorer() {
                 })}
               </div>
             ) : (
-              <div className="text-center py-12 text-[#A1A1AA] bg-[#141416] rounded-2xl border border-[#27272A] p-6">
+              <div className="text-center py-12 text-[#A1A1AA] bg-[#141416] rounded-none border border-[#27272A] p-6" style={{ borderRadius: '0px' }}>
                 <p className="text-sm" style={{ fontFamily: "'Lato', sans-serif" }}>
                   Direct warehouse stock for this component assembly can be reserved directly with our chassis engineers.
                 </p>
@@ -1144,8 +1143,8 @@ export default function InteractiveCar360Explorer() {
                     href="https://wa.me/919999999999?text=Hello%2C+I+need+pricing+for+OEM+components+in+zone"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black font-bold text-xs uppercase tracking-wider hover:bg-[#E4E4E7] transition-all"
-                    style={{ fontFamily: "'Raleway', sans-serif" }}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none bg-white text-black font-bold text-xs uppercase tracking-wider hover:bg-[#E4E4E7] transition-all"
+                    style={{ fontFamily: "'Raleway', sans-serif", borderRadius: '0px' }}
                   >
                     <PhoneCall className="w-4 h-4" />
                     <span>Instant WhatsApp VIP Concierge</span>

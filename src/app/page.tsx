@@ -11,6 +11,7 @@ import { LUXURY_MAKES, LUXURY_PART_CATEGORIES } from '@/constants/vehicles';
 import { formatImageUrl } from '@/lib/image';
 import { useCart } from '@/context/CartContext';
 import { trackAddToCart } from '@/lib/analytics';
+import AutoProductImage from '@/components/AutoProductImage';
 
 export default function HomePage() {
   const { addToCart } = useCart();
@@ -238,7 +239,7 @@ export default function HomePage() {
                   height: '100%',
                   background: '#FFFFFF',
                   border: '1px solid #E4E4E7',
-                  borderRadius: '8px',
+                  borderRadius: '0px',
                 }}
               >
                 <div>
@@ -246,7 +247,7 @@ export default function HomePage() {
                     style={{
                       width: '44px',
                       height: '44px',
-                      borderRadius: '8px',
+                      borderRadius: '0px',
                       background: '#F4F4F5',
                       border: '1px solid #E4E4E7',
                       display: 'flex',
@@ -340,16 +341,19 @@ export default function HomePage() {
               }}
             >
               {featuredProducts.map((p) => {
-                const img = formatImageUrl(p.image || (p.images && p.images[0]));
                 return (
-                  <div key={p.id || p.slug} className="luxury-card" style={{ display: 'flex', flexDirection: 'column' }}>
-                    {/* Image Box */}
-                    <div className="product-card-img-box">
-                      <Link href={`/product/${p.slug}`} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <img src={img} alt={p.name} />
+                  <div key={p.id || p.slug} className="luxury-card" style={{ display: 'flex', flexDirection: 'column', borderRadius: '0px' }}>
+                    {/* Auto-Rotating Image Box (Changes photo automatically if more than 1 photo exists) */}
+                    <div className="product-card-img-box" style={{ borderRadius: '0px' }}>
+                      <Link href={`/product/${p.slug}`} style={{ width: '100%', height: '100%', display: 'block' }}>
+                        <AutoProductImage
+                          images={p.images}
+                          image={p.image}
+                          alt={p.name}
+                        />
                       </Link>
-                      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
-                        <span className="badge-oem">✓ OEM Genuine</span>
+                      <div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 20 }}>
+                        <span className="badge-oem" style={{ borderRadius: '0px' }}>✓ OEM Genuine</span>
                       </div>
                     </div>
 
@@ -361,7 +365,7 @@ export default function HomePage() {
                             {p.category_name || 'Vehicle Part'}
                           </span>
                           {(p.part_number || p.sku) && (
-                            <span style={{ fontSize: '10px', fontFamily: 'monospace', fontWeight: 700, color: '#000000', background: '#F4F4F5', padding: '2px 6px', borderRadius: '4px', border: '1px solid #E4E4E7' }}>
+                            <span style={{ fontSize: '10px', fontFamily: 'monospace', fontWeight: 700, color: '#000000', background: '#F4F4F5', padding: '2px 6px', borderRadius: '0px', border: '1px solid #E4E4E7' }}>
                               {p.part_number || p.sku}
                             </span>
                           )}
@@ -408,7 +412,7 @@ export default function HomePage() {
                               background: '#000000',
                               color: '#FFFFFF',
                               border: 'none',
-                              borderRadius: '6px',
+                              borderRadius: '0px',
                               fontSize: '12px',
                               fontWeight: 700,
                               cursor: 'pointer',
@@ -435,7 +439,7 @@ export default function HomePage() {
                               background: '#F4F4F5',
                               border: '1px solid #E4E4E7',
                               color: '#000000',
-                              borderRadius: '6px',
+                              borderRadius: '0px',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',

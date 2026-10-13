@@ -50,6 +50,23 @@ export default function ProductDetailPage() {
     }
   }, [slug]);
 
+  // Automatically transition photos if product has more than 1 photo
+  useEffect(() => {
+    const imgs = data?.images || [];
+    if (imgs.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setActiveImage((prev) => {
+        const allUrls = imgs.map((i: any) => formatImageUrl(i.image_path || i));
+        const currentIdx = allUrls.indexOf(prev || formatImageUrl(data?.product?.image));
+        const nextIdx = (currentIdx + 1) % allUrls.length;
+        return allUrls[nextIdx];
+      });
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [data?.images, data?.product?.image]);
+
   const handleAdd = () => {
     if (data?.product) {
       addToCart(data.product, qty);
@@ -197,7 +214,7 @@ export default function ProductDetailPage() {
               <div
                 style={{
                   background: '#FFFFFF',
-                  borderRadius: '12px',
+                  borderRadius: '0px',
                   border: '1px solid #E4E4E7',
                   padding: '28px',
                   boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04)',
@@ -227,7 +244,7 @@ export default function ProductDetailPage() {
                     }}
                   />
                   <div style={{ position: 'absolute', top: 0, left: 0 }}>
-                    <span className="badge-oem">✓ Genuine OEM</span>
+                    <span className="badge-oem" style={{ borderRadius: '0px' }}>✓ Genuine OEM</span>
                   </div>
                 </div>
 
@@ -252,7 +269,7 @@ export default function ProductDetailPage() {
                           style={{
                             width: '70px',
                             height: '70px',
-                            borderRadius: '6px',
+                            borderRadius: '0px',
                             border: isSelected ? '2px solid #000000' : '1px solid #E4E4E7',
                             padding: '4px',
                             cursor: 'pointer',
