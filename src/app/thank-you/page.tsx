@@ -41,8 +41,8 @@ function ThankYouContent() {
 
             <div
               style={{
-                background: '#fffaf5',
-                border: '1.5px dashed #FF6B00',
+                background: '#FBF7EE',
+                border: '1.5px dashed #C5A059',
                 padding: '16px 30px',
                 borderRadius: '12px',
                 display: 'inline-flex',
@@ -52,10 +52,10 @@ function ThankYouContent() {
               }}
             >
               <div>
-                <span style={{ fontSize: '13px', color: '#888', display: 'block', textTransform: 'uppercase' }}>
+                <span style={{ fontSize: '13px', color: '#64748B', display: 'block', textTransform: 'uppercase' }}>
                   Your Tracking Order ID
                 </span>
-                <strong style={{ fontSize: '22px', color: '#FF6B00', letterSpacing: '1px' }}>{orderNumber}</strong>
+                <strong style={{ fontSize: '22px', color: '#C5A059', letterSpacing: '1px' }}>{orderNumber}</strong>
               </div>
               <span
                 style={{
@@ -146,7 +146,7 @@ function ThankYouContent() {
               </button>
 
               <a
-                href={`https://wa.me/919871336369?text=${encodeURIComponent(
+                href={`https://wa.me/918860718878?text=${encodeURIComponent(
                   `Hi Off Road Connection Parts, I have placed order ${orderNumber}. Please share tracking and dispatch confirmation.`
                 )}`}
                 target="_blank"
@@ -180,7 +180,7 @@ export default function ThankYouPage() {
     <Suspense
       fallback={
         <div className="py-5 text-center" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <i className="fas fa-spinner fa-spin" style={{ fontSize: '36px', color: '#FF6B00' }}></i>
+          <i className="fas fa-spinner fa-spin" style={{ fontSize: '36px', color: '#C5A059' }}></i>
         </div>
       }
     >

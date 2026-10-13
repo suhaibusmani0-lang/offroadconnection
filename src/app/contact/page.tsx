@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import OriginalHeader from '@/components/OriginalHeader';
 import OriginalFooter from '@/components/OriginalFooter';
+import siteConfig from '@/config/site';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -38,18 +39,18 @@ export default function ContactPage() {
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit form');
+        throw new Error(data.error || 'Failed to submit enquiry');
       }
 
       setStatus({
         type: 'success',
-        message: 'Thank you! Your message has been sent successfully. Our team will contact you shortly.',
+        message: 'Thank you! Your enquiry has been received. Our luxury parts specialists will contact you shortly.',
       });
       setFormData({ username: '', email: '', phone: '', message: '' });
     } catch (err: any) {
       setStatus({
         type: 'error',
-        message: err.message || 'Something went wrong. Please try again.',
+        message: err.message || 'Something went wrong. Please try again or WhatsApp us directly.',
       });
     } finally {
       setLoading(false);
@@ -59,186 +60,241 @@ export default function ContactPage() {
   return (
     <>
       <OriginalHeader />
-      {/* page-title */}
-      <section className="page-title">
+
+      {/* Breadcrumb Strip */}
+      <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E2E8F0', padding: '16px 0' }}>
         <div className="auto-container">
-          <div className="content-box">
-            <h1>Contact Us</h1>
-            <ul className="bread-crumb clearfix">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>Contact Us</li>
-            </ul>
+          <div className="luxury-breadcrumb" style={{ padding: 0 }}>
+            <Link href="/">Home</Link>
+            <span className="separator">/</span>
+            <span className="current">Contact & Noida Facility</span>
           </div>
         </div>
       </section>
-      {/* page-title end */}
 
-      {/* contact-info-section */}
-      <section className="contact-info-section pt_100 pb_50">
+      {/* Contact Info Cards Grid */}
+      <section style={{ padding: '60px 0 40px', background: '#FAFBFC' }}>
         <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <h2>Contact Information</h2>
+          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
+            <span style={{ color: '#C5A059', fontWeight: 800, fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+              REACH OUR SPECIALISTS
+            </span>
+            <h1
+              style={{
+                fontSize: '32px',
+                fontWeight: 900,
+                color: '#0F172A',
+                fontFamily: "'Outfit', sans-serif",
+                marginTop: '8px',
+              }}
+            >
+              Get In Touch With Our Technical Parts Desk
+            </h1>
+            <div style={{ width: '60px', height: '3px', background: '#C5A059', margin: '14px auto 0', borderRadius: '2px' }}></div>
           </div>
-          <div className="row clearfix">
-            <div className="col-lg-4 col-md-6 col-sm-12 info-column">
-              <div className="info-block-one">
-                <div
-                  className="inner-box"
-                  style={{ textAlign: 'center', padding: '40px', border: '1px solid #eee', borderRadius: '15px', background: '#fff' }}
-                >
-                  <div className="icon-box" style={{ fontSize: '40px', marginBottom: '20px', color: '#FF6B00' }}>
-                    <i className="fas fa-map-marker-alt"></i>
-                  </div>
-                  <h4>Our Location</h4>
-                  <p style={{ color: '#666', marginTop: '10px' }}>
-                    Plot 2, Opp Asgarpur park, kharsa Number 307 Asgarpur jaagir sector 128 Noida 201301
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 info-column">
-              <div className="info-block-one">
-                <div
-                  className="inner-box"
-                  style={{ textAlign: 'center', padding: '40px', border: '1px solid #eee', borderRadius: '15px', background: '#fff' }}
-                >
-                  <div className="icon-box" style={{ fontSize: '40px', marginBottom: '20px', color: '#FF6B00' }}>
-                    <i className="fas fa-envelope"></i>
-                  </div>
-                  <h4>Email Address</h4>
-                  <p style={{ color: '#666', marginTop: '10px' }}>
-                    <a href="mailto:danish.ameer@gmail.com" style={{ color: '#333', fontWeight: 600 }}>
-                      danish.ameer@gmail.com
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 info-column">
-              <div className="info-block-one">
-                <div
-                  className="inner-box"
-                  style={{ textAlign: 'center', padding: '40px', border: '1px solid #eee', borderRadius: '15px', background: '#fff' }}
-                >
-                  <div className="icon-box" style={{ fontSize: '40px', marginBottom: '20px', color: '#FF6B00' }}>
-                    <i className="fas fa-phone"></i>
-                  </div>
-                  <h4>Phone Number</h4>
-                  <p style={{ color: '#666', marginTop: '10px' }}>
-                    <a href="tel:9871336369" style={{ color: '#333', fontWeight: 600 }}>
-                      +91 9871336369
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* contact-info-section end */}
 
-      {/* contact-section */}
-      <section className="contact-section pb_100">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <h2 style={{ fontWeight: 800 }}>Send a Message</h2>
-          </div>
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              {status.message && (
-                <div
-                  className={`alert ${status.type === 'success' ? 'alert-success' : 'alert-danger'} mb_30`}
-                  role="alert"
-                  style={{ borderRadius: '8px' }}
-                >
-                  {status.message}
-                </div>
-              )}
-
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px',
+            }}
+          >
+            {/* Card 1: Facility Location */}
+            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF' }}>
               <div
-                className="form-inner"
                 style={{
-                  background: '#fff',
-                  padding: '40px',
-                  borderRadius: '20px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '50%',
+                  background: '#FBF7EE',
+                  border: '1.5px solid #C5A059',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 18px',
+                  color: '#C5A059',
+                  fontSize: '20px',
                 }}
               >
-                <form onSubmit={handleSubmit}>
-                  <div className="row clearfix">
-                    <div className="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                      <input
-                        type="text"
-                        name="username"
-                        value={formData.username}
-                        onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                        placeholder="Your Name *"
-                        required
-                        style={{ width: '100%', padding: '12px', border: '1px solid #ddd', borderRadius: '5px' }}
-                      />
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="Your Email *"
-                        required
-                        style={{ width: '100%', padding: '12px', border: '1px solid #ddd', borderRadius: '5px' }}
-                      />
-                    </div>
-                    <div className="col-lg-12 col-md-12 col-sm-12 form-group mb_20">
-                      <input
-                        type="text"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="Your Phone Number (Optional)"
-                        style={{ width: '100%', padding: '12px', border: '1px solid #ddd', borderRadius: '5px' }}
-                      />
-                    </div>
-                    <div className="col-lg-12 col-md-12 col-sm-12 form-group mb_20">
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Type your message or auto parts query..."
-                        required
-                        style={{ width: '100%', padding: '12px', border: '1px solid #ddd', borderRadius: '5px', height: '150px' }}
-                      ></textarea>
-                    </div>
-                    <div className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred">
-                      <button
-                        type="submit"
-                        disabled={loading}
-                        className="theme-btn"
-                        style={{
-                          background: '#000',
-                          color: '#fff',
-                          padding: '12px 40px',
-                          borderRadius: '5px',
-                          border: 'none',
-                          fontWeight: 700,
-                          cursor: loading ? 'not-allowed' : 'pointer',
-                        }}
-                      >
-                        {loading ? 'Sending...' : 'Send Message'}
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                <i className="fas fa-map-marker-alt"></i>
               </div>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+                Central Facility & Warehouse
+              </h4>
+              <p style={{ color: '#64748B', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+                {siteConfig.geo.address.streetAddress}, {siteConfig.geo.address.addressLocality} {siteConfig.geo.address.postalCode}
+              </p>
+            </div>
+
+            {/* Card 2: Phone & WhatsApp */}
+            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF' }}>
+              <div
+                style={{
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '50%',
+                  background: '#F0FDF4',
+                  border: '1.5px solid #86EFAC',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 18px',
+                  color: '#15803D',
+                  fontSize: '20px',
+                }}
+              >
+                <i className="fab fa-whatsapp"></i>
+              </div>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+                Direct Hotline & WhatsApp
+              </h4>
+              <p style={{ margin: '0 0 6px', fontSize: '14px', fontWeight: 700, color: '#0F172A' }}>
+                <a href={`tel:${siteConfig.contact.phone}`} style={{ color: '#0F172A', textDecoration: 'none' }}>
+                  {siteConfig.contact.phoneFormatted}
+                </a>
+              </p>
+              <a
+                href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#15803D', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}
+              >
+                Chat on WhatsApp Now →
+              </a>
+            </div>
+
+            {/* Card 3: Support Hours */}
+            <div className="luxury-card" style={{ padding: '32px 24px', textAlign: 'center', background: '#FFFFFF' }}>
+              <div
+                style={{
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '50%',
+                  background: '#EFF6FF',
+                  border: '1.5px solid #BFDBFE',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 18px',
+                  color: '#1D4ED8',
+                  fontSize: '20px',
+                }}
+              >
+                <i className="fas fa-clock"></i>
+              </div>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+                Operating Hours
+              </h4>
+              <p style={{ color: '#64748B', fontSize: '13px', lineHeight: '1.6', margin: '0 0 4px' }}>
+                Monday to Saturday: 9:30 AM – 7:30 PM IST
+              </p>
+              <span style={{ fontSize: '12px', color: '#94A3B8' }}>Sunday: Urgent Dispatch on Request</span>
             </div>
           </div>
         </div>
       </section>
-      {/* contact-section end */}
+
+      {/* Contact Form Section */}
+      <section style={{ padding: '40px 0 80px', background: '#FAFBFC' }}>
+        <div className="auto-container" style={{ maxWidth: '750px' }}>
+          <div className="luxury-card" style={{ padding: '36px', background: '#FFFFFF' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
+              Send an Enquiry or Fitment Request
+            </h3>
+            <p style={{ color: '#64748B', fontSize: '14px', marginBottom: '24px' }}>
+              Provide your vehicle details (Make, Model, Year, VIN) and the exact part you are looking for.
+            </p>
+
+            {status.message && (
+              <div
+                style={{
+                  padding: '14px 18px',
+                  borderRadius: '10px',
+                  marginBottom: '20px',
+                  background: status.type === 'success' ? '#F0FDF4' : '#FEF2F2',
+                  border: status.type === 'success' ? '1px solid #86EFAC' : '1px solid #FCA5A5',
+                  color: status.type === 'success' ? '#15803D' : '#991B1B',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                }}
+              >
+                {status.message}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Vikram Singhania"
+                    value={formData.username}
+                    onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                    style={{ width: '100%', padding: '12px 14px', fontSize: '13px' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                    10-Digit Mobile / WhatsApp *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    maxLength={10}
+                    placeholder="9876543210"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    style={{ width: '100%', padding: '12px 14px', fontSize: '13px' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '16px' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  placeholder="name@example.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  style={{ width: '100%', padding: '12px 14px', fontSize: '13px' }}
+                />
+              </div>
+
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#0F172A', marginBottom: '6px', textTransform: 'uppercase' }}>
+                  Vehicle Model, Year & Required Part *
+                </label>
+                <textarea
+                  required
+                  rows={4}
+                  placeholder="e.g. BMW 520d (F10, 2015) - Need front right LED headlight module and brake pads. Chassis number: WBA..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  style={{ width: '100%', padding: '12px 14px', fontSize: '13px', resize: 'vertical' }}
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-luxury-primary"
+                style={{ width: '100%', padding: '14px', fontSize: '14px' }}
+              >
+                {loading ? 'Submitting Enquiry...' : 'SUBMIT ENQUIRY'}
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <OriginalFooter />
     </>
   );
 }
-

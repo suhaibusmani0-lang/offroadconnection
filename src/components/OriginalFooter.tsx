@@ -2,164 +2,209 @@
 
 import React from 'react';
 import Link from 'next/link';
+import siteConfig from '@/config/site';
 
 export default function OriginalFooter() {
   return (
-    <footer className="main-footer">
-      <div className="auto-container">
+    <footer className="main-footer" style={{ background: '#F8FAFC', borderTop: '1px solid #E2E8F0', color: '#475569' }}>
+      <div className="auto-container" style={{ padding: '70px 15px 40px' }}>
         <div className="widget-section">
-          <div className="row clearfix">
+          <div className="row clearfix" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px 0' }}>
+            {/* Column 1: Brand Info & Bio */}
             <div className="col-lg-4 col-md-6 col-sm-12 footer-column">
-              <div className="footer-widget logo-widget">
-                <figure className="footer-logo">
+              <div className="footer-widget logo-widget" style={{ paddingRight: '20px' }}>
+                <figure className="footer-logo" style={{ marginBottom: '20px' }}>
                   <Link href="/">
-                    <img src="/assets/images/mv-logo-1.png" alt="Off Road Connection Parts" />
+                    <img src="/assets/images/mv-logo-1.png" alt="Off Road Connection Parts" style={{ maxHeight: '55px' }} />
                   </Link>
                 </figure>
-                <p>
-                  Off Road Connection Parts is your trusted destination for genuine auto spare parts. We
-                  provide OEM-quality products, affordable prices, and fast delivery, ensuring every vehicle
-                  owner gets reliable solutions and unmatched customer satisfaction nationwide.
+                <p style={{ fontSize: '13px', lineHeight: '1.7', color: '#64748B', marginBottom: '20px' }}>
+                  {siteConfig.description}
                 </p>
-                <ul className="social-links">
-                  <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                  <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                  <li><a href="https://www.instagram.com/mv.spareshub"><i className="fab fa-instagram"></i></a></li>
-                  <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
-                </ul>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A', textTransform: 'uppercase' }}>
+                    Follow Us:
+                  </span>
+                  <a
+                    href={siteConfig.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      background: '#FFFFFF',
+                      border: '1px solid #E2E8F0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#C5A059',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                  <a
+                    href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      background: '#FFFFFF',
+                      border: '1px solid #E2E8F0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#25D366',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <i className="fab fa-whatsapp"></i>
+                  </a>
+                </div>
               </div>
             </div>
+
+            {/* Column 2: Supported Makes */}
             <div className="col-lg-2 col-md-6 col-sm-12 footer-column">
               <div className="footer-widget links-widget">
-                <div className="widget-title">
-                  <h4>Our Links</h4>
+                <div className="widget-title" style={{ marginBottom: '18px' }}>
+                  <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    Luxury Brands
+                  </h4>
                 </div>
                 <div className="widget-content">
-                  <ul className="links-list clearfix">
-                    <li><Link href="/">Home</Link></li>
-                    <li><Link href="/shop">Shop</Link></li>
-                    <li><Link href="/contact">Contact Us</Link></li>
-                    <li><Link href="/cart">Shopping Cart</Link></li>
-                    <li>
-                      <a href="http://localhost:8000/admin/login.php" target="_blank" rel="noopener noreferrer" style={{ color: '#FF6B00', fontWeight: 600 }}>
-                        <i className="fas fa-user-shield" style={{ marginRight: '6px' }}></i> Admin Portal
+                  <ul className="links-list clearfix" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {siteConfig.supportedMakes.slice(0, 6).map((make) => (
+                      <li key={make} style={{ marginBottom: '9px' }}>
+                        <Link
+                          href={`/shop?make=${encodeURIComponent(make)}`}
+                          style={{ color: '#64748B', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s' }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = '#C5A059')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = '#64748B')}
+                        >
+                          {make} Spares
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3: Quick Navigation & Services */}
+            <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
+              <div className="footer-widget links-widget">
+                <div className="widget-title" style={{ marginBottom: '18px' }}>
+                  <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    Quick Links
+                  </h4>
+                </div>
+                <div className="widget-content">
+                  <ul className="links-list clearfix" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    <li style={{ marginBottom: '9px' }}><Link href="/shop" style={{ color: '#64748B', textDecoration: 'none', fontSize: '13px' }}>All Automotive Spares</Link></li>
+                    <li style={{ marginBottom: '9px' }}><Link href="/about" style={{ color: '#64748B', textDecoration: 'none', fontSize: '13px' }}>About Our Facility</Link></li>
+                    <li style={{ marginBottom: '9px' }}><Link href="/contact" style={{ color: '#64748B', textDecoration: 'none', fontSize: '13px' }}>Customer Support</Link></li>
+                    <li style={{ marginBottom: '9px' }}><Link href="/cart" style={{ color: '#64748B', textDecoration: 'none', fontSize: '13px' }}>View Shopping Cart</Link></li>
+                    <li style={{ marginTop: '14px' }}>
+                      <a
+                        href="http://localhost:8000/admin/login.php"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '7px 14px',
+                          background: '#0F172A',
+                          color: '#FFFFFF',
+                          borderRadius: '6px',
+                          fontSize: '12px',
+                          fontWeight: 700,
+                          textDecoration: 'none',
+                        }}
+                      >
+                        <i className="fas fa-lock" style={{ color: '#C5A059' }}></i>
+                        <span>Admin Portal</span>
                       </a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
-              <div className="footer-widget links-widget">
-                <div className="widget-title">
-                  <h4>Customer Care</h4>
-                </div>
-                <div className="widget-content">
-                  <ul className="links-list clearfix">
-                    <li><Link href="/contact">Support & Inquiries</Link></li>
-                    <li><Link href="/shop">Genuine Auto Spares</Link></li>
-                    <li><a href="https://wa.me/918860718878">WhatsApp Orders</a></li>
-                  </ul>
-                  <div style={{ marginTop: '18px' }}>
-                    <a
-                      href="http://localhost:8000/admin/login.php"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        background: 'linear-gradient(135deg, #FF6B00 0%, #e65e00 100%)',
-                        color: '#fff',
-                        padding: '9px 18px',
-                        borderRadius: '6px',
-                        fontSize: '13px',
-                        fontWeight: 700,
-                        textDecoration: 'none',
-                        boxShadow: '0 4px 10px rgba(255, 107, 0, 0.3)',
-                        transition: '0.2s',
-                      }}
-                    >
-                      <i className="fas fa-lock"></i>
-                      <span>Inventory & Order CRM</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            {/* Column 4: Contact & Local GEO info */}
             <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
               <div className="footer-widget contact-widget">
-                <div className="widget-title">
-                  <h4>Contact Info</h4>
+                <div className="widget-title" style={{ marginBottom: '18px' }}>
+                  <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    Noida Facility & Desk
+                  </h4>
                 </div>
                 <div className="widget-content">
-                  <p>
-                    <i className="fas fa-map-marker-alt" style={{ marginRight: '8px' }}></i>
-                    Plot 2, Opp Asgarpur park, kharsa Number 307 Asgarpur jaagir sector 128 Noida 201301
+                  <p style={{ fontSize: '13px', lineHeight: '1.6', color: '#64748B', marginBottom: '12px' }}>
+                    <i className="fas fa-map-marker-alt" style={{ color: '#C5A059', marginRight: '8px' }}></i>
+                    {siteConfig.geo.address.streetAddress}, {siteConfig.geo.address.addressLocality} {siteConfig.geo.address.postalCode}
                   </p>
-                  <ul className="info mb_25 clearfix" style={{ listStyle: 'none', paddingLeft: 0 }}>
-                    <li>
-                      <i className="fas fa-envelope" style={{ marginRight: '8px' }}></i>
-                      <a href="mailto:info@offroadconnectionparts.com">info@offroadconnectionparts.com</a>
-                    </li>
-                    <li>
-                      <i className="fas fa-phone" style={{ marginRight: '8px' }}></i>
-                      <a href="tel:8860718878">8860718878</a>
-                    </li>
-                  </ul>
+                  <p style={{ fontSize: '13px', color: '#64748B', marginBottom: '8px' }}>
+                    <i className="fas fa-phone-alt" style={{ color: '#C5A059', marginRight: '8px' }}></i>
+                    <a href={`tel:${siteConfig.contact.phone}`} style={{ color: '#0F172A', fontWeight: 700, textDecoration: 'none' }}>
+                      {siteConfig.contact.phoneFormatted}
+                    </a>
+                  </p>
+                  <p style={{ fontSize: '13px', color: '#64748B', marginBottom: '12px' }}>
+                    <i className="fas fa-clock" style={{ color: '#C5A059', marginRight: '8px' }}></i>
+                    Mon - Sat: 9:30 AM - 7:30 PM IST
+                  </p>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '8px',
+                      padding: '10px 14px',
+                      fontSize: '11px',
+                      color: '#15803D',
+                      fontWeight: 700,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                    }}
+                  >
+                    <i className="fas fa-shield-check" style={{ fontSize: '14px' }}></i>
+                    <span>Authorized Fitment & Pan-India Dispatch</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="footer-bottom">
-        <div className="auto-container">
-          <div
-            className="d-flex justify-content-between align-items-center flex-wrap"
-            style={{ padding: '15px 0' }}
-          >
-            <div className="copyright">
-              <p style={{ margin: 0, color: '#aaa', fontSize: '13px' }}>
-                Copyright © 2025-2026 <b>Off Road Connection Parts</b>. All Rights Reserved.
-              </p>
-            </div>
-            <div className="admin-portal-link" style={{ marginTop: '5px' }}>
-              <a
-                href="http://localhost:8000/admin/login.php"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  background: '#1a1a1a',
-                  color: '#fff',
-                  border: '1px solid #333',
-                  padding: '7px 16px',
-                  borderRadius: '6px',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  transition: '0.3s',
-                }}
-                onMouseOver={(e: any) => {
-                  e.currentTarget.style.background = '#FF6B00';
-                  e.currentTarget.style.borderColor = '#FF6B00';
-                }}
-                onMouseOut={(e: any) => {
-                  e.currentTarget.style.background = '#1a1a1a';
-                  e.currentTarget.style.borderColor = '#333';
-                }}
-              >
-                <i className="fas fa-user-shield" style={{ color: '#FF6B00', fontSize: '13px' }}></i>
-                <span>Admin Login (Inventory, Orders & CRM)</span>
-              </a>
-            </div>
-          </div>
+
+        {/* Legal Disclaimer & Copyright */}
+        <div
+          className="footer-bottom"
+          style={{
+            marginTop: '50px',
+            paddingTop: '25px',
+            borderTop: '1px solid #E2E8F0',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '15px',
+            fontSize: '12px',
+            color: '#94A3B8',
+          }}
+        >
+          <p style={{ margin: 0 }}>
+            © {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.
+          </p>
+          <p style={{ margin: 0, fontSize: '11px', color: '#94A3B8', maxWidth: '650px', textAlign: 'right' }}>
+            Disclaimer: Vehicle brand names and models (Audi, BMW, Mercedes-Benz, Porsche, Land Rover, etc.) are cited strictly for identification of part compatibility and fitment under Indian trademark fair usage principles.
+          </p>
         </div>
       </div>
     </footer>
   );
 }
-

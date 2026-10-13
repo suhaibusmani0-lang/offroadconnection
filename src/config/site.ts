@@ -1,0 +1,81 @@
+/**
+ * Off Road Connection Parts - Global Platform Configuration
+ * Luxury Automotive Spare Parts & High-Performance Fitments
+ */
+
+export const siteConfig = {
+  name: 'Off Road Connection Parts',
+  legalName: 'Off Road Connection Parts Private Limited',
+  tagline: 'India’s Premier Destination for Luxury & 4x4 Automotive Spare Parts',
+  description:
+    'Genuine OEM and performance spare parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, Land Rover, Jaguar, Volvo, Jeep, and Toyota. 100% fitment guarantee, express nationwide delivery.',
+  url: 'https://offroadconnection.pages.dev',
+  domain: 'offroadconnection.pages.dev',
+  
+  // Geographic / Local SEO
+  geo: {
+    region: 'IN-UP',
+    placename: 'Noida',
+    position: '28.5355;77.3910',
+    latitude: 28.5355,
+    longitude: 77.3910,
+    address: {
+      streetAddress: 'Plot 2, Opp Asgarpur park, kharsa Number 307 Asgarpur jaagir sector 128',
+      addressLocality: 'Noida',
+      addressRegion: 'Uttar Pradesh',
+      postalCode: '201301',
+      addressCountry: 'IN',
+    },
+  },
+
+  // Contact Details
+  contact: {
+    phone: '+918860718878',
+    phoneFormatted: '+91 88607 18878',
+    whatsapp: '918860718878',
+    email: 'support@offroadconnection.com',
+    openingHours: 'Mo-Sa 09:30-19:30',
+  },
+
+  // Social Channels
+  social: {
+    instagram: 'https://www.instagram.com/mv.spareshub',
+    facebook: 'https://facebook.com/offroadconnection',
+    youtube: 'https://youtube.com',
+  },
+
+  // Luxury Branding Theme
+  theme: {
+    accentGold: '#C5A059',
+    accentGoldHover: '#B38E46',
+    accentGoldLight: '#FBF7EE',
+    obsidian: '#0F172A',
+    surfaceBg: '#FAFBFC',
+    cardBg: '#FFFFFF',
+    borderLight: '#E2E8F0',
+    borderGold: 'rgba(197, 160, 89, 0.35)',
+  },
+
+  // Supported Luxury Makes
+  supportedMakes: [
+    'BMW',
+    'Mercedes-Benz',
+    'Audi',
+    'Range Rover',
+    'Land Rover',
+    'Porsche',
+    'Jaguar',
+    'Volvo',
+    'Jeep',
+    'Toyota',
+    'Isuzu',
+    'Mahindra',
+    'Skoda',
+    'Volkswagen',
+    'Mitsubishi',
+    'Ford',
+  ],
+};
+
+export default siteConfig;
+

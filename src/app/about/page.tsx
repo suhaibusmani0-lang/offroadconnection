@@ -4,146 +4,158 @@ import React from 'react';
 import Link from 'next/link';
 import OriginalHeader from '@/components/OriginalHeader';
 import OriginalFooter from '@/components/OriginalFooter';
+import siteConfig from '@/config/site';
 
 export default function AboutPage() {
   return (
     <>
       <OriginalHeader />
-      {/* page-title */}
-      <section className="page-title">
+
+      {/* Breadcrumb Strip */}
+      <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E2E8F0', padding: '16px 0' }}>
         <div className="auto-container">
-          <div className="content-box">
-            <h1>About Us</h1>
-            <ul className="bread-crumb clearfix">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>About Us</li>
-            </ul>
+          <div className="luxury-breadcrumb" style={{ padding: 0 }}>
+            <Link href="/">Home</Link>
+            <span className="separator">/</span>
+            <span className="current">About Us</span>
           </div>
         </div>
       </section>
-      {/* page-title end */}
 
-      {/* about-section */}
-      <section className="about-section pt_100 pb_70">
+      {/* Executive Intro Section */}
+      <section style={{ padding: '70px 0', background: '#FAFBFC' }}>
         <div className="auto-container">
           <div className="row align-items-center">
-            <div className="col-lg-6 col-md-12 col-sm-12 content-column">
-              <div className="about-content mr_30">
-                <div className="sec-title mb_30">
-                  <span className="sub-title">Who We Are</span>
-                  <h2>Welcome to Off Road Connection Parts</h2>
-                </div>
-                <div className="text-box mb_40" style={{ color: '#666', lineHeight: '1.8' }}>
-                  <p>
-                    At <strong>Off Road Connection Parts</strong>, we are an independent automotive spare parts supplier
-                    committed to providing high-quality OEM and aftermarket replacement parts for a wide range of vehicles,
-                    including off-road and performance models.
-                  </p>
-                  <p>
-                    Based in Noida, Uttar Pradesh, India, we serve customers across the country with a strong focus on
-                    transparency, reliability, and customer satisfaction. Every part listed on our platform is carefully
-                    sourced from verified suppliers and inspected before dispatch to ensure quality and compatibility.
-                  </p>
-                  <p>
-                    We aim to provide accurate product information, fair pricing, and clear return and shipping policies so
-                    that our customers can shop with confidence.
-                  </p>
-                </div>
-                <div className="inner-box">
-                  <div className="row clearfix">
-                    <div className="col-lg-6 col-md-6 col-sm-12 single-column">
-                      <div className="single-item mb_30">
-                        <div className="icon-box" style={{ fontSize: '24px', color: '#FF6B00', marginBottom: '10px' }}>
-                          <i className="fas fa-check-circle"></i>
-                        </div>
-                        <h5 style={{ fontWeight: 700 }}>100% Genuine Parts</h5>
-                        <p style={{ color: '#777', fontSize: '14px' }}>Sourced directly from trusted manufacturers.</p>
-                      </div>
+            <div className="col-lg-6 col-md-12 content-column" style={{ marginBottom: '30px' }}>
+              <div style={{ paddingRight: '20px' }}>
+                <span style={{ color: '#C5A059', fontWeight: 800, fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+                  OUR HERITAGE & PHILOSOPHY
+                </span>
+                <h1
+                  style={{
+                    fontSize: '36px',
+                    fontWeight: 900,
+                    color: '#0F172A',
+                    fontFamily: "'Outfit', sans-serif",
+                    marginTop: '8px',
+                    lineHeight: '1.3',
+                    marginBottom: '20px',
+                  }}
+                >
+                  India’s Specialist for <span style={{ color: '#C5A059' }}>Luxury & 4x4</span> Automotive Spares
+                </h1>
+                <p style={{ color: '#64748B', lineHeight: '1.8', fontSize: '15px', marginBottom: '16px' }}>
+                  Founded on a passion for precision automotive engineering, <strong>Off Road Connection Parts</strong> is India’s foremost independent distributor of genuine OEM and certified replacement parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, Land Rover, Jaguar, and heavy-duty 4x4 vehicles.
+                </p>
+                <p style={{ color: '#64748B', lineHeight: '1.8', fontSize: '15px', marginBottom: '28px' }}>
+                  Operating from our primary distribution facility in Sector 128, Noida, Uttar Pradesh, every part in our 2,500+ product catalog undergoes strict chassis-compatibility and VIN verification before dispatch, guaranteeing that vehicle owners and automotive workshops receive the exact component required without guesswork.
+                </p>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '30px' }}>
+                  <div className="luxury-card" style={{ padding: '20px', background: '#FFFFFF' }}>
+                    <div style={{ color: '#C5A059', fontSize: '24px', marginBottom: '10px' }}>
+                      <i className="fas fa-certificate"></i>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 single-column">
-                      <div className="single-item mb_30">
-                        <div className="icon-box" style={{ fontSize: '24px', color: '#FF6B00', marginBottom: '10px' }}>
-                          <i className="fas fa-shipping-fast"></i>
-                        </div>
-                        <h5 style={{ fontWeight: 700 }}>Pan-India Delivery</h5>
-                        <p style={{ color: '#777', fontSize: '14px' }}>Fast and secure shipping to your doorstep.</p>
-                      </div>
+                    <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
+                      100% Genuine OEM
+                    </h4>
+                    <p style={{ color: '#64748B', fontSize: '12px', margin: 0 }}>
+                      Sourced strictly from certified automotive component manufacturers.
+                    </p>
+                  </div>
+
+                  <div className="luxury-card" style={{ padding: '20px', background: '#FFFFFF' }}>
+                    <div style={{ color: '#C5A059', fontSize: '24px', marginBottom: '10px' }}>
+                      <i className="fas fa-truck-moving"></i>
                     </div>
+                    <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
+                      Express Dispatch
+                    </h4>
+                    <p style={{ color: '#64748B', fontSize: '12px', margin: 0 }}>
+                      Air logistics network covering all 19,000+ Indian pincodes in 2-5 days.
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-lg-6 col-md-12 col-sm-12 image-column">
-              <div className="image-box ml_30">
-                <figure className="image">
-                  <img
-                    src="/assets/images/resource/about-1.jpg"
-                    alt="About Off Road Connection Parts"
-                    style={{ borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', width: '100%' }}
-                    onError={(e: any) => {
-                      e.target.src = '/assets/images/resource/Wheel-1.png';
-                    }}
-                  />
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* about-section end */}
 
-      {/* feature-section */}
-      <section className="feature-section pb_70">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <span className="sub-title">Our Values</span>
-            <h2>Why Choose Us?</h2>
-          </div>
-          <div className="row clearfix text-center">
-            <div className="col-lg-4 col-md-6 col-sm-12 column">
-              <div
-                className="feature-block-one mb_30 p-4 shadow-sm"
-                style={{ borderRadius: '15px', background: '#fff', border: '1px solid #f0f0f0' }}
-              >
-                <div style={{ fontSize: '40px', color: '#FF6B00', marginBottom: '15px' }}>
-                  <i className="fas fa-boxes"></i>
+                <div>
+                  <Link href="/shop" className="btn-luxury-primary" style={{ textDecoration: 'none' }}>
+                    <span>BROWSE PARTS CATALOG</span>
+                    <i className="fas fa-arrow-right" style={{ fontSize: '12px' }}></i>
+                  </Link>
                 </div>
-                <h4 style={{ fontWeight: 700, marginBottom: '10px' }}>Extensive Inventory</h4>
-                <p style={{ color: '#666' }}>Over 15,000+ spare parts for all major automotive makes and models in stock.</p>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 column">
+
+            <div className="col-lg-6 col-md-12">
               <div
-                className="feature-block-one mb_30 p-4 shadow-sm"
-                style={{ borderRadius: '15px', background: '#fff', border: '1px solid #f0f0f0' }}
+                className="luxury-card"
+                style={{
+                  padding: '16px',
+                  background: '#FFFFFF',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                }}
               >
-                <div style={{ fontSize: '40px', color: '#FF6B00', marginBottom: '15px' }}>
-                  <i className="fas fa-award"></i>
-                </div>
-                <h4 style={{ fontWeight: 700, marginBottom: '10px' }}>Tested Quality</h4>
-                <p style={{ color: '#666' }}>Rigorous inspection and fitment checks to prevent compatibility issues.</p>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 column">
-              <div
-                className="feature-block-one mb_30 p-4 shadow-sm"
-                style={{ borderRadius: '15px', background: '#fff', border: '1px solid #f0f0f0' }}
-              >
-                <div style={{ fontSize: '40px', color: '#FF6B00', marginBottom: '15px' }}>
-                  <i className="fas fa-user-shield"></i>
-                </div>
-                <h4 style={{ fontWeight: 700, marginBottom: '10px' }}>Secure Ordering</h4>
-                <p style={{ color: '#666' }}>Safe online payment processing, COD options, and quick responsive support.</p>
+                <img
+                  src="/assets/images/banner/banner-1.jpg"
+                  alt="Off Road Connection Parts Facility"
+                  style={{ width: '100%', borderRadius: '12px', objectFit: 'cover' }}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* feature-section end */}
+
+      {/* Facility & Customer Assurance */}
+      <section style={{ padding: '70px 0', background: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
+        <div className="auto-container" style={{ maxWidth: '900px', textAlign: 'center' }}>
+          <span style={{ color: '#C5A059', fontWeight: 800, fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+            FACILITY & LOGISTICS
+          </span>
+          <h2 style={{ fontSize: '30px', fontWeight: 900, color: '#0F172A', fontFamily: "'Outfit', sans-serif", margin: '8px 0 20px' }}>
+            Noida Central Warehouse & Distribution Desk
+          </h2>
+          <p style={{ color: '#64748B', fontSize: '15px', lineHeight: '1.8', marginBottom: '30px' }}>
+            Located strategically in Sector 128 Noida, our facility maintains active stocks of complex lighting assemblies, electronic modules, air suspension struts, braking components, and engine ancillaries.
+          </p>
+          <div
+            style={{
+              background: '#F8FAFC',
+              border: '1px solid #E2E8F0',
+              borderRadius: '14px',
+              padding: '24px 30px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '24px',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
+            <div style={{ textAlign: 'left' }}>
+              <span style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 700 }}>Direct Hotline</span>
+              <div style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A' }}>{siteConfig.contact.phoneFormatted}</div>
+            </div>
+            <div style={{ height: '35px', width: '1px', background: '#E2E8F0' }}></div>
+            <div style={{ textAlign: 'left' }}>
+              <span style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 700 }}>WhatsApp Parts Desk</span>
+              <div style={{ fontSize: '16px', fontWeight: 800, color: '#15803D' }}>Live Consultation Available</div>
+            </div>
+            <a
+              href="https://wa.me/918860718878"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-luxury-primary"
+              style={{ textDecoration: 'none', padding: '10px 20px', fontSize: '13px' }}
+            >
+              <i className="fab fa-whatsapp" style={{ color: '#25D366' }}></i>
+              <span>Connect on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <OriginalFooter />
     </>
   );
 }
-

@@ -114,13 +114,13 @@ export default function CustomerLoginModal() {
             style={{
               width: '56px',
               height: '56px',
-              background: '#FFF3EB',
+              background: '#FBF7EE',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 12px',
-              color: '#FF6B00',
+              color: '#C5A059',
               fontSize: '24px',
             }}
           >
@@ -237,18 +237,18 @@ export default function CustomerLoginModal() {
               disabled={loading || phone.length !== 10}
               style={{
                 width: '100%',
-                background: phone.length === 10 ? '#FF6B00' : '#9ca3af',
+                background: phone.length === 10 ? 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)' : '#9ca3af',
                 color: '#ffffff',
                 padding: '12px',
                 border: 'none',
-                borderRadius: '6px',
-                fontWeight: 600,
-                fontSize: '15px',
+                borderRadius: '8px',
+                fontWeight: 700,
+                fontSize: '14px',
                 cursor: phone.length === 10 ? 'pointer' : 'not-allowed',
-                transition: 'background 0.2s',
+                transition: 'all 0.2s',
               }}
             >
-              {loading ? 'Sending OTP...' : 'Send OTP'}
+              {loading ? 'Sending OTP...' : 'SEND OTP'}
             </button>
           </form>
         ) : (
@@ -284,19 +284,19 @@ export default function CustomerLoginModal() {
               disabled={loading || otp.length !== 6}
               style={{
                 width: '100%',
-                background: otp.length === 6 ? '#FF6B00' : '#9ca3af',
+                background: otp.length === 6 ? 'linear-gradient(135deg, #C5A059 0%, #B38E46 100%)' : '#9ca3af',
                 color: '#ffffff',
                 padding: '12px',
                 border: 'none',
-                borderRadius: '6px',
-                fontWeight: 600,
-                fontSize: '15px',
+                borderRadius: '8px',
+                fontWeight: 700,
+                fontSize: '14px',
                 cursor: otp.length === 6 ? 'pointer' : 'not-allowed',
-                transition: 'background 0.2s',
+                transition: 'all 0.2s',
                 marginBottom: '12px',
               }}
             >
-              {loading ? 'Verifying...' : 'Verify & Continue'}
+              {loading ? 'Verifying...' : 'VERIFY & CONTINUE'}
             </button>
 
             <div style={{ textAlign: 'center' }}>
@@ -310,8 +310,9 @@ export default function CustomerLoginModal() {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#FF6B00',
+                  color: '#C5A059',
                   fontSize: '13px',
+                  fontWeight: 600,
                   cursor: 'pointer',
                   textDecoration: 'underline',
                 }}

@@ -1,56 +1,374 @@
-/* Global Product Image and Layout Overrides from original template */
+/* ==========================================================================
+   OFF ROAD CONNECTION PARTS - ULTRA LUXURY LIGHT THEME SYSTEM
+   Precision Automotive Aesthetics, Clean Modern Surfaces, Champagne Accents
+   ========================================================================== */
+
+:root {
+  --theme-color: #C5A059;
+  --theme-color-hover: #B38E46;
+  --theme-color-light: #FBF7EE;
+  --luxury-obsidian: #0F172A;
+  --luxury-slate: #334155;
+  --luxury-muted: #64748B;
+  --luxury-bg: #FAFBFC;
+  --luxury-surface: #FFFFFF;
+  --luxury-border: #E2E8F0;
+  --luxury-border-gold: rgba(197, 160, 89, 0.4);
+  --luxury-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+  --luxury-shadow-hover: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+}
+
+/* Base resets & typography */
+body {
+  background-color: var(--luxury-bg) !important;
+  color: var(--luxury-obsidian) !important;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Global Container Polish */
+.boxed_wrapper {
+  background: var(--luxury-bg) !important;
+}
+
+/* Ultra Luxury Card System */
+.shop-block-one .inner-box,
+.sales-block-one .inner-box,
+.deals-block-one .inner-box,
+.deals-block-two .inner-box,
+.category-block-one .inner-box,
+.category-block-two .inner-box,
+.category-block-three .inner-box,
+.feature-block-one .inner-box,
+.luxury-card {
+  background: #ffffff !important;
+  border: 1px solid var(--luxury-border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--luxury-shadow) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden;
+}
+
+.shop-block-one .inner-box:hover,
+.sales-block-one .inner-box:hover,
+.deals-block-one .inner-box:hover,
+.category-block-one .inner-box:hover,
+.luxury-card:hover {
+  border-color: var(--theme-color) !important;
+  box-shadow: var(--luxury-shadow-hover) !important;
+  transform: translateY(-4px);
+}
+
+/* Product Image Box - Ultra Clean White Display */
 .shop-block-one .image-box,
 .sales-block-one .image-box,
-.shop-details .image-box {
-    width: 100%;
-    height: 300px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #f9f9f9 !important;
-    overflow: hidden !important;
-    border-radius: 8px;
+.shop-details .image-box,
+.product-card-img-box {
+  width: 100%;
+  height: 270px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  overflow: hidden !important;
+  padding: 16px !important;
+  position: relative;
 }
 
 .shop-block-one .image-box img,
 .sales-block-one .image-box img,
-.shop-details .image-box img {
-    max-width: 90% !important;
-    max-height: 90% !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
+.shop-details .image-box img,
+.product-card-img-box img {
+  max-width: 90% !important;
+  max-height: 90% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  transition: transform 0.4s ease !important;
+}
+
+.shop-block-one:hover .image-box img,
+.sales-block-one:hover .image-box img {
+  transform: scale(1.05) !important;
+}
+
+/* Product Lower Content */
+.shop-block-one .lower-content {
+  padding: 18px 20px 22px !important;
+  background: #ffffff !important;
 }
 
 .shop-block-one .lower-content h4,
 .sales-block-one .content-box h6 {
-    height: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  height: 44px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: var(--luxury-obsidian) !important;
+  margin-bottom: 10px !important;
 }
 
+.shop-block-one .lower-content h4 a:hover {
+  color: var(--theme-color) !important;
+}
+
+/* Luxury Price Typography */
+.shop-block-one .price,
+.product-price {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: var(--luxury-obsidian) !important;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.old-price,
+del {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #94a3b8 !important;
+  text-decoration: line-through;
+}
+
+/* Ultra Luxury Badges */
+.badge-oem {
+  background: #F0FDF4;
+  border: 1px solid #86EFAC;
+  color: #15803D;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-luxury {
+  background: var(--theme-color-light);
+  border: 1px solid var(--luxury-border-gold);
+  color: #854D0E;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-instock {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #1D4ED8;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Cart Badge in Navigation */
 .cart-badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #FF6B00;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--theme-color);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.4);
 }
 
 .cart-icon-wrapper {
-    position: relative;
+  position: relative;
 }
 
+/* Luxury Buttons */
+.btn-luxury-primary {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-luxury-primary:hover {
+  background: linear-gradient(135deg, #C5A059 0%, #B38E46 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-luxury-gold {
+  background: linear-gradient(135deg, #C5A059 0%, #B38E46 100%);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-luxury-gold:hover {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-luxury-outline {
+  background: #FFFFFF;
+  color: var(--luxury-obsidian) !important;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1.5px solid var(--luxury-border);
+  padding: 11px 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-luxury-outline:hover {
+  border-color: var(--theme-color);
+  color: var(--theme-color) !important;
+  background: var(--theme-color-light);
+}
+
+/* Light Theme Navigation & Header Bar */
+.main-header.header-custom {
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--luxury-border) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02) !important;
+}
+
+.header-top-new {
+  background: #ffffff !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.header-lower-new {
+  background: #ffffff !important;
+}
+
+.nav-links li a {
+  color: var(--luxury-obsidian) !important;
+  font-weight: 600 !important;
+  transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--theme-color) !important;
+}
+
+/* Light Theme Form Controls */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+  background: #ffffff !important;
+  border: 1.5px solid var(--luxury-border) !important;
+  border-radius: 10px !important;
+  color: var(--luxury-obsidian) !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--theme-color) !important;
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15) !important;
+  outline: none !important;
+}
+
+/* Luxury Breadcrumb */
+.luxury-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--luxury-muted);
+  padding: 16px 0;
+}
+
+.luxury-breadcrumb a {
+  color: var(--luxury-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.luxury-breadcrumb a:hover {
+  color: var(--theme-color);
+}
+
+.luxury-breadcrumb .separator {
+  color: #cbd5e1;
+}
+
+.luxury-breadcrumb .current {
+  color: var(--luxury-obsidian);
+  font-weight: 600;
+}
+
+/* Ultra Luxury Footer Styling */
+.main-footer {
+  background: #f8fafc !important;
+  border-top: 1px solid var(--luxury-border) !important;
+  color: var(--luxury-slate) !important;
+}
+
+.main-footer .widget-title h4 {
+  color: var(--luxury-obsidian) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.3px;
+}
+
+.main-footer .links-list li a {
+  color: var(--luxury-muted) !important;
+  transition: color 0.2s ease;
+}
+
+.main-footer .links-list li a:hover {
+  color: var(--theme-color) !important;
+}
+
+.footer-bottom {
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+  color: var(--luxury-muted) !important;
+}

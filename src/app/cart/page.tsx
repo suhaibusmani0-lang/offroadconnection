@@ -13,268 +13,261 @@ export default function CartPage() {
   return (
     <>
       <OriginalHeader />
-      <section className="cart-section p_relative pt_60 pb_100">
-      <div className="auto-container">
-        <div className="sec-title mb_40">
-          <h2 style={{ fontWeight: 800 }}>Shopping Cart</h2>
-        </div>
 
-        {cart.length === 0 ? (
-          <div className="text-center py-5">
-            <i className="fas fa-shopping-basket mb_20" style={{ fontSize: '60px', color: '#eee' }}></i>
-            <h4 style={{ fontWeight: 700, marginTop: '15px' }}>Your cart is empty!</h4>
-            <p style={{ color: '#888', marginTop: '5px' }}>Explore thousands of genuine auto parts and add them to your cart.</p>
-            <Link
-              href="/shop"
-              className="theme-btn mt_20"
+      {/* Breadcrumb Strip */}
+      <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E2E8F0', padding: '16px 0' }}>
+        <div className="auto-container">
+          <div className="luxury-breadcrumb" style={{ padding: 0 }}>
+            <Link href="/">Home</Link>
+            <span className="separator">/</span>
+            <Link href="/shop">Catalog</Link>
+            <span className="separator">/</span>
+            <span className="current">Shopping Bag</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Cart Content Section */}
+      <section style={{ padding: '60px 0 90px', background: '#FAFBFC' }}>
+        <div className="auto-container">
+          <div style={{ marginBottom: '36px' }}>
+            <span style={{ color: '#C5A059', fontWeight: 800, fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+              REVIEW YOUR ORDER
+            </span>
+            <h1 style={{ fontSize: '32px', fontWeight: 900, color: '#0F172A', fontFamily: "'Outfit', sans-serif", margin: '6px 0 0' }}>
+              Shopping Bag ({cart.length})
+            </h1>
+          </div>
+
+          {cart.length === 0 ? (
+            <div
+              className="luxury-card"
               style={{
-                background: '#FF6B00',
-                color: '#fff',
-                padding: '12px 30px',
-                borderRadius: '5px',
-                textDecoration: 'none',
-                display: 'inline-block',
-                fontWeight: 700,
+                textAlign: 'center',
+                padding: '70px 20px',
+                background: '#FFFFFF',
+                maxWidth: '550px',
+                margin: '0 auto',
               }}
             >
-              Return to Shop
-            </Link>
-          </div>
-        ) : (
-          <div className="row clearfix">
-            <div className="col-lg-8 col-md-12 col-sm-12 table-column">
-              <div className="table-outer card p-4 shadow-sm" style={{ borderRadius: '15px', border: 'none' }}>
-                <div className="table-responsive">
-                  <table className="cart-table" style={{ width: '100%' }}>
-                    <thead style={{ borderBottom: '1px solid #eee' }}>
-                      <tr>
-                        <th style={{ padding: '15px', textAlign: 'left' }}>Product</th>
-                        <th style={{ padding: '15px', textAlign: 'center' }}>Price</th>
-                        <th style={{ padding: '15px', textAlign: 'center' }}>Quantity</th>
-                        <th style={{ padding: '15px', textAlign: 'center' }}>Subtotal</th>
-                        <th style={{ padding: '15px', textAlign: 'right' }}></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {cart.map((item) => {
-                        const itemSubtotal = item.price * item.quantity;
-                        const imgSrc = formatImageUrl(item.image);
+              <div
+                style={{
+                  width: '70px',
+                  height: '70px',
+                  borderRadius: '50%',
+                  background: '#FBF7EE',
+                  border: '1.5px solid #C5A059',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 20px',
+                  color: '#C5A059',
+                  fontSize: '28px',
+                }}
+              >
+                <i className="fas fa-shopping-bag"></i>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+                Your Shopping Bag is Empty
+              </h3>
+              <p style={{ color: '#64748B', fontSize: '14px', maxWidth: '380px', margin: '0 auto 24px', lineHeight: '1.6' }}>
+                Explore over 2,500+ genuine OEM auto spare parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, and more.
+              </p>
+              <Link href="/shop" className="btn-luxury-primary" style={{ textDecoration: 'none' }}>
+                <span>EXPLORE CATALOG</span>
+                <i className="fas fa-arrow-right" style={{ fontSize: '12px' }}></i>
+              </Link>
+            </div>
+          ) : (
+            <div className="row clearfix" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px 0' }}>
+              {/* Left Column: Cart Table */}
+              <div className="col-lg-8 col-md-12">
+                <div
+                  className="luxury-card"
+                  style={{
+                    background: '#FFFFFF',
+                    padding: '24px',
+                  }}
+                >
+                  <div style={{ overflowX: 'auto' }}>
+                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+                      <thead>
+                        <tr style={{ borderBottom: '1.5px solid #F1F5F9', textAlign: 'left' }}>
+                          <th style={{ padding: '12px 14px', color: '#64748B', textTransform: 'uppercase', fontSize: '11px', fontWeight: 800 }}>Product</th>
+                          <th style={{ padding: '12px 14px', color: '#64748B', textTransform: 'uppercase', fontSize: '11px', fontWeight: 800 }}>Price</th>
+                          <th style={{ padding: '12px 14px', color: '#64748B', textTransform: 'uppercase', fontSize: '11px', fontWeight: 800, textAlign: 'center' }}>Qty</th>
+                          <th style={{ padding: '12px 14px', color: '#64748B', textTransform: 'uppercase', fontSize: '11px', fontWeight: 800, textAlign: 'right' }}>Subtotal</th>
+                          <th style={{ padding: '12px 14px', width: '40px' }}></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {cart.map((item) => {
+                          const itemSubtotal = item.price * item.quantity;
+                          const imgSrc = formatImageUrl(item.image);
 
-                        return (
-                          <tr key={item.id} style={{ borderBottom: '1px solid #f9f9f9' }}>
-                            <td style={{ padding: '20px 15px' }}>
-                              <div className="d-flex align-items-center gap-3">
-                                <img
-                                  src={imgSrc}
-                                  alt={item.name}
-                                  style={{
-                                    width: '70px',
-                                    height: '70px',
-                                    objectFit: 'contain',
-                                    border: '1px solid #eee',
-                                    borderRadius: '8px',
-                                    padding: '5px',
-                                    background: '#fff',
-                                  }}
-                                  onError={(e: any) => {
-                                    e.target.src = '/assets/images/resource/Wheel-1.png';
-                                  }}
-                                />
-                                <div>
-                                  <Link href={`/product/${item.slug || item.id}`} style={{ textDecoration: 'none' }}>
-                                    <h6 style={{ margin: 0, fontWeight: 700, color: '#333' }}>{item.name}</h6>
-                                  </Link>
-                                  {item.sku && <small style={{ color: '#888' }}>SKU: {item.sku}</small>}
+                          return (
+                            <tr key={item.id} style={{ borderBottom: '1px solid #F1F5F9' }}>
+                              <td style={{ padding: '18px 14px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                                  <img
+                                    src={imgSrc}
+                                    alt={item.name}
+                                    style={{
+                                      width: '65px',
+                                      height: '65px',
+                                      objectFit: 'contain',
+                                      border: '1px solid #F1F5F9',
+                                      borderRadius: '8px',
+                                      padding: '4px',
+                                      background: '#FFFFFF',
+                                    }}
+                                  />
+                                  <div>
+                                    <h4 style={{ fontSize: '14px', fontWeight: 700, margin: '0 0 4px', color: '#0F172A', lineHeight: '1.3' }}>
+                                      {item.name}
+                                    </h4>
+                                    <span style={{ fontSize: '11px', color: '#94A3B8' }}>
+                                      SKU: {item.sku || 'OEM-PART'}
+                                    </span>
+                                  </div>
                                 </div>
-                              </div>
-                            </td>
-                            <td align="center" style={{ fontWeight: 600 }}>
-                              &#8377;{Number(item.price).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                            </td>
-                            <td align="center">
-                              <div
-                                className="quantity-box"
-                                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
-                              >
-                                <button
-                                  type="button"
-                                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              </td>
+                              <td style={{ padding: '18px 14px', fontWeight: 700, color: '#0F172A' }}>
+                                ₹{Number(item.price).toLocaleString('en-IN')}
+                              </td>
+                              <td style={{ padding: '18px 14px', textAlign: 'center' }}>
+                                <div
                                   style={{
-                                    width: '32px',
-                                    height: '32px',
-                                    border: '1px solid #ddd',
-                                    background: '#f8f9fa',
-                                    borderRadius: '4px',
-                                    fontWeight: 700,
-                                    cursor: 'pointer',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    border: '1px solid #E2E8F0',
+                                    borderRadius: '8px',
+                                    background: '#FFFFFF',
                                   }}
                                 >
-                                  -
-                                </button>
-                                <input
-                                  type="number"
-                                  value={item.quantity}
-                                  min="1"
-                                  onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
-                                  style={{
-                                    width: '50px',
-                                    height: '32px',
-                                    textAlign: 'center',
-                                    border: '1px solid #ddd',
-                                    borderRadius: '4px',
-                                    padding: '5px',
-                                  }}
-                                />
+                                  <button
+                                    type="button"
+                                    onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                                    style={{ width: '28px', height: '32px', border: 'none', background: 'transparent', cursor: 'pointer', color: '#64748B' }}
+                                  >
+                                    -
+                                  </button>
+                                  <span style={{ width: '32px', textAlign: 'center', fontWeight: 700, fontSize: '13px' }}>
+                                    {item.quantity}
+                                  </span>
+                                  <button
+                                    type="button"
+                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                    style={{ width: '28px', height: '32px', border: 'none', background: 'transparent', cursor: 'pointer', color: '#64748B' }}
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </td>
+                              <td style={{ padding: '18px 14px', fontWeight: 800, color: '#0F172A', textAlign: 'right' }}>
+                                ₹{itemSubtotal.toLocaleString('en-IN')}
+                              </td>
+                              <td style={{ padding: '18px 14px', textAlign: 'right' }}>
                                 <button
                                   type="button"
-                                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                  style={{
-                                    width: '32px',
-                                    height: '32px',
-                                    border: '1px solid #ddd',
-                                    background: '#f8f9fa',
-                                    borderRadius: '4px',
-                                    fontWeight: 700,
-                                    cursor: 'pointer',
-                                  }}
+                                  onClick={() => removeFromCart(item.id)}
+                                  style={{ background: 'transparent', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '14px' }}
+                                  title="Remove Item"
                                 >
-                                  +
+                                  <i className="fas fa-trash-alt"></i>
                                 </button>
-                              </div>
-                            </td>
-                            <td align="center" style={{ fontWeight: 700, color: '#FF6B00' }}>
-                              &#8377;{Number(itemSubtotal).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                            </td>
-                            <td align="right">
-                              <button
-                                onClick={() => removeFromCart(item.id)}
-                                title="Remove item"
-                                style={{ background: 'none', border: 'none', color: '#dc3545', cursor: 'pointer', fontSize: '16px' }}
-                              >
-                                <i className="fas fa-trash-alt"></i>
-                              </button>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid #F1F5F9', flexWrap: 'wrap', gap: '12px' }}>
+                    <Link href="/shop" style={{ color: '#0F172A', fontWeight: 700, fontSize: '13px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="fas fa-arrow-left" style={{ fontSize: '11px' }}></i>
+                      <span>Continue Shopping</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="col-lg-4 col-md-12 col-sm-12 cart-summary-column">
-              <div
-                className="cart-summary card p-4 shadow-sm"
-                style={{ borderRadius: '15px', border: 'none', background: '#fdfaf8' }}
-              >
-                <h4 style={{ fontWeight: 800, marginBottom: '25px' }}>Cart Total</h4>
-                <div className="d-flex justify-content-between mb_10" style={{ fontSize: '16px' }}>
-                  <span>Subtotal</span>
-                  <span>&#8377;{Number(cartTotal).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                </div>
-                <div className="d-flex justify-content-between mb_10" style={{ fontSize: '16px' }}>
-                  <span>Shipping</span>
-                  <span style={{ color: '#28a745', fontWeight: 600 }}>FREE</span>
-                </div>
-                <hr style={{ background: '#eee' }} />
+              {/* Right Column: Order Summary */}
+              <div className="col-lg-4 col-md-12">
                 <div
-                  className="d-flex justify-content-between mb_30"
-                  style={{ fontSize: '20px', fontWeight: 800, color: '#333' }}
-                >
-                  <span>Total</span>
-                  <span style={{ color: '#FF6B00' }}>
-                    &#8377;{Number(cartTotal).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  </span>
-                </div>
-                <Link
-                  href="/checkout"
-                  className="theme-btn w-100 text-center"
+                  className="luxury-card"
                   style={{
-                    background: '#222',
-                    color: '#fff',
-                    padding: '15px',
-                    borderRadius: '8px',
-                    fontWeight: 700,
-                    textDecoration: 'none',
-                    display: 'block',
-                    border: 'none',
-                    transition: '0.3s',
+                    background: '#FFFFFF',
+                    padding: '28px',
+                    position: 'sticky',
+                    top: '100px',
                   }}
-                  onMouseOver={(e: any) => (e.target.style.background = '#000')}
-                  onMouseOut={(e: any) => (e.target.style.background = '#222')}
                 >
-                  Proceed to Checkout
-                </Link>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#0F172A', marginBottom: '20px', paddingBottom: '14px', borderBottom: '1px solid #F1F5F9' }}>
+                    Order Summary
+                  </h3>
 
-                {/* Trust & Support Section */}
-                <div
-                  className="trust-signals mt_30"
-                  style={{ background: '#fff', padding: '20px', borderRadius: '12px', border: '1px solid #eee' }}
-                >
-                  <div className="d-flex align-items-center mb_15" style={{ gap: '15px' }}>
-                    <div
-                      style={{
-                        width: '45px',
-                        height: '45px',
-                        background: 'rgba(52, 152, 219, 0.1)',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#3498db',
-                      }}
-                    >
-                      <i className="fas fa-lock" style={{ fontSize: '20px' }}></i>
-                    </div>
-                    <div>
-                      <h6 style={{ margin: 0, fontWeight: 700, color: '#333' }}>Secure Checkout</h6>
-                      <small style={{ color: '#777' }}>Protected & Encrypted Transactions</small>
-                    </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px', fontSize: '14px', color: '#64748B' }}>
+                    <span>Bag Subtotal</span>
+                    <strong style={{ color: '#0F172A' }}>₹{cartTotal.toLocaleString('en-IN')}</strong>
                   </div>
-                  <div className="d-flex align-items-center" style={{ gap: '15px' }}>
-                    <div
-                      style={{
-                        width: '45px',
-                        height: '45px',
-                        background: 'rgba(0, 184, 148, 0.1)',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#00b894',
-                      }}
-                    >
-                      <i className="fas fa-shield-alt" style={{ fontSize: '20px' }}></i>
-                    </div>
-                    <div>
-                      <h6 style={{ margin: 0, fontWeight: 700, color: '#333' }}>Trust Off Road Connection Parts</h6>
-                      <small style={{ color: '#777' }}>100% Genuine Spare Parts</small>
-                    </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px', fontSize: '14px', color: '#64748B' }}>
+                    <span>Express Air Dispatch</span>
+                    <strong style={{ color: '#15803D' }}>FREE</strong>
                   </div>
-                  <div
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px', paddingTop: '14px', borderTop: '1.5px solid #F1F5F9', fontSize: '18px', color: '#0F172A' }}>
+                    <span style={{ fontWeight: 800 }}>Total</span>
+                    <span style={{ fontWeight: 900, color: '#0F172A' }}>₹{cartTotal.toLocaleString('en-IN')}</span>
+                  </div>
+
+                  <Link
+                    href="/checkout"
+                    className="btn-luxury-primary"
+                    style={{ width: '100%', textDecoration: 'none', marginBottom: '12px', padding: '14px 20px', fontSize: '14px' }}
+                  >
+                    <span>PROCEED TO SECURE CHECKOUT</span>
+                    <i className="fas fa-arrow-right" style={{ fontSize: '12px' }}></i>
+                  </Link>
+
+                  <a
+                    href={`https://wa.me/918860718878?text=Hello,%20I%20have%20${cart.length}%20item(s)%20in%20my%20bag%20totaling%20₹${cartTotal}.%20Can%20you%20help%20me%20confirm%20order%20and%20fitment?`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
-                      marginTop: '20px',
-                      paddingTop: '15px',
-                      borderTop: '1px dashed #eee',
-                      fontSize: '13px',
-                      color: '#666',
-                      textAlign: 'center',
+                      width: '100%',
+                      padding: '11px 16px',
+                      borderRadius: '10px',
+                      border: '1.5px solid #86EFAC',
+                      background: '#F0FDF4',
+                      color: '#15803D',
+                      fontWeight: 700,
+                      fontSize: '12px',
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
                     }}
                   >
-                    <strong>Off Road Connection Parts</strong>
-                    <br />
-                    Need Help? Call/WhatsApp: +91 9871336369
+                    <i className="fab fa-whatsapp" style={{ fontSize: '16px' }}></i>
+                    <span>Order via WhatsApp Desk</span>
+                  </a>
+
+                  <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid #F1F5F9', fontSize: '11px', color: '#94A3B8', textAlign: 'center' }}>
+                    <i className="fas fa-lock" style={{ marginRight: '6px', color: '#C5A059' }}></i>
+                    <span>256-Bit SSL Encrypted Razorpay Checkout</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
-    </section>
-    <OriginalFooter />
-  </>
+          )}
+        </div>
+      </section>
+
+      <OriginalFooter />
+    </>
   );
 }
-

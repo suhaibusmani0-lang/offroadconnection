@@ -62,17 +62,18 @@ export default function PincodeEstimator({ onPincodeSelect }: { onPincodeSelect?
   return (
     <div
       style={{
-        border: '1px solid #e5e7eb',
-        borderRadius: '8px',
-        padding: '16px',
-        backgroundColor: '#fafafa',
+        border: '1px solid #E2E8F0',
+        borderRadius: '12px',
+        padding: '20px',
+        backgroundColor: '#FFFFFF',
         margin: '20px 0',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.02)',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-        <i className="fas fa-map-marker-alt" style={{ color: '#FF6B00', fontSize: '18px' }}></i>
-        <span style={{ fontWeight: 600, fontSize: '15px', color: '#111827' }}>
-          Delivery Options & Estimated Delivery Date
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+        <i className="fas fa-map-marker-alt" style={{ color: '#C5A059', fontSize: '18px' }}></i>
+        <span style={{ fontWeight: 700, fontSize: '14px', color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.3px' }}>
+          Pan-India Pincode Delivery Check
         </span>
       </div>
 
@@ -92,9 +93,9 @@ export default function PincodeEstimator({ onPincodeSelect }: { onPincodeSelect?
           style={{
             flex: 1,
             padding: '10px 14px',
-            border: '1px solid #d1d5db',
-            borderRadius: '6px',
-            fontSize: '14px',
+            border: '1.5px solid #E2E8F0',
+            borderRadius: '8px',
+            fontSize: '13px',
             outline: 'none',
             background: '#ffffff',
           }}
@@ -104,15 +105,21 @@ export default function PincodeEstimator({ onPincodeSelect }: { onPincodeSelect?
           onClick={() => checkPincode()}
           disabled={loading || pincode.length !== 6}
           style={{
-            background: pincode.length === 6 ? '#FF6B00' : '#d1d5db',
+            background: pincode.length === 6 ? '#0F172A' : '#d1d5db',
             color: '#ffffff',
             padding: '10px 20px',
             border: 'none',
-            borderRadius: '6px',
-            fontWeight: 600,
-            fontSize: '14px',
+            borderRadius: '8px',
+            fontWeight: 700,
+            fontSize: '13px',
             cursor: pincode.length === 6 ? 'pointer' : 'not-allowed',
-            transition: 'background 0.2s',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={(e) => {
+            if (pincode.length === 6) e.currentTarget.style.background = '#C5A059';
+          }}
+          onMouseLeave={(e) => {
+            if (pincode.length === 6) e.currentTarget.style.background = '#0F172A';
           }}
         >
           {loading ? 'Checking...' : 'Check'}

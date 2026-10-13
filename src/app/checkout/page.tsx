@@ -331,20 +331,27 @@ export default function CheckoutPage() {
 
       <OriginalHeader />
 
-      <section className="checkout-section p_relative pt_60 pb_100">
+      <section className="checkout-section p_relative pt_60 pb_100" style={{ background: '#FAFBFC' }}>
         <div className="auto-container">
           <div className="sec-title mb_30">
-            <h2 style={{ fontWeight: 800 }}>Complete Your Order</h2>
-            <p style={{ color: '#666', marginTop: '6px' }}>Fast dispatch & genuine parts guarantee with Pan-India delivery</p>
+            <span style={{ color: '#C5A059', fontWeight: 800, fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+              SECURE DISPATCH
+            </span>
+            <h1 style={{ fontWeight: 900, color: '#0F172A', fontFamily: "'Outfit', sans-serif", fontSize: '32px', marginTop: '6px' }}>
+              Complete Your Order
+            </h1>
+            <p style={{ color: '#64748B', marginTop: '6px', fontSize: '14px' }}>
+              Genuine OEM parts guarantee with fast Pan-India air express delivery
+            </p>
           </div>
 
           {/* Customer Login Banner / Status */}
           <div
             style={{
-              background: customer ? '#f0fdf4' : '#fff7ed',
-              border: customer ? '1px solid #bbf7d0' : '1px solid #fed7aa',
-              borderRadius: '10px',
-              padding: '14px 20px',
+              background: customer ? '#F0FDF4' : '#FBF7EE',
+              border: customer ? '1px solid #86EFAC' : '1px solid rgba(197, 160, 89, 0.4)',
+              borderRadius: '12px',
+              padding: '16px 20px',
               marginBottom: '30px',
               display: 'flex',
               alignItems: 'center',
@@ -354,31 +361,34 @@ export default function CheckoutPage() {
             }}
           >
             {customer ? (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#166534', fontSize: '14px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#15803D', fontSize: '14px' }}>
                 <i className="fas fa-check-circle" style={{ fontSize: '18px' }}></i>
                 <span>
-                  Logged in as <strong>+91 {customer.phone}</strong> {customer.name ? `(${customer.name})` : ''} - Saved details auto-filled!
+                  Logged in as <strong>+91 {customer.phone}</strong> {customer.name ? `(${customer.name})` : ''} — Saved details auto-filled!
                 </span>
               </div>
             ) : (
               <>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#9a3412', fontSize: '14px' }}>
-                  <i className="fas fa-user-circle" style={{ fontSize: '20px', color: '#FF6B00' }}></i>
-                  <span>Already have an account or want to save your addresses for 1-click checkout?</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#854D0E', fontSize: '14px' }}>
+                  <i className="fas fa-user-circle" style={{ fontSize: '20px', color: '#C5A059' }}></i>
+                  <span>Have an account or want to save your address for express checkout?</span>
                 </div>
                 <button
                   type="button"
                   onClick={openLoginModal}
                   style={{
-                    background: '#FF6B00',
+                    background: '#0F172A',
                     color: '#fff',
                     border: 'none',
                     padding: '8px 18px',
-                    borderRadius: '6px',
+                    borderRadius: '8px',
                     fontWeight: 700,
                     fontSize: '13px',
                     cursor: 'pointer',
+                    transition: 'all 0.2s',
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = '#C5A059')}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = '#0F172A')}
                 >
                   <i className="fas fa-mobile-alt me-1"></i> Login with Mobile OTP
                 </button>
@@ -387,7 +397,7 @@ export default function CheckoutPage() {
           </div>
 
           {error && (
-            <div className="alert alert-danger mb_30" role="alert" style={{ borderRadius: '8px' }}>
+            <div className="alert alert-danger mb_30" role="alert" style={{ borderRadius: '10px', border: '1px solid #FCA5A5', background: '#FEF2F2', color: '#991B1B' }}>
               <i className="fas fa-exclamation-circle me-2"></i> {error}
             </div>
           )}
@@ -396,14 +406,16 @@ export default function CheckoutPage() {
             <div className="row clearfix">
               {/* Billing Column */}
               <div className="col-lg-7 col-md-12 col-sm-12 billing-column">
-                <div className="billing-info card p-4 shadow-sm" style={{ borderRadius: '15px', border: 'none', background: '#fff' }}>
+                <div className="billing-info luxury-card" style={{ padding: '30px', background: '#FFFFFF' }}>
                   <h4
                     style={{
-                      fontWeight: 700,
-                      borderBottom: '2px solid #FF6B00',
+                      fontWeight: 800,
+                      color: '#0F172A',
+                      borderBottom: '2px solid #C5A059',
                       display: 'inline-block',
                       marginBottom: '25px',
                       paddingBottom: '5px',
+                      fontSize: '18px',
                     }}
                   >
                     1. Shipping & Contact Information
@@ -553,25 +565,27 @@ export default function CheckoutPage() {
 
               {/* Order Summary & Payment Column */}
               <div className="col-lg-5 col-md-12 col-sm-12 order-column">
-                <div className="order-summary card p-4 shadow-sm" style={{ borderRadius: '15px', border: 'none', background: '#fff' }}>
-                  <h4 style={{ fontWeight: 700, marginBottom: '25px' }}>2. Order Summary</h4>
+                <div className="order-summary luxury-card" style={{ padding: '30px', background: '#FFFFFF' }}>
+                  <h4 style={{ fontWeight: 800, color: '#0F172A', marginBottom: '25px', fontSize: '18px' }}>
+                    2. Order Summary
+                  </h4>
 
                   <div className="order-items-list mb_25" style={{ maxHeight: '250px', overflowY: 'auto' }}>
                     {cart.map((item) => (
                       <div
                         key={item.id}
                         className="d-flex justify-content-between align-items-center mb_15"
-                        style={{ borderBottom: '1px solid #f5f5f5', paddingBottom: '10px' }}
+                        style={{ borderBottom: '1px solid #F1F5F9', paddingBottom: '10px' }}
                       >
                         <div style={{ flex: 1, paddingRight: '10px' }}>
-                          <span style={{ fontWeight: 600, color: '#333', display: 'block', fontSize: '14px' }}>
+                          <span style={{ fontWeight: 600, color: '#0F172A', display: 'block', fontSize: '13px' }}>
                             {item.name}
                           </span>
-                          <div style={{ fontSize: '12px', color: '#888', marginTop: '2px' }}>
+                          <div style={{ fontSize: '12px', color: '#64748B', marginTop: '2px' }}>
                             {item.quantity} x &#8377;{Number(item.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                           </div>
                         </div>
-                        <span style={{ fontWeight: 700, color: '#333' }}>
+                        <span style={{ fontWeight: 700, color: '#0F172A' }}>
                           &#8377;{Number(item.price * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                         </span>
                       </div>
@@ -579,20 +593,20 @@ export default function CheckoutPage() {
                   </div>
 
                   <div className="total-box mt_10">
-                    <div className="d-flex justify-content-between mb_10" style={{ fontSize: '15px' }}>
+                    <div className="d-flex justify-content-between mb_10" style={{ fontSize: '14px', color: '#64748B' }}>
                       <span>Subtotal ({cart.length} items)</span>
-                      <span>&#8377;{Number(cartTotal).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                      <span style={{ color: '#0F172A' }}>&#8377;{Number(cartTotal).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
                     </div>
-                    <div className="d-flex justify-content-between mb_10" style={{ fontSize: '15px' }}>
-                      <span>Express Shipping</span>
-                      <span style={{ color: '#28a745', fontWeight: 700 }}>FREE</span>
+                    <div className="d-flex justify-content-between mb_10" style={{ fontSize: '14px', color: '#64748B' }}>
+                      <span>Express Air Shipping</span>
+                      <span style={{ color: '#15803D', fontWeight: 700 }}>FREE</span>
                     </div>
                     <div
                       className="d-flex justify-content-between mb_25"
-                      style={{ fontSize: '22px', fontWeight: 800, borderTop: '1px solid #eee', paddingTop: '15px' }}
+                      style={{ fontSize: '20px', fontWeight: 900, borderTop: '1.5px solid #F1F5F9', paddingTop: '15px', color: '#0F172A' }}
                     >
                       <span>Total Amount</span>
-                      <span style={{ color: '#FF6B00' }}>
+                      <span style={{ color: '#0F172A' }}>
                         &#8377;{Number(cartTotal).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                       </span>
                     </div>
@@ -600,7 +614,7 @@ export default function CheckoutPage() {
 
                   {/* Payment Options */}
                   <div className="payment-methods" style={{ marginBottom: '25px' }}>
-                    <label style={{ display: 'block', marginBottom: '10px', fontWeight: 700, fontSize: '15px' }}>
+                    <label style={{ display: 'block', marginBottom: '10px', fontWeight: 800, fontSize: '14px', color: '#0F172A' }}>
                       Select Payment Method:
                     </label>
 
@@ -608,10 +622,10 @@ export default function CheckoutPage() {
                     <div
                       className="payment-method-item mb_12"
                       style={{
-                        background: formData.payment_method === 'Online' ? '#fffaf5' : '#fff',
+                        background: formData.payment_method === 'Online' ? '#FBF7EE' : '#FFFFFF',
                         padding: '14px 18px',
                         borderRadius: '10px',
-                        border: formData.payment_method === 'Online' ? '2px solid #FF6B00' : '1px solid #ddd',
+                        border: formData.payment_method === 'Online' ? '1.5px solid #C5A059' : '1px solid #E2E8F0',
                         cursor: 'pointer',
                         transition: '0.2s',
                       }}
@@ -619,7 +633,7 @@ export default function CheckoutPage() {
                     >
                       <label
                         className="d-flex align-items-center justify-content-between"
-                        style={{ fontWeight: 700, color: '#111', cursor: 'pointer', width: '100%', margin: 0 }}
+                        style={{ fontWeight: 700, color: '#0F172A', cursor: 'pointer', width: '100%', margin: 0 }}
                       >
                         <div className="d-flex align-items-center gap-3">
                           <input
@@ -628,14 +642,14 @@ export default function CheckoutPage() {
                             value="Online"
                             checked={formData.payment_method === 'Online'}
                             onChange={() => {}}
-                            style={{ width: '18px', height: '18px', accentColor: '#FF6B00' }}
+                            style={{ width: '18px', height: '18px', accentColor: '#C5A059' }}
                           />
                           <div>
-                            <span style={{ display: 'block' }}>UPI / Cards / NetBanking</span>
-                            <small style={{ color: '#666', fontWeight: 400 }}>Instant verification via Razorpay (GPay, PhonePe, Paytm)</small>
+                            <span style={{ display: 'block', fontSize: '13px' }}>UPI / Credit & Debit Cards / NetBanking</span>
+                            <small style={{ color: '#64748B', fontWeight: 400 }}>Instant verification via Razorpay (GPay, PhonePe, Cards)</small>
                           </div>
                         </div>
-                        <i className="fas fa-shield-alt" style={{ color: '#FF6B00', fontSize: '20px' }}></i>
+                        <i className="fas fa-shield-alt" style={{ color: '#C5A059', fontSize: '18px' }}></i>
                       </label>
                     </div>
 
@@ -643,10 +657,10 @@ export default function CheckoutPage() {
                     <div
                       className="payment-method-item"
                       style={{
-                        background: formData.payment_method === 'COD' ? '#fffaf5' : '#fff',
+                        background: formData.payment_method === 'COD' ? '#FBF7EE' : '#FFFFFF',
                         padding: '14px 18px',
                         borderRadius: '10px',
-                        border: formData.payment_method === 'COD' ? '2px solid #FF6B00' : '1px solid #ddd',
+                        border: formData.payment_method === 'COD' ? '1.5px solid #C5A059' : '1px solid #E2E8F0',
                         cursor: 'pointer',
                         transition: '0.2s',
                       }}
@@ -654,7 +668,7 @@ export default function CheckoutPage() {
                     >
                       <label
                         className="d-flex align-items-center justify-content-between"
-                        style={{ fontWeight: 700, color: '#111', cursor: 'pointer', width: '100%', margin: 0 }}
+                        style={{ fontWeight: 700, color: '#0F172A', cursor: 'pointer', width: '100%', margin: 0 }}
                       >
                         <div className="d-flex align-items-center gap-3">
                           <input
@@ -663,14 +677,14 @@ export default function CheckoutPage() {
                             value="COD"
                             checked={formData.payment_method === 'COD'}
                             onChange={() => {}}
-                            style={{ width: '18px', height: '18px', accentColor: '#FF6B00' }}
+                            style={{ width: '18px', height: '18px', accentColor: '#C5A059' }}
                           />
                           <div>
-                            <span style={{ display: 'block' }}>Cash on Delivery (COD)</span>
-                            <small style={{ color: '#666', fontWeight: 400 }}>Pay when courier arrives at your doorstep</small>
+                            <span style={{ display: 'block', fontSize: '13px' }}>Cash on Delivery (COD)</span>
+                            <small style={{ color: '#64748B', fontWeight: 400 }}>Pay upon courier doorstep delivery</small>
                           </div>
                         </div>
-                        <i className="fas fa-hand-holding-usd" style={{ color: '#10b981', fontSize: '20px' }}></i>
+                        <i className="fas fa-hand-holding-usd" style={{ color: '#10b981', fontSize: '18px' }}></i>
                       </label>
                     </div>
                   </div>
@@ -678,18 +692,11 @@ export default function CheckoutPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="theme-btn w-100 text-center"
+                    className="btn-luxury-primary w-100"
                     style={{
-                      background: '#FF6B00',
-                      color: '#fff',
-                      padding: '18px',
-                      borderRadius: '8px',
-                      fontWeight: 800,
-                      border: 'none',
-                      textTransform: 'uppercase',
-                      letterSpacing: '1px',
-                      transition: '0.3s',
-                      boxShadow: '0 4px 15px rgba(255, 107, 0, 0.3)',
+                      width: '100%',
+                      padding: '16px',
+                      fontSize: '14px',
                       cursor: isSubmitting ? 'not-allowed' : 'pointer',
                       opacity: isSubmitting ? 0.7 : 1,
                     }}
@@ -705,9 +712,12 @@ export default function CheckoutPage() {
                     )}
                   </button>
 
-                  <div className="checkout-help mt_25 text-center" style={{ background: '#f8f9fa', padding: '15px', borderRadius: '10px' }}>
-                    <h6 style={{ fontWeight: 700, color: '#333', marginBottom: '5px' }}>Guaranteed Safe & Secure Checkout</h6>
-                    <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>
+                  <div className="checkout-help mt_25 text-center" style={{ background: '#F8FAFC', padding: '15px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+                    <h6 style={{ fontWeight: 700, color: '#0F172A', marginBottom: '5px', fontSize: '13px' }}>
+                      <i className="fas fa-lock" style={{ color: '#C5A059', marginRight: '6px' }}></i>
+                      Guaranteed Safe & Secure Checkout
+                    </h6>
+                    <p style={{ margin: 0, fontSize: '12px', color: '#64748B' }}>
                       256-Bit SSL Encrypted | Genuine Car Spares | Pan-India Logistics
                     </p>
                   </div>
