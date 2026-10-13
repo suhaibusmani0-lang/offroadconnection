@@ -5,6 +5,7 @@ import Link from 'next/link';
 import OriginalHeader from '@/components/OriginalHeader';
 import OriginalFooter from '@/components/OriginalFooter';
 import VehicleSelector from '@/components/VehicleSelector';
+import InteractiveCar360Explorer from '@/components/InteractiveCar360Explorer';
 import { useCart } from '@/context/CartContext';
 import { formatImageUrl } from '@/lib/image';
 import { LUXURY_MAKES, LUXURY_PART_CATEGORIES } from '@/constants/vehicles';
@@ -231,6 +232,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 360 DEGREE INTERACTIVE LUXURY CAR COMPONENT INSPECTOR */}
+      <InteractiveCar360Explorer />
 
       {/* LUXURY PART CATEGORIES SECTION */}
       <section style={{ padding: '70px 0', background: '#FAFBFC' }}>

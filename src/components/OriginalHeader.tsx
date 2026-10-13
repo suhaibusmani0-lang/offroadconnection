@@ -217,14 +217,11 @@ export default function OriginalHeader() {
 
               {/* Action Icons */}
               <div className="header-icons-area" style={{ display: 'flex', alignItems: 'center', gap: '22px' }}>
-                {/* Admin Portal link */}
-                <a
-                  href="http://localhost:8000/admin/login.php"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/admin"
                   className="icon-item admin"
                   style={{ textDecoration: 'none', color: '#0F172A', display: 'flex', alignItems: 'center', gap: '10px' }}
-                  title="Admin & CRM Portal"
+                  title="Admin CRM & Inventory Suite"
                 >
                   <div
                     style={{
@@ -246,7 +243,7 @@ export default function OriginalHeader() {
                     <span style={{ color: '#94A3B8', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Portal</span>
                     <strong style={{ color: '#0F172A' }}>Admin</strong>
                   </div>
-                </a>
+                </Link>
 
                 {/* Customer Account / Mobile Login */}
                 <div
@@ -626,15 +623,14 @@ export default function OriginalHeader() {
                   </Link>
                 </li>
                 <li style={{ padding: '12px 0' }}>
-                  <a
-                    href="http://localhost:8000/admin/login.php"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/admin"
+                    onClick={() => setIsMobileMenuOpen(false)}
                     style={{ color: '#C5A059', textDecoration: 'none', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}
                   >
                     <i className="fas fa-user-shield"></i>
-                    <span>Admin Portal</span>
-                  </a>
+                    <span>Admin CRM Portal</span>
+                  </Link>
                 </li>
               </ul>
             </div>

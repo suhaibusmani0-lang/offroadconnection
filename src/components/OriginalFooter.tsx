@@ -109,10 +109,8 @@ export default function OriginalFooter() {
                     <li style={{ marginBottom: '9px' }}><Link href="/contact" style={{ color: '#64748B', textDecoration: 'none', fontSize: '13px' }}>Customer Support</Link></li>
                     <li style={{ marginBottom: '9px' }}><Link href="/cart" style={{ color: '#64748B', textDecoration: 'none', fontSize: '13px' }}>View Shopping Cart</Link></li>
                     <li style={{ marginTop: '14px' }}>
-                      <a
-                        href="http://localhost:8000/admin/login.php"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        href="/admin"
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -127,8 +125,8 @@ export default function OriginalFooter() {
                         }}
                       >
                         <i className="fas fa-lock" style={{ color: '#C5A059' }}></i>
-                        <span>Admin Portal</span>
-                      </a>
+                        <span>Admin CRM Suite</span>
+                      </Link>
                     </li>
                   </ul>
                 </div>
