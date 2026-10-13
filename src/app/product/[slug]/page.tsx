@@ -326,7 +326,8 @@ export default function ProductDetailPage() {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '20px',
+                    flexWrap: 'wrap',
+                    gap: '10px',
                     fontSize: '13px',
                     color: '#64748B',
                     marginBottom: '20px',
@@ -334,13 +335,28 @@ export default function ProductDetailPage() {
                     borderBottom: '1px solid #E2E8F0',
                   }}
                 >
-                  <span>
-                    <strong>Part / SKU:</strong> {product.part_number || product.sku || 'N/A'}
-                  </span>
-                  {product.oem_number && (
-                    <span>
-                      <strong>OEM Ref:</strong> {product.oem_number}
-                    </span>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                    <strong style={{ color: '#0F172A' }}>Part Number:</strong>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 800, color: '#C5A059', letterSpacing: '0.5px' }}>{product.part_number || product.sku || 'N/A'}</span>
+                  </div>
+                  {(product.oem_numbers && product.oem_numbers.length > 0) ? (
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                      <strong style={{ color: '#0F172A' }}>Interchange / OEM:</strong>
+                      <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0F172A' }}>
+                        {Array.isArray(product.oem_numbers) ? product.oem_numbers.join(', ') : product.oem_numbers}
+                      </span>
+                    </div>
+                  ) : product.oem_number ? (
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                      <strong style={{ color: '#0F172A' }}>OEM Ref:</strong>
+                      <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0F172A' }}>{product.oem_number}</span>
+                    </div>
+                  ) : null}
+                  {product.placement && (
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#F8FAFC', padding: '6px 12px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                      <strong style={{ color: '#0F172A' }}>Placement:</strong>
+                      <span style={{ fontWeight: 600, color: '#0F172A' }}>{product.placement}</span>
+                    </div>
                   )}
                 </div>
 
@@ -572,7 +588,7 @@ export default function ProductDetailPage() {
               </div>
 
               {activeTab === 'desc' ? (
-                <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#475569' }}>
+                <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#475569', whiteSpace: 'pre-line' }}>
                   <div dangerouslySetInnerHTML={{ __html: product.description || product.short_description || product.name }} />
                 </div>
               ) : (
@@ -581,29 +597,60 @@ export default function ProductDetailPage() {
                     <tbody>
                       <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
                         <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A', width: '35%' }}>Part / SKU Number</td>
-                        <td style={{ padding: '12px 0', color: '#64748B' }}>{product.part_number || product.sku || 'N/A'}</td>
+                        <td style={{ padding: '12px 0', color: '#0F172A', fontFamily: 'monospace', fontWeight: 800 }}>{product.part_number || product.sku || 'N/A'}</td>
                       </tr>
-                      {product.oem_number && (
+                      {product.oem_numbers && product.oem_numbers.length > 0 ? (
+                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>OEM Cross Reference / Interchange</td>
+                          <td style={{ padding: '12px 0', color: '#0F172A', fontFamily: 'monospace', fontWeight: 700 }}>
+                            {Array.isArray(product.oem_numbers) ? product.oem_numbers.join(', ') : product.oem_numbers}
+                          </td>
+                        </tr>
+                      ) : product.oem_number ? (
                         <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
                           <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>OEM Cross Reference</td>
-                          <td style={{ padding: '12px 0', color: '#64748B' }}>{product.oem_number}</td>
+                          <td style={{ padding: '12px 0', color: '#0F172A', fontFamily: 'monospace', fontWeight: 700 }}>{product.oem_number}</td>
+                        </tr>
+                      ) : null}
+                      {product.make && (
+                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Vehicle Make Compatibility</td>
+                          <td style={{ padding: '12px 0', color: '#334155' }}>{product.make}</td>
                         </tr>
                       )}
+                      {product.year_compatibility && (
+                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Compatible Model Years</td>
+                          <td style={{ padding: '12px 0', color: '#334155' }}>{product.year_compatibility}</td>
+                        </tr>
+                      )}
+                      {product.placement && (
+                        <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Vehicle Placement / Position</td>
+                          <td style={{ padding: '12px 0', color: '#334155' }}>{product.placement}</td>
+                        </tr>
+                      )}
+                      {product.specifications && typeof product.specifications === 'object' && Object.entries(product.specifications).map(([key, val]) => (
+                        <tr key={key} style={{ borderBottom: '1px solid #F1F5F9' }}>
+                          <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A', textTransform: 'capitalize' }}>{key.replace(/_/g, ' ')}</td>
+                          <td style={{ padding: '12px 0', color: '#64748B' }}>{String(val)}</td>
+                        </tr>
+                      ))}
                       <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
                         <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Manufacturer / Brand</td>
-                        <td style={{ padding: '12px 0', color: '#64748B' }}>{product.brand || 'Off Road Connection Parts'}</td>
+                        <td style={{ padding: '12px 0', color: '#334155' }}>{product.brand || 'Off Road Connection Parts'}</td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
-                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Condition</td>
-                        <td style={{ padding: '12px 0', color: '#15803D', fontWeight: 700 }}>Brand New Genuine OEM</td>
+                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Condition & Testing</td>
+                        <td style={{ padding: '12px 0', color: '#15803D', fontWeight: 700 }}>100% Bench & Dynamometer Tested Genuine OEM</td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid #F1F5F9' }}>
                         <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Country of Origin / Dispatch</td>
-                        <td style={{ padding: '12px 0', color: '#64748B' }}>India (Noida Facility)</td>
+                        <td style={{ padding: '12px 0', color: '#334155' }}>Direct Air Express from Central Logistics Facility (Noida)</td>
                       </tr>
                       <tr>
-                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Warranty</td>
-                        <td style={{ padding: '12px 0', color: '#64748B' }}>Manufacturer Warranty Against Defect</td>
+                        <td style={{ padding: '12px 0', fontWeight: 700, color: '#0F172A' }}>Warranty Protection</td>
+                        <td style={{ padding: '12px 0', color: '#334155' }}>6-Month Comprehensive Replacement Guarantee</td>
                       </tr>
                     </tbody>
                   </table>

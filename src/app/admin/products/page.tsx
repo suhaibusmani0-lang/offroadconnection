@@ -146,8 +146,17 @@ export default function AdminProductsPage() {
                         </div>
                       </td>
 
-                      <td className="p-4 font-mono text-xs text-slate-300">
-                        {p.sku || 'OEM-' + String(p.id || 'N/A')}
+                      <td className="p-4 font-mono text-xs">
+                        <div className="font-bold text-[#C5A059]">{p.part_number || p.sku || 'N/A'}</div>
+                        {(p.oem_numbers && p.oem_numbers.length > 0) ? (
+                          <div className="text-[10px] text-slate-400 mt-0.5 truncate max-w-[140px]" title={Array.isArray(p.oem_numbers) ? p.oem_numbers.join(', ') : p.oem_numbers}>
+                            OEM: {Array.isArray(p.oem_numbers) ? p.oem_numbers.join(', ') : p.oem_numbers}
+                          </div>
+                        ) : p.oem_number ? (
+                          <div className="text-[10px] text-slate-400 mt-0.5 truncate max-w-[140px]" title={p.oem_number}>
+                            OEM: {p.oem_number}
+                          </div>
+                        ) : null}
                       </td>
 
                       <td className="p-4 text-xs text-slate-300">

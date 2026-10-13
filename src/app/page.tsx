@@ -391,9 +391,16 @@ export default function HomePage() {
                     {/* Content Box */}
                     <div style={{ padding: '18px 20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                       <div>
-                        <span style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
-                          {p.category_name || 'Vehicle Part'}
-                        </span>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+                          <span style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 600 }}>
+                            {p.category_name || 'Vehicle Part'}
+                          </span>
+                          {(p.part_number || p.sku) && (
+                            <span style={{ fontSize: '10px', fontFamily: 'monospace', fontWeight: 700, color: '#C5A059', background: '#FBF7EE', padding: '2px 6px', borderRadius: '4px', border: '1px solid rgba(197, 160, 89, 0.2)' }}>
+                              {p.part_number || p.sku}
+                            </span>
+                          )}
+                        </div>
                         <h4
                           style={{
                             fontSize: '15px',
