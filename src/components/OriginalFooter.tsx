@@ -336,27 +336,14 @@ export default function OriginalFooter() {
                       Shopping Bag &amp; Checkout
                     </Link>
                   </li>
-                  <li style={{ marginTop: '16px' }}>
-                    <Link
-                      href="/admin"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        padding: '8px 14px',
-                        background: '#18181B',
-                        border: '1px solid #27272A',
-                        color: '#FFFFFF',
-                        borderRadius: '6px',
-                        fontSize: '11px',
-                        fontWeight: 700,
-                        letterSpacing: '0.6px',
-                        fontFamily: "'Raleway', sans-serif",
-                        textDecoration: 'none',
-                      }}
-                    >
-                      <Lock size={12} style={{ marginRight: '6px' }} />
-                      <span>Enterprise CRM &amp; Inventory Suite</span>
+                  <li style={{ marginBottom: '10px' }}>
+                    <Link href="/about" style={{ color: '#71717A', textDecoration: 'none', fontSize: '13px' }}>
+                      OEM Quality Assurance &amp; Warranty
+                    </Link>
+                  </li>
+                  <li style={{ marginBottom: '10px' }}>
+                    <Link href="/shop" style={{ color: '#71717A', textDecoration: 'none', fontSize: '13px' }}>
+                      Pan-India Express Dispatch
                     </Link>
                   </li>
                 </ul>
@@ -437,9 +424,29 @@ export default function OriginalFooter() {
             color: '#71717A',
           }}
         >
-          {/* Left: Copyright */}
-          <div style={{ margin: 0 }}>
-            © {currentYear} {siteConfig.legalName}. All rights reserved.
+          {/* Left: Copyright & Subtle Admin Log In */}
+          <div style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <span>&copy; {currentYear} {siteConfig.name}. All rights reserved.</span>
+            <span style={{ color: '#3F3F46' }}>&bull;</span>
+            <Link
+              href="/admin/login"
+              style={{
+                color: '#52525B',
+                textDecoration: 'none',
+                fontSize: '11px',
+                fontWeight: 600,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#52525B')}
+              title="Store Administrator Portal"
+            >
+              <Lock size={10} />
+              <span>Admin Log In</span>
+            </Link>
           </div>
 
           {/* Center / Highlight: DEVELOPED BY ZARNETIC */}

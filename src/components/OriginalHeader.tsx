@@ -397,19 +397,19 @@ export default function OriginalHeader() {
 
               {/* Action Badges: Admin, User Account, Shopping Bag */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0 }}>
-                {/* Admin Management Capsule */}
+                {/* Track Order Capsule */}
                 <Link
-                  href="/admin"
+                  href="/shop"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    gap: '7px',
                     padding: '8px 14px',
                     borderRadius: '12px',
                     background: '#F4F4F5',
                     border: '1px solid #E4E4E7',
                     textDecoration: 'none',
-                    color: '#000000',
+                    color: '#18181B',
                     transition: 'all 0.2s',
                   }}
                   onMouseEnter={(e) => {
@@ -419,14 +419,14 @@ export default function OriginalHeader() {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = '#F4F4F5';
-                    e.currentTarget.style.color = '#000000';
+                    e.currentTarget.style.color = '#18181B';
                     e.currentTarget.style.borderColor = '#E4E4E7';
                   }}
-                  title="Admin CRM & Inventory Manager"
+                  title="Track Order & Logistics Status"
                 >
-                  <Lock size={13} />
+                  <Truck size={14} />
                   <span style={{ fontSize: '12px', fontWeight: 800, fontFamily: "'Raleway', sans-serif" }}>
-                    Admin CRM
+                    Track Order
                   </span>
                 </Link>
 
@@ -832,13 +832,6 @@ export default function OriginalHeader() {
                   style={{ color: '#000000', fontSize: '15px', fontWeight: 800, textDecoration: 'none', fontFamily: "'Raleway', sans-serif" }}
                 >
                   Contact Desk
-                </Link>
-                <Link
-                  href="/admin"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  style={{ color: '#000000', fontSize: '15px', fontWeight: 800, textDecoration: 'none', fontFamily: "'Raleway', sans-serif" }}
-                >
-                  Admin CRM Suite
                 </Link>
               </nav>
             </div>
