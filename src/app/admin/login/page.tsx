@@ -34,20 +34,20 @@ export default function AdminLoginPage() {
       {/* Background Subtle Vignette */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-md bg-[#121212] border border-[#27272A] rounded-3xl p-8 sm:p-10 shadow-2xl">
+      <div className="relative z-10 w-full max-w-md bg-[#121212] border border-[#27272A] rounded-none p-8 sm:p-10 shadow-2xl">
         {/* Brand Icon */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-white text-black flex items-center justify-center font-black text-2xl mx-auto shadow-xl mb-4" style={{ fontFamily: "'Raleway', sans-serif" }}>
-            OR
+          <div className="w-16 h-16 rounded-none bg-white text-black flex items-center justify-center font-black text-2xl mx-auto shadow-xl mb-4" style={{ fontFamily: "'Raleway', sans-serif" }}>
+            DP
           </div>
           <h1 className="text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Raleway', sans-serif" }}>Admin & CRM Portal</h1>
           <p className="text-[#A1A1AA] text-xs mt-1" style={{ fontFamily: "'Lato', sans-serif" }}>
-            Off Road Connection Parts • Enterprise Management Suite
+            DRANparts • Enterprise Management Suite
           </p>
         </div>
 
         {error && (
-          <div className="mb-6 p-3.5 rounded-xl bg-[#27272A] border border-[#3F3F46] text-white text-xs flex items-center gap-2" style={{ fontFamily: "'Lato', sans-serif" }}>
+          <div className="mb-6 p-3.5 rounded-none bg-[#27272A] border border-[#3F3F46] text-white text-xs flex items-center gap-2" style={{ fontFamily: "'Lato', sans-serif" }}>
             <AlertCircle className="w-4 h-4 flex-shrink-0 text-white" />
             <span>{error}</span>
           </div>
@@ -66,7 +66,7 @@ export default function AdminLoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Enter administrator ID"
-                className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
+                className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-none pl-10 pr-4 py-3 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 style={{ fontFamily: "'Lato', sans-serif" }}
               />
             </div>
@@ -84,7 +84,7 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
-                className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
+                className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-none pl-10 pr-4 py-3 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 style={{ fontFamily: "'Lato', sans-serif" }}
               />
             </div>
@@ -94,7 +94,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 px-6 rounded-xl bg-white text-black font-black text-sm tracking-wider shadow-lg hover:bg-[#E4E4E7] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 px-6 rounded-none bg-white text-black font-black text-sm tracking-wider shadow-lg hover:bg-[#E4E4E7] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               style={{ fontFamily: "'Raleway', sans-serif" }}
             >
               <span>{loading ? 'Authenticating...' : 'Access Enterprise Portal'}</span>

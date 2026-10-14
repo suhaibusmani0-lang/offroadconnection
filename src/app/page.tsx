@@ -478,7 +478,7 @@ export default function HomePage() {
                 letterSpacing: '-1px',
               }}
             >
-              Why Discerning Drivers Choose Off Road Connection
+              Why Discerning Drivers Choose DRANparts
             </h2>
             <div style={{ width: '40px', height: '2px', background: '#000000', margin: '14px auto 0' }}></div>
           </div>
@@ -490,12 +490,12 @@ export default function HomePage() {
               gap: '20px',
             }}
           >
-            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center' }}>
+            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center', borderRadius: '0px' }}>
               <div
                 style={{
                   width: '54px',
                   height: '54px',
-                  borderRadius: '50%',
+                  borderRadius: '0px',
                   background: '#F4F4F5',
                   border: '1.5px solid #000000',
                   display: 'flex',
@@ -516,12 +516,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center' }}>
+            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center', borderRadius: '0px' }}>
               <div
                 style={{
                   width: '54px',
                   height: '54px',
-                  borderRadius: '50%',
+                  borderRadius: '0px',
                   background: '#F4F4F5',
                   border: '1.5px solid #000000',
                   display: 'flex',
@@ -542,12 +542,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center' }}>
+            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center', borderRadius: '0px' }}>
               <div
                 style={{
                   width: '54px',
                   height: '54px',
-                  borderRadius: '50%',
+                  borderRadius: '0px',
                   background: '#F4F4F5',
                   border: '1.5px solid #000000',
                   display: 'flex',
@@ -568,12 +568,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center' }}>
+            <div className="luxury-card" style={{ padding: '28px 22px', textAlign: 'center', borderRadius: '0px' }}>
               <div
                 style={{
                   width: '54px',
                   height: '54px',
-                  borderRadius: '50%',
+                  borderRadius: '0px',
                   background: '#F4F4F5',
                   border: '1.5px solid #000000',
                   display: 'flex',

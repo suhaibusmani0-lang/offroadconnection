@@ -59,7 +59,7 @@ export async function GET() {
           slug: prod.slug,
           part_number: prod.part_number || `PN-${prod.id}`,
           oem_number: prod.oem_number || '',
-          brand: prod.brand || 'Off Road Connection Parts',
+          brand: prod.brand || 'DRANparts',
           category_id: prod.category_id,
           category_slug: prod.category_slug || '',
           category_name: prod.category_name || '',

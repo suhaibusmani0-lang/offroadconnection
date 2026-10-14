@@ -176,13 +176,13 @@ export default function CheckoutPage() {
         key: orderData.keyId,
         amount: orderData.amount,
         currency: orderData.currency,
-        name: 'Off Road Connection Parts',
+        name: 'DRANparts',
         description: `Car Spare Parts Order (${cart.length} items)`,
-        image: '/assets/images/mv-logo-13.png',
+        image: '/assets/images/banner/banner-1.jpg',
         order_id: orderData.orderId,
         prefill: {
           name: formData.customer_name,
-          email: formData.customer_email || 'customer@offroadparts.in',
+          email: formData.customer_email || 'customer@dranparts.com',
           contact: formData.customer_phone,
         },
         theme: {

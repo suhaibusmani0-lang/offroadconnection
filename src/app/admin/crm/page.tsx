@@ -315,7 +315,7 @@ export default function AdminCRMPage() {
                 leads.map((lead) => {
                   const cleanPhone = (lead.phone || '').replace(/[^0-9]/g, '');
                   const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
-                    `Hello ${lead.name}, greetings from Off Road Connection Parts. Regarding your inquiry for ${lead.requested_part} for your ${lead.vehicle_info || 'vehicle'}...`
+                    `Hello ${lead.name}, greetings from DRANparts. Regarding your inquiry for ${lead.requested_part} for your ${lead.vehicle_info || 'vehicle'}...`
                   )}`;
 
                   return (

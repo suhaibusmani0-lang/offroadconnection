@@ -8,7 +8,7 @@ import OriginalFooter from '@/components/OriginalFooter';
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
-  const orderNumber = searchParams.get('orderNumber') || 'ORCP-' + Math.floor(100000 + Math.random() * 900000);
+  const orderNumber = searchParams.get('orderNumber') || 'DRAN-' + Math.floor(100000 + Math.random() * 900000);
   const [orderDetails, setOrderDetails] = useState<any>(null);
 
   useEffect(() => {
@@ -29,14 +29,14 @@ function ThankYouContent() {
         <div className="auto-container">
           <div
             className="card p-5 text-center shadow-sm"
-            style={{ borderRadius: '16px', border: '1px solid #E4E4E7', maxWidth: '850px', margin: '0 auto', background: '#fff' }}
+            style={{ borderRadius: '0px', border: '1px solid #E4E4E7', maxWidth: '850px', margin: '0 auto', background: '#fff' }}
           >
             <div className="icon-box mb_20">
               <i className="fas fa-check-circle" style={{ fontSize: '75px', color: '#000000' }}></i>
             </div>
             <h2 style={{ fontWeight: 900, color: '#000000', marginBottom: '8px', fontFamily: "'Raleway', sans-serif" }}>Order Placed Successfully!</h2>
             <p style={{ fontSize: '15px', color: '#71717A', maxWidth: '600px', margin: '0 auto 20px', fontFamily: "'Lato', sans-serif" }}>
-              Thank you for shopping with Off Road Connection Parts. Your order is confirmed and our warehouse is preparing dispatch.
+              Thank you for shopping with DRANparts. Your order is confirmed and our warehouse is preparing dispatch.
             </p>
 
             <div
@@ -44,7 +44,7 @@ function ThankYouContent() {
                 background: '#F4F4F5',
                 border: '1.5px solid #D4D4D8',
                 padding: '16px 30px',
-                borderRadius: '12px',
+                borderRadius: '0px',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '15px',
@@ -62,7 +62,7 @@ function ThankYouContent() {
                   background: '#000000',
                   color: '#fff',
                   padding: '6px 14px',
-                  borderRadius: '20px',
+                  borderRadius: '0px',
                   fontSize: '11px',
                   fontWeight: 800,
                   fontFamily: "'Raleway', sans-serif",
@@ -132,7 +132,7 @@ function ThankYouContent() {
                   background: '#F4F4F5',
                   color: '#000000',
                   padding: '14px 28px',
-                  borderRadius: '8px',
+                  borderRadius: '0px',
                   border: '1px solid #D4D4D8',
                   fontWeight: 800,
                   cursor: 'pointer',
@@ -147,7 +147,7 @@ function ThankYouContent() {
 
               <a
                 href={`https://wa.me/918860718878?text=${encodeURIComponent(
-                  `Hi Off Road Connection Parts, I have placed order ${orderNumber}. Please share tracking and dispatch confirmation.`
+                  `Hi DRANparts, I have placed order ${orderNumber}. Please share tracking and dispatch confirmation.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -155,7 +155,7 @@ function ThankYouContent() {
                   background: '#27272A',
                   color: '#fff',
                   padding: '14px 28px',
-                  borderRadius: '8px',
+                  borderRadius: '0px',
                   textDecoration: 'none',
                   fontWeight: 800,
                   display: 'inline-flex',

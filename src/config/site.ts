@@ -1,16 +1,16 @@
 /**
- * Off Road Connection Parts - Global Platform Configuration
+ * DRANparts - Global Platform Configuration
  * Luxury Automotive Spare Parts & High-Performance Fitments
  */
 
 export const siteConfig = {
-  name: 'Off Road Connection Parts',
-  legalName: 'Off Road Connection Parts Private Limited',
-  tagline: 'India’s Premier Destination for Luxury & 4x4 Automotive Spare Parts',
+  name: 'DRANparts',
+  legalName: 'DRANparts Private Limited',
+  tagline: 'India’s Premier Destination for Luxury & High-Performance Automotive Spare Parts',
   description:
     'Genuine OEM and performance spare parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, Land Rover, Jaguar, Volvo, Jeep, and Toyota. 100% fitment guarantee, express nationwide delivery.',
-  url: 'https://offroadconnection.pages.dev',
-  domain: 'offroadconnection.pages.dev',
+  url: 'https://dranparts.com',
+  domain: 'dranparts.com',
   
   // Geographic / Local SEO
   geo: {
@@ -33,14 +33,14 @@ export const siteConfig = {
     phone: '+918860718878',
     phoneFormatted: '+91 88607 18878',
     whatsapp: '918860718878',
-    email: 'support@offroadconnection.com',
+    email: 'support@dranparts.com',
     openingHours: 'Mo-Sa 09:30-19:30',
   },
 
   // Social Channels
   social: {
     instagram: 'https://www.instagram.com/mv.spareshub',
-    facebook: 'https://facebook.com/offroadconnection',
+    facebook: 'https://facebook.com/dranparts',
     youtube: 'https://youtube.com',
   },
 

@@ -42,7 +42,7 @@ const ProductSchema = new Schema<IProduct>(
     part_number: { type: String, required: true, trim: true, index: true },
     oem_number: { type: String, default: '', trim: true },
     oem_numbers: { type: [String], default: [] },
-    brand: { type: String, default: 'Off Road Connection Parts', trim: true },
+    brand: { type: String, default: 'DRANparts', trim: true },
     make: { type: String, default: '', index: true },
     model: { type: String, default: '' },
     year_compatibility: { type: String, default: '' },

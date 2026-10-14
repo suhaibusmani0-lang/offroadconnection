@@ -161,7 +161,7 @@ export default function OriginalHeader() {
 
               <a
                 href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
-                  'Hello Off Road Connection Parts, I need help finding a part for my car.'
+                  'Hello DRANparts, I need help finding a part for my car.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -212,8 +212,32 @@ export default function OriginalHeader() {
             </div>
 
             <div>
-              <Link href="/">
-                <img src="/assets/images/mv-logo-13.png" alt="Off Road Connection Parts" style={{ maxHeight: '42px' }} />
+              <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  background: '#000000',
+                  color: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 900,
+                  fontSize: '14px',
+                  fontFamily: "'Raleway', sans-serif",
+                  border: '1px solid #000000',
+                  borderRadius: '0px'
+                }}>
+                  DP
+                </div>
+                <span style={{
+                  fontFamily: "'Raleway', sans-serif",
+                  fontWeight: 900,
+                  fontSize: '19px',
+                  letterSpacing: '-0.5px',
+                  color: '#000000'
+                }}>
+                  DRAN<span style={{ color: '#71717A', fontWeight: 700 }}>PARTS</span>
+                </span>
               </Link>
             </div>
 
@@ -285,14 +309,48 @@ export default function OriginalHeader() {
         <div className="desktop-only" style={{ background: '#FFFFFF', padding: '14px 0' }}>
           <div className="auto-container">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '32px' }}>
-              {/* Brand Logo */}
+              {/* Brand Logo & Name */}
               <div style={{ flexShrink: 0 }}>
-                <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <img
-                    src="/assets/images/mv-logo-13.png"
-                    alt="Off Road Connection Parts"
-                    style={{ maxHeight: '60px', objectFit: 'contain' }}
-                  />
+                <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '42px',
+                    height: '42px',
+                    background: '#000000',
+                    color: '#FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 900,
+                    fontSize: '18px',
+                    fontFamily: "'Raleway', sans-serif",
+                    border: '1.5px solid #000000',
+                    borderRadius: '0px',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
+                  }}>
+                    DP
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{
+                      fontFamily: "'Raleway', sans-serif",
+                      fontWeight: 900,
+                      fontSize: '24px',
+                      letterSpacing: '-0.5px',
+                      color: '#000000',
+                      lineHeight: '1.05'
+                    }}>
+                      DRAN<span style={{ color: '#71717A', fontWeight: 800 }}>PARTS</span>
+                    </span>
+                    <span style={{
+                      fontFamily: "'Lato', sans-serif",
+                      fontWeight: 700,
+                      fontSize: '9px',
+                      letterSpacing: '2.5px',
+                      color: '#71717A',
+                      textTransform: 'uppercase'
+                    }}>
+                      OEM LUXURY SPARES
+                    </span>
+                  </div>
                 </Link>
               </div>
 
@@ -786,7 +844,26 @@ export default function OriginalHeader() {
           >
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
-                <img src="/assets/images/mv-logo-13.png" alt="Off Road Connection Parts" style={{ maxHeight: '42px' }} />
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{
+                    width: '32px',
+                    height: '32px',
+                    background: '#000000',
+                    color: '#FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 900,
+                    fontSize: '14px',
+                    fontFamily: "'Raleway', sans-serif",
+                    borderRadius: '0px'
+                  }}>
+                    DP
+                  </div>
+                  <span style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 900, fontSize: '19px', color: '#000000' }}>
+                    DRAN<span style={{ color: '#71717A', fontWeight: 700 }}>PARTS</span>
+                  </span>
+                </Link>
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}

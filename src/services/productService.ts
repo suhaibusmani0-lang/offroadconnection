@@ -39,7 +39,7 @@ export class ProductService {
       placement: p.placement || '',
       make: p.make || '',
       year_compatibility: p.year_compatibility || '',
-      brand: p.brand || p.make || 'Off Road Connection Parts',
+      brand: p.brand || p.make || 'DRANparts',
       price: Number(p.price || 0),
       old_price: Number(p.old_price || 0) || Math.round(Number(p.price || 0) * 1.25),
       in_stock: p.in_stock !== false && (p.stock_quantity ?? 50) > 0,

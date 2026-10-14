@@ -685,7 +685,7 @@ export default function ProductDetailPage() {
                       ))}
                       <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
                         <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Manufacturer / Brand</td>
-                        <td style={{ padding: '12px 0', color: '#27272A' }}>{product.brand || 'Off Road Connection Parts'}</td>
+                        <td style={{ padding: '12px 0', color: '#27272A' }}>{product.brand || 'DRANparts'}</td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid #F4F4F5' }}>
                         <td style={{ padding: '12px 0', fontWeight: 700, color: '#000000', fontFamily: "'Raleway', sans-serif" }}>Condition & Testing</td>

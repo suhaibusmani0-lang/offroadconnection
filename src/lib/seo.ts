@@ -14,7 +14,7 @@ export function generateAutoPartsStoreSchema() {
     '@id': `${siteConfig.url}/#store`,
     name: siteConfig.name,
     legalName: siteConfig.legalName,
-    alternateName: 'Off Road Connection Parts Noida',
+    alternateName: 'DRANparts Noida',
     url: siteConfig.url,
     logo: `${siteConfig.url}/assets/images/mv-logo-13.png`,
     image: `${siteConfig.url}/assets/images/banner/banner-1.jpg`,
@@ -126,7 +126,7 @@ export function generateProductSchema(product: {
     mpn: product.oem_number || product.part_number || product.slug,
     brand: {
       '@type': 'Brand',
-      name: product.brand || 'Off Road Connection Parts',
+      name: product.brand || 'DRANparts',
     },
     category: product.category_name || 'Vehicle Parts & Accessories',
     offers: {

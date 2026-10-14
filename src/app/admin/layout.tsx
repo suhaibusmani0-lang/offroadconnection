@@ -50,12 +50,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {/* Brand Header */}
           <div className="p-6 border-b border-[#27272A]">
             <Link href="/admin/crm" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center font-black shadow-lg" style={{ fontFamily: "'Raleway', sans-serif" }}>
-                OR
+              <div className="w-10 h-10 rounded-none bg-white text-black flex items-center justify-center font-black shadow-lg" style={{ fontFamily: "'Raleway', sans-serif" }}>
+                DP
               </div>
               <div>
                 <div className="font-extrabold text-base tracking-wider text-white" style={{ fontFamily: "'Raleway', sans-serif" }}>
-                  OFF ROAD CRM
+                  DRANPARTS CRM
                 </div>
                 <div className="text-[11px] font-semibold text-[#A1A1AA] tracking-widest uppercase" style={{ fontFamily: "'Raleway', sans-serif" }}>
                   Enterprise Suite

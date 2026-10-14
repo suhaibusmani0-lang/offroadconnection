@@ -170,7 +170,7 @@ export default function OriginalFooter() {
           <div className="flex items-center gap-3 flex-wrap">
             <a
               href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
-                'Hello Off Road Connection Parts, I need help verifying part fitment for my luxury vehicle.'
+                'Hello DRANparts, I need help verifying part fitment for my luxury vehicle.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -204,23 +204,37 @@ export default function OriginalFooter() {
             <div className="flex flex-col gap-3">
               <Link href="/" className="inline-block">
                 <div
-                  className="bg-[#FFFFFF] p-2.5 inline-flex items-center justify-center border border-[#27272A] shadow-lg hover:border-white transition-all"
+                  className="bg-[#000000] text-white p-3 inline-flex items-center gap-3 border border-[#27272A] shadow-lg hover:border-white transition-all"
                   style={{ borderRadius: '0px' }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/assets/images/mv-logo-13.png"
-                    alt="Off Road Connection Parts"
-                    className="h-10 sm:h-12 w-auto object-contain"
-                  />
+                  <div
+                    className="w-10 h-10 bg-white text-black flex items-center justify-center font-black text-xl tracking-tighter"
+                    style={{ fontFamily: "'Raleway', sans-serif" }}
+                  >
+                    DP
+                  </div>
+                  <div>
+                    <span
+                      className="text-white font-black text-xl tracking-wider uppercase block leading-none"
+                      style={{ fontFamily: "'Raleway', sans-serif" }}
+                    >
+                      DRAN<span className="text-[#A1A1AA]">PARTS</span>
+                    </span>
+                    <span
+                      className="text-[#71717A] text-[9px] font-bold uppercase tracking-widest block mt-1"
+                      style={{ fontFamily: "'Lato', sans-serif" }}
+                    >
+                      OEM LUXURY SPARES
+                    </span>
+                  </div>
                 </div>
               </Link>
               <div>
                 <span
-                  className="text-white font-black text-lg tracking-wider uppercase block"
+                  className="text-white font-black text-base tracking-wider uppercase block mt-1"
                   style={{ fontFamily: "'Raleway', sans-serif" }}
                 >
-                  OFF ROAD CONNECTION PARTS
+                  DRANPARTS AUTOMOTIVE
                 </span>
                 <span
                   className="text-[#71717A] text-[11px] font-mono uppercase tracking-widest block mt-0.5"

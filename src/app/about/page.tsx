@@ -45,14 +45,14 @@ export default function AboutPage() {
                   India’s Specialist for <span style={{ color: '#52525B' }}>Luxury & 4x4</span> Automotive Spares
                 </h1>
                 <p style={{ color: '#52525B', lineHeight: '1.8', fontSize: '15px', marginBottom: '16px', fontFamily: "'Lato', sans-serif" }}>
-                  Founded on a passion for precision automotive engineering, <strong>Off Road Connection Parts</strong> is India’s foremost independent distributor of genuine OEM and certified replacement parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, Land Rover, Jaguar, and heavy-duty 4x4 vehicles.
+                  Founded on a passion for precision automotive engineering, <strong>DRANparts</strong> is India’s foremost independent distributor of genuine OEM and certified replacement parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, Land Rover, Jaguar, and heavy-duty 4x4 vehicles.
                 </p>
                 <p style={{ color: '#52525B', lineHeight: '1.8', fontSize: '15px', marginBottom: '28px', fontFamily: "'Lato', sans-serif" }}>
                   Operating from our primary distribution facility in Sector 128, Noida, Uttar Pradesh, every part in our 2,500+ product catalog undergoes strict chassis-compatibility and VIN verification before dispatch, guaranteeing that vehicle owners and automotive workshops receive the exact component required without guesswork.
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '30px' }}>
-                  <div className="luxury-card" style={{ padding: '20px', background: '#FFFFFF', border: '1px solid #E4E4E7' }}>
+                  <div className="luxury-card" style={{ padding: '20px', background: '#FFFFFF', border: '1px solid #E4E4E7', borderRadius: '0px' }}>
                     <div style={{ color: '#000000', fontSize: '24px', marginBottom: '10px' }}>
                       <i className="fas fa-certificate"></i>
                     </div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="luxury-card" style={{ padding: '20px', background: '#FFFFFF', border: '1px solid #E4E4E7' }}>
+                  <div className="luxury-card" style={{ padding: '20px', background: '#FFFFFF', border: '1px solid #E4E4E7', borderRadius: '0px' }}>
                     <div style={{ color: '#000000', fontSize: '24px', marginBottom: '10px' }}>
                       <i className="fas fa-truck-moving"></i>
                     </div>
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 </div>
 
                 <div>
-                  <Link href="/shop" className="btn-luxury-primary" style={{ textDecoration: 'none' }}>
+                  <Link href="/shop" className="btn-luxury-primary" style={{ textDecoration: 'none', borderRadius: '0px' }}>
                     <span>BROWSE PARTS CATALOG</span>
                     <i className="fas fa-arrow-right" style={{ fontSize: '12px' }}></i>
                   </Link>
@@ -92,15 +92,15 @@ export default function AboutPage() {
                 style={{
                   padding: '16px',
                   background: '#FFFFFF',
-                  borderRadius: '16px',
+                  borderRadius: '0px',
                   border: '1px solid #E4E4E7',
                   overflow: 'hidden',
                 }}
               >
                 <img
                   src="/assets/images/banner/banner-1.jpg"
-                  alt="Off Road Connection Parts Facility"
-                  style={{ width: '100%', borderRadius: '12px', objectFit: 'cover' }}
+                  alt="DRANparts Facility"
+                  style={{ width: '100%', borderRadius: '0px', objectFit: 'cover' }}
                 />
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
             style={{
               background: '#F4F4F5',
               border: '1px solid #E4E4E7',
-              borderRadius: '14px',
+              borderRadius: '0px',
               padding: '24px 30px',
               display: 'inline-flex',
               alignItems: 'center',

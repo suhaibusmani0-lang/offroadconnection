@@ -11,11 +11,12 @@ import { generateAutoPartsStoreSchema, generateWebSiteSchema } from '@/lib/seo';
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Off Road Connection Parts | Luxury Auto & 4x4 Spare Parts Specialist',
-    template: '%s | Off Road Connection Parts',
+    default: 'DRANparts | Luxury Auto & OEM Spare Parts Specialist',
+    template: '%s | DRANparts',
   },
   description: siteConfig.description,
   keywords: [
+    'DRANparts',
     'luxury car spare parts',
     'audi spare parts india',
     'bmw spare parts online',
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: siteConfig.url,
-    title: 'Off Road Connection Parts | Genuine Luxury Auto Spare Parts Dealer',
+    title: 'DRANparts | Genuine Luxury Auto Spare Parts Specialist',
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -55,16 +56,16 @@ export const metadata: Metadata = {
         url: '/assets/images/banner/banner-1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Off Road Connection Parts - Luxury Auto Spares',
+        alt: 'DRANparts - Luxury Auto Spares',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Off Road Connection Parts | Luxury Auto Spare Parts Specialist',
+    title: 'DRANparts | Luxury Auto Spare Parts Specialist',
     description: siteConfig.description,
     images: ['/assets/images/banner/banner-1.jpg'],
-    creator: '@offroadparts',
+    creator: '@dranparts',
   },
   icons: {
     icon: '/assets/images/favicon.ico',

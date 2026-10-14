@@ -55,7 +55,7 @@ export function trackProductView(product: {
           item_name: product.title,
           price: product.price,
           item_category: product.category || 'Auto Parts',
-          item_brand: product.brand || 'Off Road Connection Parts',
+          item_brand: product.brand || 'DRANparts',
         },
       ],
     });
