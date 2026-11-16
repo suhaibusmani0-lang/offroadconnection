@@ -200,33 +200,16 @@ export default function OriginalFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Column 1: Brand Info & Real Logo (Fixed White Box Issue) */}
           <div className="lg:col-span-4 space-y-5">
-            {/* Brand Logo Presentation: Clean, High-Contrast Luxury Emblem Frame */}
+            {/* Brand Logo Presentation */}
             <div className="flex flex-col gap-3">
               <Link href="/" className="inline-block">
-                <div
-                  className="bg-[#000000] text-white p-3 inline-flex items-center gap-3 border border-[#27272A] shadow-lg hover:border-white transition-all"
-                  style={{ borderRadius: '0px' }}
-                >
-                  <div
-                    className="w-10 h-10 bg-white text-black flex items-center justify-center font-black text-xl tracking-tighter"
-                    style={{ fontFamily: "'Raleway', sans-serif" }}
-                  >
-                    DP
-                  </div>
-                  <div>
-                    <span
-                      className="text-white font-black text-xl tracking-wider uppercase block leading-none"
-                      style={{ fontFamily: "'Raleway', sans-serif" }}
-                    >
-                      DRAN<span className="text-[#A1A1AA]">PARTS</span>
-                    </span>
-                    <span
-                      className="text-[#71717A] text-[9px] font-bold uppercase tracking-widest block mt-1"
-                      style={{ fontFamily: "'Lato', sans-serif" }}
-                    >
-                      OEM LUXURY SPARES
-                    </span>
-                  </div>
+                <div className="bg-white p-3.5 rounded-2xl inline-flex items-center shadow-xl hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all">
+                  <img
+                    src="/assets/images/dranparts-logo.png"
+                    alt="DranParts - Drive Better. Go Further."
+                    className="h-12 w-auto object-contain"
+                    style={{ maxHeight: '48px' }}
+                  />
                 </div>
               </Link>
               <div>

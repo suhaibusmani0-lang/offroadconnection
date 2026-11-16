@@ -212,32 +212,13 @@ export default function OriginalHeader() {
             </div>
 
             <div>
-              <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{
-                  width: '32px',
-                  height: '32px',
-                  background: '#000000',
-                  color: '#FFFFFF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: 900,
-                  fontSize: '14px',
-                  fontFamily: "'Raleway', sans-serif",
-                  border: '1px solid #000000',
-                  borderRadius: '0px'
-                }}>
-                  DP
-                </div>
-                <span style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  fontWeight: 900,
-                  fontSize: '19px',
-                  letterSpacing: '-0.5px',
-                  color: '#000000'
-                }}>
-                  DRAN<span style={{ color: '#71717A', fontWeight: 700 }}>PARTS</span>
-                </span>
+              <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+                <img
+                  src="/assets/images/dranparts-logo.png"
+                  alt="DranParts - Drive Better. Go Further."
+                  className="h-9 w-auto object-contain"
+                  style={{ maxHeight: '38px' }}
+                />
               </Link>
             </div>
 
@@ -311,46 +292,13 @@ export default function OriginalHeader() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '32px' }}>
               {/* Brand Logo & Name */}
               <div style={{ flexShrink: 0 }}>
-                <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <div style={{
-                    width: '42px',
-                    height: '42px',
-                    background: '#000000',
-                    color: '#FFFFFF',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 900,
-                    fontSize: '18px',
-                    fontFamily: "'Raleway', sans-serif",
-                    border: '1.5px solid #000000',
-                    borderRadius: '0px',
-                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
-                  }}>
-                    DP
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{
-                      fontFamily: "'Raleway', sans-serif",
-                      fontWeight: 900,
-                      fontSize: '24px',
-                      letterSpacing: '-0.5px',
-                      color: '#000000',
-                      lineHeight: '1.05'
-                    }}>
-                      DRAN<span style={{ color: '#71717A', fontWeight: 800 }}>PARTS</span>
-                    </span>
-                    <span style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: 700,
-                      fontSize: '9px',
-                      letterSpacing: '2.5px',
-                      color: '#71717A',
-                      textTransform: 'uppercase'
-                    }}>
-                      OEM LUXURY SPARES
-                    </span>
-                  </div>
+                <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src="/assets/images/dranparts-logo.png"
+                    alt="DranParts - Drive Better. Go Further."
+                    className="h-12 w-auto object-contain transition-transform hover:scale-105 duration-200"
+                    style={{ maxHeight: '52px' }}
+                  />
                 </Link>
               </div>
 
@@ -844,25 +792,13 @@ export default function OriginalHeader() {
           >
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
-                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div style={{
-                    width: '32px',
-                    height: '32px',
-                    background: '#000000',
-                    color: '#FFFFFF',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 900,
-                    fontSize: '14px',
-                    fontFamily: "'Raleway', sans-serif",
-                    borderRadius: '0px'
-                  }}>
-                    DP
-                  </div>
-                  <span style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 900, fontSize: '19px', color: '#000000' }}>
-                    DRAN<span style={{ color: '#71717A', fontWeight: 700 }}>PARTS</span>
-                  </span>
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src="/assets/images/dranparts-logo.png"
+                    alt="DranParts"
+                    className="h-10 w-auto object-contain"
+                    style={{ maxHeight: '42px' }}
+                  />
                 </Link>
                 <button
                   type="button"

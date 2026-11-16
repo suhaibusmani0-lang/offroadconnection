@@ -34,12 +34,14 @@ export default function AdminLoginPage() {
       {/* Background Subtle Vignette */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-md bg-[#121212] border border-[#27272A] rounded-none p-8 sm:p-10 shadow-2xl">
+      <div className="relative z-10 w-full max-w-md bg-[#121622] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
         {/* Brand Icon */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-none bg-white text-black flex items-center justify-center font-black text-2xl mx-auto shadow-xl mb-4" style={{ fontFamily: "'Raleway', sans-serif" }}>
-            DP
-          </div>
+          <img
+            src="/favicon.png"
+            alt="DranParts Enterprise Logo"
+            className="w-20 h-20 mx-auto mb-4 rounded-2xl shadow-2xl object-contain"
+          />
           <h1 className="text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Raleway', sans-serif" }}>Admin & CRM Portal</h1>
           <p className="text-[#A1A1AA] text-xs mt-1" style={{ fontFamily: "'Lato', sans-serif" }}>
             DRANparts • Enterprise Management Suite

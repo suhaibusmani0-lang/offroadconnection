@@ -3,41 +3,40 @@
 @tailwind utilities;
 
 /* ==========================================================================
-   OFF ROAD CONNECTION PARTS - MONOCHROME LUXURY SYSTEM
-   Strict Palette: Black, Grey, White
-   Typography: Headings -> Raleway | Body Text -> Lato
+   DRANPARTS - ULTRA-LUXURY AUTOMOTIVE DESIGN SYSTEM (₹10-15 LAKH FLAGSHIP)
+   Palette: Deep Obsidian Black, Platinum Metallic Slate, Liquid Champagne Gold
+   Typography: Raleway (Headings & Badges) | Lato (Body & Technical Specs)
    ========================================================================== */
 
 :root {
-  --color-black: #000000;
-  --color-charcoal: #111111;
-  --color-dark: #18181B;
-  --color-grey-dark: #27272A;
-  --color-grey-muted: #52525B;
-  --color-grey-subtle: #71717A;
-  --color-grey-border: #E4E4E7;
-  --color-grey-light: #F4F4F5;
-  --color-grey-canvas: #FAFAFA;
-  --color-white: #FFFFFF;
+  --color-black: #050608;
+  --color-obsidian: #08090C;
+  --color-carbon: #0E1118;
+  --color-slate-card: #131722;
+  --color-slate-hover: #1A1F2E;
+  
+  --color-gold: #E5B869;
+  --color-gold-light: #F5DEB3;
+  --color-gold-dark: #C59D4F;
+  --color-amber: #F59E0B;
 
-  --theme-color: #000000;
-  --theme-color-hover: #27272A;
-  --theme-color-light: #F4F4F5;
+  --color-platinum: #F8FAFC;
+  --color-grey-subtle: #94A3B8;
+  --color-grey-dark: #1E293B;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-gold: rgba(229, 184, 105, 0.25);
 
-  --luxury-obsidian: #000000;
-  --luxury-slate: #18181B;
-  --luxury-muted: #71717A;
-  --luxury-bg: #FAFAFA;
-  --luxury-surface: #FFFFFF;
-  --luxury-border: #E4E4E7;
-  --luxury-border-strong: #27272A;
-  --luxury-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
-  --luxury-shadow-hover: 0 16px 36px -6px rgba(0, 0, 0, 0.08);
+  --luxury-bg: #08090C;
+  --luxury-surface: #0E1118;
+  --luxury-card: #131722;
+  --luxury-border: rgba(255, 255, 255, 0.08);
+  --luxury-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  --luxury-shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(229, 184, 105, 0.15);
 }
 
 /* ==========================================================================
    GLOBAL TYPOGRAPHY RULES
-   Strict: Only Raleway for Headings and Lato for Body
+   Strict: Raleway for Headings and Badges | Lato for Body & Paragraphs
    ========================================================================== */
 
 html,
@@ -61,7 +60,7 @@ small {
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Explicit protection for icon fonts so they NEVER render as square tofu boxes */
+/* Icon fonts protection */
 i,
 .fa,
 .fas,
@@ -101,107 +100,151 @@ h6,
 }
 
 body {
-  background-color: var(--luxury-bg) !important;
-  color: var(--color-black) !important;
+  background-color: #FAFAFA;
+  color: #18181B;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .boxed_wrapper {
-  background: var(--luxury-bg) !important;
+  background: transparent;
 }
 
 /* ==========================================================================
-   CARDS & SURFACES - SHARP GEOMETRIC BRUTALIST LUXURY
+   LUXURY METALLIC & GLOW UTILITY STYLES
    ========================================================================== */
 
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0D0 0%, #E5B869 50%, #C59D4F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.platinum-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(229, 184, 105, 0.25);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(229, 184, 105, 0.35);
+}
+
+.glass-luxury-dark {
+  background: rgba(14, 17, 24, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-luxury-card {
+  background: rgba(19, 23, 34, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ==========================================================================
+   CARDS & SURFACES - MODERN LUXURY ENGINEERING (REPLACING 0px BRUTALISM)
+   ========================================================================== */
+
+.luxury-card,
 .shop-block-one .inner-box,
 .sales-block-one .inner-box,
-.deals-block-one .inner-box,
-.deals-block-two .inner-box,
-.category-block-one .inner-box,
-.category-block-two .inner-box,
-.category-block-three .inner-box,
-.feature-block-one .inner-box,
-.luxury-card {
+.category-block-one .inner-box {
   background: #FFFFFF !important;
-  border: 1px solid var(--luxury-border) !important;
-  border-radius: 0px !important;
-  box-shadow: var(--luxury-shadow) !important;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   overflow: hidden;
 }
 
+.luxury-card:hover,
 .shop-block-one .inner-box:hover,
 .sales-block-one .inner-box:hover,
-.deals-block-one .inner-box:hover,
-.category-block-one .inner-box:hover,
-.luxury-card:hover {
-  border-color: #000000 !important;
-  box-shadow: var(--luxury-shadow-hover) !important;
-  transform: translateY(-2px);
+.category-block-one .inner-box:hover {
+  border-color: #E5B869 !important;
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.08), 0 0 20px rgba(229, 184, 105, 0.15) !important;
+  transform: translateY(-4px);
 }
 
-/* Product Image Box - Pure White High Contrast */
+/* Dark mode luxury card variation */
+.luxury-card-dark {
+  background: #0E1118 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.luxury-card-dark:hover {
+  border-color: rgba(229, 184, 105, 0.4) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(229, 184, 105, 0.15) !important;
+  transform: translateY(-4px);
+}
+
+/* Product Image Box */
 .shop-block-one .image-box,
 .sales-block-one .image-box,
 .shop-details .image-box,
 .product-card-img-box {
   width: 100%;
-  height: 260px !important;
+  height: 240px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: #FFFFFF !important;
-  border-bottom: 1px solid #F4F4F5 !important;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #F8FAFC 100%) !important;
+  border-bottom: 1px solid #F1F5F9 !important;
   overflow: hidden !important;
   padding: 16px !important;
   position: relative;
-  border-radius: 0px !important;
+  border-radius: 16px 16px 0 0 !important;
 }
 
 .shop-block-one .image-box img,
 .sales-block-one .image-box img,
 .shop-details .image-box img,
 .product-card-img-box img {
-  max-width: 88% !important;
-  max-height: 88% !important;
+  max-width: 86% !important;
+  max-height: 86% !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
-  transition: transform 0.35s ease !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.shop-block-one:hover .image-box img,
-.sales-block-one:hover .image-box img,
-.luxury-card:hover .product-card-img-box img {
-  transform: scale(1.04) !important;
+.luxury-card:hover .product-card-img-box img,
+.shop-block-one:hover .image-box img {
+  transform: scale(1.06) !important;
 }
 
 /* Product Titles */
-.shop-block-one .lower-content h4,
-.sales-block-one .content-box h6,
-.product-card-title {
+.product-card-title,
+.shop-block-one .lower-content h4 {
   font-family: 'Raleway', sans-serif !important;
   font-size: 15px !important;
   font-weight: 700 !important;
   line-height: 1.4 !important;
-  color: #000000 !important;
+  color: #0F172A !important;
   margin-bottom: 8px !important;
 }
 
-.shop-block-one .lower-content h4 a:hover,
-.product-card-title a:hover {
-  color: #52525B !important;
+.product-card-title:hover {
+  color: #C59D4F !important;
 }
 
 /* Price Typography */
-.shop-block-one .price,
-.product-price {
+.product-price,
+.shop-block-one .price {
   font-family: 'Raleway', sans-serif !important;
-  font-size: 18px !important;
+  font-size: 19px !important;
   font-weight: 800 !important;
-  color: #000000 !important;
+  color: #0F172A !important;
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -212,206 +255,145 @@ del {
   font-family: 'Lato', sans-serif !important;
   font-size: 13px !important;
   font-weight: 500 !important;
-  color: #71717A !important;
+  color: #94A3B8 !important;
   text-decoration: line-through;
 }
 
 /* ==========================================================================
-   BADGES - STRICT MONOCHROME SHARP TAGS
+   BADGES & CHIPS - ELEGANT HIGH-TECH CAPSULES
    ========================================================================== */
 
 .badge-oem {
-  background: #F4F4F5 !important;
-  border: 1px solid #E4E4E7 !important;
-  color: #000000 !important;
+  background: #F1F5F9 !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 0px !important;
+  padding: 3px 10px;
+  border-radius: 9999px !important;
   letter-spacing: 0.3px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .badge-luxury {
-  background: #000000 !important;
-  border: 1px solid #000000 !important;
-  color: #FFFFFF !important;
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
+  border: 1px solid rgba(229, 184, 105, 0.4) !important;
+  color: #E5B869 !important;
   font-size: 11px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 0px !important;
-  letter-spacing: 0.3px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 9999px !important;
+  letter-spacing: 0.5px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .badge-instock {
-  background: #FAFAFA !important;
-  border: 1px solid #D4D4D8 !important;
-  color: #27272A !important;
+  background: #ECFDF5 !important;
+  border: 1px solid #A7F3D0 !important;
+  color: #065F46 !important;
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 0px !important;
+  padding: 3px 10px;
+  border-radius: 9999px !important;
 }
 
-/* Navigation Cart Badge (Sharp Square Tag) */
+/* Cart Badge */
 .cart-badge {
   position: absolute;
-  top: -8px;
+  top: -6px;
   right: -8px;
-  background: #000000 !important;
-  color: #FFFFFF !important;
-  font-size: 11px;
-  font-weight: 800;
-  width: 18px;
-  height: 18px;
+  background: linear-gradient(135deg, #D4AF37 0%, #E5B869 100%) !important;
+  color: #000000 !important;
+  font-size: 10px;
+  font-weight: 900;
+  width: 19px;
+  height: 19px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0px !important;
-  border: 1px solid #FFFFFF !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-}
-
-.cart-icon-wrapper {
-  position: relative;
+  border-radius: 9999px !important;
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* ==========================================================================
-   BUTTONS - SHARP GEOMETRIC EDGES (BLACK, GREY & WHITE)
+   BUTTONS - ULTRA-LUXURY FINISHES
    ========================================================================== */
 
 .btn-luxury-primary {
-  background: #000000 !important;
+  background: #090A0F !important;
   color: #FFFFFF !important;
-  font-weight: 700;
-  border-radius: 0px !important;
-  border: 1px solid #000000;
+  font-weight: 800;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 12px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .btn-luxury-primary:hover {
-  background: #27272A !important;
-  border-color: #27272A !important;
+  background: #181C26 !important;
+  border-color: #E5B869 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 15px rgba(229, 184, 105, 0.2);
+  transform: translateY(-2px);
 }
 
 .btn-luxury-gold {
-  background: #18181B !important;
-  color: #FFFFFF !important;
-  font-weight: 700;
-  border-radius: 0px !important;
-  border: 1px solid #27272A;
+  background: linear-gradient(135deg, #E5B869 0%, #D4AF37 50%, #C59D4F 100%) !important;
+  color: #090A0F !important;
+  font-weight: 800;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 12px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
+  box-shadow: 0 6px 20px rgba(229, 184, 105, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .btn-luxury-gold:hover {
-  background: #000000 !important;
-  border-color: #000000 !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 28px rgba(229, 184, 105, 0.45);
+  transform: translateY(-2px);
 }
 
 .btn-luxury-outline {
-  background: #FFFFFF !important;
-  color: #000000 !important;
+  background: transparent !important;
+  color: #0F172A !important;
   font-weight: 700;
-  border-radius: 0px !important;
-  border: 1.5px solid #E4E4E7;
+  border-radius: 12px !important;
+  border: 1.5px solid #CBD5E1;
   padding: 11px 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   cursor: pointer;
 }
 
 .btn-luxury-outline:hover {
-  border-color: #000000 !important;
-  color: #000000 !important;
-  background: #F4F4F5 !important;
+  border-color: #0F172A !important;
+  background: #F8FAFC !important;
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   GLOBAL SHARP EDGES ENFORCEMENT
-   ========================================================================== */
-
-button,
-.btn,
-a.btn,
-input,
-select,
-textarea,
-.badge,
-.card,
-.modal,
-.drawer,
-.dropdown,
-[class*="rounded-"],
-.rounded,
-.rounded-sm,
-.rounded-md,
-.rounded-lg,
-.rounded-xl,
-.rounded-2xl,
-.rounded-3xl,
-.rounded-full {
-  border-radius: 0px !important;
-}
-
-/* ==========================================================================
-   NAVIGATION & HEADER
-   ========================================================================== */
-
-.main-header.header-custom {
-  background: #FFFFFF !important;
-  border-bottom: 1px solid #E4E4E7 !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02) !important;
-}
-
-.header-top-new {
-  background: #FFFFFF !important;
-  border-bottom: 1px solid #F4F4F5 !important;
-}
-
-.header-lower-new {
-  background: #FFFFFF !important;
-}
-
-.nav-links li a {
-  color: #18181B !important;
-  font-weight: 600 !important;
-  transition: color 0.2s ease;
-}
-
-.nav-links li a:hover {
-  color: #000000 !important;
-}
-
-/* ==========================================================================
-   FORM CONTROLS & INPUTS
+   FORM CONTROLS & LUXURY INPUTS
    ========================================================================== */
 
 input[type="text"],
@@ -421,18 +403,20 @@ input[type="number"],
 input[type="search"],
 textarea,
 select {
-  background: #FFFFFF !important;
-  border: 1.5px solid #E4E4E7 !important;
-  border-radius: 0px !important;
-  color: #000000 !important;
-  transition: all 0.2s ease !important;
+  border-radius: 12px !important;
+  border: 1.5px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #0F172A;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: #000000 !important;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08) !important;
+  border-color: #C59D4F !important;
+  box-shadow: 0 0 0 3px rgba(229, 184, 105, 0.15) !important;
   outline: none !important;
 }
 
@@ -442,57 +426,57 @@ select:focus {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #71717A;
+  color: #64748B;
   padding: 16px 0;
 }
 
 .luxury-breadcrumb a {
-  color: #71717A;
+  color: #64748B;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .luxury-breadcrumb a:hover {
-  color: #000000;
+  color: #0F172A;
 }
 
 .luxury-breadcrumb .separator {
-  color: #D4D4D8;
+  color: #CBD5E1;
 }
 
 .luxury-breadcrumb .current {
-  color: #000000;
+  color: #0F172A;
   font-weight: 700;
 }
 
-/* ==========================================================================
-   FOOTER - SLEEK DEEP OBSIDIAN & MONOCHROME
-   ========================================================================== */
-
+/* Footer Luxury Aesthetics */
 .main-footer {
-  background: #0A0A0A !important;
-  border-top: 1px solid #27272A !important;
-  color: #A1A1AA !important;
-}
-
-.main-footer .widget-title h4 {
-  font-family: 'Raleway', sans-serif !important;
-  color: #FFFFFF !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.02em;
-}
-
-.main-footer .links-list li a {
-  color: #A1A1AA !important;
-  transition: color 0.2s ease;
-}
-
-.main-footer .links-list li a:hover {
-  color: #FFFFFF !important;
+  background: #08090C !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
 }
 
 .footer-bottom {
-  background: #050505 !important;
-  border-top: 1px solid #1F2937 !important;
-  color: #71717A !important;
+  background: #050508 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #64748B !important;
+}
+
+/* Custom Scrollbar for Luxury Desktop */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08090C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E5B869;
 }

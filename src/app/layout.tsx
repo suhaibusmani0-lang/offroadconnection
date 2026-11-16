@@ -68,8 +68,13 @@ export const metadata: Metadata = {
     creator: '@dranparts',
   },
   icons: {
-    icon: '/assets/images/favicon.ico',
-    apple: '/assets/images/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/assets/images/favicon.png', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
   },
   other: {
     'geo.region': siteConfig.geo.region,

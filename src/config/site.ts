@@ -1,6 +1,6 @@
 /**
  * DRANparts - Global Platform Configuration
- * Luxury Automotive Spare Parts & High-Performance Fitments
+ * Ultra-Luxury Automotive Spare Parts & High-Performance Fitments
  */
 
 export const siteConfig = {
@@ -8,7 +8,7 @@ export const siteConfig = {
   legalName: 'DRANparts Private Limited',
   tagline: 'India’s Premier Destination for Luxury & High-Performance Automotive Spare Parts',
   description:
-    'Genuine OEM and performance spare parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, Land Rover, Jaguar, Volvo, Jeep, and Toyota. 100% fitment guarantee, express nationwide delivery.',
+    'Genuine OEM and precision performance spare parts for Audi, BMW, Mercedes-Benz, Porsche, Range Rover, Land Rover, Jaguar, Volvo, Jeep, and Toyota. 100% fitment guarantee, express nationwide delivery.',
   url: 'https://dranparts.com',
   domain: 'dranparts.com',
   
@@ -44,38 +44,39 @@ export const siteConfig = {
     youtube: 'https://youtube.com',
   },
 
-  // Luxury Branding Theme (Strict Monochrome: Black, Grey, White)
+  // Ultra-Luxury Automotive Palette: Obsidian, Platinum, Liquid Gold
   theme: {
-    black: '#000000',
-    greyDark: '#27272A',
-    greyMuted: '#71717A',
-    greyBorder: '#E4E4E7',
-    greyLight: '#F4F4F5',
+    obsidian: '#090A0F',
+    carbon: '#11141E',
+    slateBorder: 'rgba(255, 255, 255, 0.08)',
+    gold: '#E5B869',
+    goldLight: '#F3D292',
+    goldDark: '#C59D4F',
+    amber: '#F59E0B',
     white: '#FFFFFF',
-    surfaceBg: '#FAFAFA',
-    cardBg: '#FFFFFF',
+    platinum: '#E2E8F0',
+    muted: '#94A3B8',
   },
 
-  // Supported Luxury Makes
+  // Supported Luxury & Exotic Makes
   supportedMakes: [
+    'Porsche',
     'BMW',
     'Mercedes-Benz',
     'Audi',
     'Range Rover',
     'Land Rover',
-    'Porsche',
     'Jaguar',
     'Volvo',
     'Jeep',
     'Toyota',
-    'Isuzu',
-    'Mahindra',
-    'Skoda',
     'Volkswagen',
-    'Mitsubishi',
-    'Ford',
+    'Skoda',
+    'Ferrari',
+    'Lamborghini',
+    'Bentley',
+    'Rolls-Royce',
   ],
 };
 
 export default siteConfig;
-
