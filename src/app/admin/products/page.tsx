@@ -65,6 +65,9 @@ export default function AdminProductsPage() {
   const [search, setSearch] = useState('');
   const [selectedMake, setSelectedMake] = useState('all');
   const [selectedStock, setSelectedStock] = useState('all');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+  const [activePricePreset, setActivePricePreset] = useState<string | null>(null);
 
   // Multi-select
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -169,7 +172,7 @@ export default function AdminProductsPage() {
     setTimeout(() => setToastMsg(null), 3000);
   };
 
-  const fetchProducts = (pageToFetch = pagination.page) => {
+  const fetchProducts = (pageToFetch = pagination.page, overrideMin = minPrice, overrideMax = maxPrice) => {
     setLoading(true);
     const params = new URLSearchParams();
     params.set('page', String(pageToFetch));
@@ -177,6 +180,8 @@ export default function AdminProductsPage() {
     if (search.trim()) params.set('search', search.trim());
     if (selectedMake !== 'all') params.set('make', selectedMake);
     if (selectedStock !== 'all') params.set('stock', selectedStock);
+    if (overrideMin && !isNaN(Number(overrideMin)) && Number(overrideMin) >= 0) params.set('minPrice', overrideMin);
+    if (overrideMax && !isNaN(Number(overrideMax)) && Number(overrideMax) > 0) params.set('maxPrice', overrideMax);
 
     fetch(`/api/admin/products?${params.toString()}`)
       .then((res) => res.json())
@@ -203,6 +208,26 @@ export default function AdminProductsPage() {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     fetchProducts(1);
+  };
+
+  // Price Range Handlers
+  const handleApplyPriceRange = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    fetchProducts(1, minPrice, maxPrice);
+  };
+
+  const handlePricePreset = (min: string, max: string, label: string) => {
+    setMinPrice(min);
+    setMaxPrice(max);
+    setActivePricePreset(label);
+    fetchProducts(1, min, max);
+  };
+
+  const handleClearPriceRange = () => {
+    setMinPrice('');
+    setMaxPrice('');
+    setActivePricePreset(null);
+    fetchProducts(1, '', '');
   };
 
   // Select all / deselect all
@@ -361,6 +386,8 @@ export default function AdminProductsPage() {
     if (search.trim()) params.set('search', search.trim());
     if (selectedMake !== 'all') params.set('make', selectedMake);
     if (selectedStock !== 'all') params.set('stock', selectedStock);
+    if (minPrice && !isNaN(Number(minPrice))) params.set('minPrice', minPrice);
+    if (maxPrice && !isNaN(Number(maxPrice))) params.set('maxPrice', maxPrice);
 
     window.open(`/api/admin/products?${params.toString()}`, '_blank');
   };
@@ -372,6 +399,8 @@ export default function AdminProductsPage() {
     if (search.trim()) params.set('search', search.trim());
     if (selectedMake !== 'all') params.set('make', selectedMake);
     if (selectedStock !== 'all') params.set('stock', selectedStock);
+    if (minPrice && !isNaN(Number(minPrice))) params.set('minPrice', minPrice);
+    if (maxPrice && !isNaN(Number(maxPrice))) params.set('maxPrice', maxPrice);
 
     window.open(`/api/admin/products?${params.toString()}`, '_blank');
   };
@@ -607,82 +636,169 @@ export default function AdminProductsPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-[#121212] border border-[#27272A] rounded-2xl p-4 mb-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-        {/* Search */}
-        <form onSubmit={handleSearchSubmit} className="flex gap-2 flex-1 max-w-xl">
-          <div className="relative flex-1">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#71717A]" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search by part title, SKU, OEM code, make (BMW, Audi, Porsche)..."
-              className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
-              style={{ fontFamily: "'Lato', sans-serif" }}
-            />
-          </div>
-          <button
-            type="submit"
-            className="px-4 py-2.5 bg-[#27272A] hover:bg-[#3F3F46] text-white rounded-xl text-xs font-bold transition-colors border border-[#3F3F46]"
-            style={{ fontFamily: "'Raleway', sans-serif" }}
-          >
-            Search
-          </button>
-          {search && (
+      <div className="bg-[#121212] border border-[#27272A] rounded-2xl p-4 mb-6 space-y-4">
+        {/* Top Row: Search & Dropdowns */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          {/* Search */}
+          <form onSubmit={handleSearchSubmit} className="flex gap-2 flex-1 max-w-xl">
+            <div className="relative flex-1">
+              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#71717A]" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search by part title, SKU, OEM code, make (BMW, Audi, Porsche)..."
+                className="w-full bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#E5B869]"
+                style={{ fontFamily: "'Lato', sans-serif", color: '#FFFFFF', backgroundColor: '#1C1C1E', caretColor: '#E5B869' }}
+              />
+            </div>
             <button
-              type="button"
-              onClick={() => {
-                setSearch('');
-                setTimeout(() => fetchProducts(1), 50);
-              }}
-              className="px-2.5 py-2.5 bg-[#1C1C1E] text-[#A1A1AA] hover:text-white rounded-xl text-xs font-bold border border-[#27272A]"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
-        </form>
-
-        {/* Filters & Bulk Controls */}
-        <div className="flex items-center gap-3 flex-wrap">
-          {/* Make Filter */}
-          <select
-            value={selectedMake}
-            onChange={(e) => setSelectedMake(e.target.value)}
-            className="bg-[#1C1C1E] border border-[#27272A] text-xs text-white rounded-xl px-3 py-2.5 focus:outline-none focus:border-white"
-            style={{ fontFamily: "'Lato', sans-serif" }}
-          >
-            <option value="all">All Makes (BMW, Audi, etc.)</option>
-            {LUXURY_MAKES.map((m) => (
-              <option key={m.name} value={m.name}>
-                {m.name}
-              </option>
-            ))}
-          </select>
-
-          {/* Stock Filter */}
-          <select
-            value={selectedStock}
-            onChange={(e) => setSelectedStock(e.target.value)}
-            className="bg-[#1C1C1E] border border-[#27272A] text-xs text-white rounded-xl px-3 py-2.5 focus:outline-none focus:border-white"
-            style={{ fontFamily: "'Lato', sans-serif" }}
-          >
-            <option value="all">All Stock Statuses</option>
-            <option value="in_stock">In Stock Only</option>
-            <option value="low_stock">Low Stock (≤10)</option>
-            <option value="out_of_stock">Out of Stock</option>
-          </select>
-
-          {/* Bulk Delete Button if selected */}
-          {selectedIds.length > 0 && (
-            <button
-              onClick={handleDeleteSelected}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white text-black font-extrabold text-xs shadow-lg hover:bg-[#E4E4E7] transition-all animate-pulse"
+              type="submit"
+              className="px-4 py-2.5 bg-[#27272A] hover:bg-[#3F3F46] text-white rounded-xl text-xs font-bold transition-colors border border-[#3F3F46] cursor-pointer"
               style={{ fontFamily: "'Raleway', sans-serif" }}
             >
-              <Trash2 className="w-3.5 h-3.5 text-black" />
-              <span>Delete Selected ({selectedIds.length})</span>
+              Search
             </button>
-          )}
+            {search && (
+              <button
+                type="button"
+                onClick={() => {
+                  setSearch('');
+                  setTimeout(() => fetchProducts(1, minPrice, maxPrice), 50);
+                }}
+                className="px-2.5 py-2.5 bg-[#1C1C1E] text-[#A1A1AA] hover:text-white rounded-xl text-xs font-bold border border-[#27272A] cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </form>
+
+          {/* Filters & Bulk Controls */}
+          <div className="flex items-center gap-3 flex-wrap">
+            {/* Make Filter */}
+            <select
+              value={selectedMake}
+              onChange={(e) => setSelectedMake(e.target.value)}
+              className="bg-[#1C1C1E] border border-[#27272A] text-xs text-white rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#E5B869] cursor-pointer"
+              style={{ fontFamily: "'Lato', sans-serif", color: '#FFFFFF', backgroundColor: '#1C1C1E' }}
+            >
+              <option value="all">All Makes (BMW, Audi, etc.)</option>
+              {LUXURY_MAKES.map((m) => (
+                <option key={m.name} value={m.name}>
+                  {m.name}
+                </option>
+              ))}
+            </select>
+
+            {/* Stock Filter */}
+            <select
+              value={selectedStock}
+              onChange={(e) => setSelectedStock(e.target.value)}
+              className="bg-[#1C1C1E] border border-[#27272A] text-xs text-white rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#E5B869] cursor-pointer"
+              style={{ fontFamily: "'Lato', sans-serif", color: '#FFFFFF', backgroundColor: '#1C1C1E' }}
+            >
+              <option value="all">All Stock Statuses</option>
+              <option value="in_stock">In Stock Only</option>
+              <option value="low_stock">Low Stock (≤10)</option>
+              <option value="out_of_stock">Out of Stock</option>
+            </select>
+
+            {/* Bulk Delete Button if selected */}
+            {selectedIds.length > 0 && (
+              <button
+                onClick={handleDeleteSelected}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white text-black font-extrabold text-xs shadow-lg hover:bg-[#E4E4E7] transition-all animate-pulse cursor-pointer"
+                style={{ fontFamily: "'Raleway', sans-serif" }}
+              >
+                <Trash2 className="w-3.5 h-3.5 text-black" />
+                <span>Delete ({selectedIds.length})</span>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Bottom Row: Manual Price Range Search & Presets */}
+        <div className="pt-3 border-t border-[#27272A] flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+          {/* Manual Min / Max Inputs */}
+          <form onSubmit={handleApplyPriceRange} className="flex items-center gap-2 flex-wrap">
+            <span className="text-[#A1A1AA] font-bold text-xs flex items-center gap-1" style={{ fontFamily: "'Raleway', sans-serif" }}>
+              <span>Price Range:</span>
+            </span>
+            <div className="relative">
+              <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-500 font-bold text-xs">₹</span>
+              <input
+                type="number"
+                placeholder="Min Price"
+                value={minPrice}
+                onChange={(e) => {
+                  setMinPrice(e.target.value);
+                  setActivePricePreset(null);
+                }}
+                className="w-28 bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-6 pr-2.5 py-1.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#E5B869]"
+                style={{ color: '#FFFFFF', backgroundColor: '#1C1C1E', caretColor: '#E5B869' }}
+              />
+            </div>
+            <span className="text-zinc-600 font-bold">to</span>
+            <div className="relative">
+              <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-500 font-bold text-xs">₹</span>
+              <input
+                type="number"
+                placeholder="Max Price"
+                value={maxPrice}
+                onChange={(e) => {
+                  setMaxPrice(e.target.value);
+                  setActivePricePreset(null);
+                }}
+                className="w-28 bg-[#1C1C1E] border border-[#27272A] rounded-xl pl-6 pr-2.5 py-1.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#E5B869]"
+                style={{ color: '#FFFFFF', backgroundColor: '#1C1C1E', caretColor: '#E5B869' }}
+              />
+            </div>
+            <button
+              type="submit"
+              className="px-3.5 py-1.5 rounded-xl bg-[#E5B869] text-black font-extrabold text-xs hover:brightness-110 transition-all cursor-pointer shadow-sm"
+              style={{ fontFamily: "'Raleway', sans-serif" }}
+            >
+              Filter Range
+            </button>
+            {(minPrice || maxPrice) && (
+              <button
+                type="button"
+                onClick={handleClearPriceRange}
+                className="px-2.5 py-1.5 rounded-xl bg-[#1C1C1E] text-zinc-400 hover:text-white border border-[#27272A] text-xs font-semibold cursor-pointer"
+              >
+                Reset Price
+              </button>
+            )}
+          </form>
+
+          {/* Quick Preset Pills */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-zinc-500 text-[11px] font-semibold">Presets:</span>
+            {[
+              { label: '< ₹15k', min: '0', max: '15000' },
+              { label: '₹15k-₹40k', min: '15000', max: '40000' },
+              { label: '₹40k-₹80k', min: '40000', max: '80000' },
+              { label: '₹80k-₹1.5L', min: '80000', max: '150000' },
+              { label: '₹1.5L+', min: '150000', max: '' },
+            ].map((preset) => {
+              const isActive = activePricePreset === preset.label;
+              return (
+                <button
+                  key={preset.label}
+                  type="button"
+                  onClick={() => handlePricePreset(preset.min, preset.max, preset.label)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
+                    isActive
+                      ? 'bg-[#E5B869] text-black shadow-md'
+                      : 'bg-[#1C1C1E] text-zinc-300 hover:text-white hover:bg-[#27272A] border border-[#27272A]'
+                  }`}
+                  style={{ fontFamily: "'Raleway', sans-serif" }}
+                >
+                  {preset.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 

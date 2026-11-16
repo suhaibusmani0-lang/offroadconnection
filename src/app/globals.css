@@ -393,30 +393,80 @@ del {
 }
 
 /* ==========================================================================
-   FORM CONTROLS & LUXURY INPUTS
+   FORM CONTROLS & LUXURY INPUTS (HIGH-CONTRAST TYPING TEXT VISIBILITY FIX)
    ========================================================================== */
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="search"],
+input,
 textarea,
 select {
-  border-radius: 12px !important;
+  border-radius: 12px;
   border: 1.5px solid #E2E8F0;
-  background: #FFFFFF;
-  color: #0F172A;
   padding: 10px 16px;
   font-size: 14px;
   transition: all 0.2s ease;
+  caret-color: #C59D4F;
+}
+
+/* Light background inputs: dark, high-contrast text */
+input:not([class*="bg-"]):not([class*="text-"]),
+input[class*="text-black"],
+input[class*="text-zinc-900"],
+input[class*="text-slate-900"],
+textarea:not([class*="bg-"]):not([class*="text-"]),
+select:not([class*="bg-"]):not([class*="text-"]) {
+  background-color: #FFFFFF;
+  color: #0F172A !important;
+}
+
+/* Dark background inputs: crystal clear bright white text when typing */
+input[class*="text-white"],
+textarea[class*="text-white"],
+select[class*="text-white"],
+input[class*="bg-\[\#1"],
+textarea[class*="bg-\[\#1"],
+select[class*="bg-\[\#1"],
+input[class*="bg-\[\#0"],
+input[class*="bg-zinc-8"],
+input[class*="bg-zinc-9"],
+input[class*="bg-black"],
+input[class*="bg-zinc-700"],
+.bg-\[\#121212\] input,
+.bg-\[\#121212\] textarea,
+.bg-\[\#121212\] select,
+.bg-\[\#1C1C1E\] input,
+.bg-\[\#1C1C1E\] textarea,
+.bg-\[\#1C1C1E\] select,
+.bg-\[\#18181B\] input,
+.bg-\[\#18181B\] textarea,
+.bg-\[\#18181B\] select,
+.bg-\[\#0A0A0A\] input,
+.bg-\[\#090A0F\] input,
+.bg-\[\#121620\] input,
+.bg-\[\#121622\] input,
+.bg-\[\#111522\] input,
+.bg-\[\#1A1F2C\] input {
+  color: #FFFFFF !important;
+  caret-color: #FFFFFF !important;
+}
+
+/* Placeholders */
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.7;
+}
+
+input[class*="text-white"]::placeholder,
+textarea[class*="text-white"]::placeholder,
+.bg-\[\#121212\] input::placeholder,
+.bg-\[\#1C1C1E\] input::placeholder {
+  color: #94A3B8 !important;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
   border-color: #C59D4F !important;
-  box-shadow: 0 0 0 3px rgba(229, 184, 105, 0.15) !important;
+  box-shadow: 0 0 0 3px rgba(229, 184, 105, 0.2) !important;
   outline: none !important;
 }
 

@@ -32,10 +32,19 @@ export async function GET(req: NextRequest) {
     const category = searchParams.get('category')?.trim() || '';
     const make = searchParams.get('make')?.trim() || '';
     const stockStatus = searchParams.get('stock')?.trim() || '';
+    const minPrice = searchParams.get('minPrice');
+    const maxPrice = searchParams.get('maxPrice');
     const exportFormat = searchParams.get('export')?.toLowerCase(); // 'csv' | 'json'
 
     // Build filter
     const queryParts: any[] = [];
+
+    if (minPrice && !isNaN(Number(minPrice)) && Number(minPrice) >= 0) {
+      queryParts.push({ price: { $gte: Number(minPrice) } });
+    }
+    if (maxPrice && !isNaN(Number(maxPrice)) && Number(maxPrice) > 0) {
+      queryParts.push({ price: { $lte: Number(maxPrice) } });
+    }
 
     if (search) {
       queryParts.push({
